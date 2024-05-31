@@ -7,13 +7,17 @@ import Products from "./Pages/Products";
 import Account from "./Pages/Account";
 import Partner from "./Pages/Partner";
 import Privacy from "./Pages/Privacy";
+import ScrollToTop from './Pages/ScrollToTop';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { LanguageProvider } from "./LanguagesContext.js";
 
 function App() {
   return (
     <Router>
+      <LanguageProvider>
       <div className="App">
         <Topbar />
+        <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
@@ -23,6 +27,7 @@ function App() {
           </Routes>
         <Footer />
       </div>
+    </LanguageProvider>
     </Router>
     
   );
