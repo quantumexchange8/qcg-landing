@@ -19,7 +19,7 @@ const Privacy = () => {
                     </div>
                     <div className='flex flex-col text-white text-[12px] md:text-3xl text-right leading-[1.20]'>
                         <div className={`${language === 'en' ? 'font-medium md:font-semibold w-[297px] md:w-[730px]': 
-                                           language === 'zh' ? 'font-semibold md:w-[720px]':  ''}`}>
+                                           language === 'zh' ? 'font-medium md:font-semibold w-[280px] md:w-[720px]':  ''}`}>
                             {t("Privacy.privacyVideoDescription")}
                         </div>
                     </div>
@@ -29,10 +29,15 @@ const Privacy = () => {
             <div className='w-full flex flex-col items-center justify-center'>
                 <div className='max-w-[1000px] w-full mt-[100px] md:mt-[200px] mb-[100px]'>
                     <div className='flex flex-col mx-5 md:mx-0 gap-[100px] md:gap-[200px]'>
-                        <div className='flex flex-col text-[#1C7800] text-2xl md:text-5xl font-bold text-center md:text-left'>
-                            <div className={`${language === 'en' ? 'font-bold leading-[1.20] w-[333px] md:w-[900px]': 
-                                               language === 'zh' ? 'font-bold md:w-[950px]':  ''}`}>
-                                {t("Privacy.QCG_BasicDescription")}
+                        <div className='flex flex-col text-[#1C7800] font-bold text-center md:text-left'>
+                            <div className={`${language === 'en' ? 'text-2xl md:text-5xl font-bold leading-[1.20] w-[333px] md:w-[900px]': 
+                                               language === 'zh' ? 'text-xl md:text-5xl font-bold md:w-[950px]':  ''}`}>
+                                    <div className='hidden md:flex flex-col'>{t("Privacy.QCG_BasicDescription")}</div>
+                                    <div className='block md:hidden'>{t("Privacy.QCG_MobileBasicDescription")}</div>
+                                    <div className='block md:hidden'>{t("Privacy.QCG_MobileBasicDescription2")}</div>
+                                    <div className='block md:hidden'>{t("Privacy.QCG_MobileBasicDescription3")}</div>
+                                    <div className='block md:hidden'>{t("Privacy.QCG_MobileBasicDescription4")}</div>
+                                
                             </div>
                         </div>
                         <div className='flex flex-col gap-[50px] md:gap-[200px]'>
@@ -44,9 +49,9 @@ const Privacy = () => {
                                     </div>
                                 </div>
                                 
-                                <div className='flex flex-col md:w-[930px] text-[#444] text-[14px] md:text-4xl font-medium md:font-semibold text-left leading-[1.20]'>
-                                    <div className={`${language === 'en' ? 'font-semibold md:w-[930px]': 
-                                                       language === 'zh' ? 'font-semibold md:w-[1000px]':  ''}`}>
+                                <div className='flex flex-col md:w-[930px] text-[#444] text-[14px] md:text-4xl text-left leading-[1.20]'>
+                                    <div className={`${language === 'en' ? 'font-medium md:font-semibold md:w-[930px]': 
+                                                       language === 'zh' ? 'font-medium md:font-semibold md:w-[1000px]':  ''}`}>
                                         {t("Privacy.Crypto.crypto_Description")}
                                     </div>
                                 </div>
@@ -133,9 +138,14 @@ const Privacy = () => {
                         <div className='flex flex-col gap-[100px] md:gap-[150px]'>
                             <div className='flex flex-col gap-[100px] items-center'>
                                 <div className='text-primary text-2xl md:text-5xl leading=[1.20]'>
-                                    <div className={`${language === 'en' ? 'font-bold w-[318px] md:w-[940px]': 
-                                                       language === 'zh' ? 'font-bold md:w-[790px]':  ''}`}>
-                                        {t("Privacy.openAccountTitle")}
+                                    <div className={`${language === 'en' ? 'font-bold w-[318px] md:w-[1000px]': 
+                                                       language === 'zh' ? 'font-bold w-[353px] md:w-[781px]':  ''}`}>
+                                        <div className='hidden md:flex flex-col'>{t("Privacy.openAccountTitle")}</div>
+                                        <div className='hidden md:flex flex-col'>{t("Privacy.openAccountTitle2")}</div>
+                                        <div className='hidden md:flex flex-col'>{t("Privacy.openAccountTitle3")}</div>
+                                        <div className='md:hidden'>{t("Privacy.openAccountMobileTitle")}</div>
+                                        <div className='md:hidden'>{t("Privacy.openAccountMobileTitle2")}</div>
+                                        <div className='md:hidden'>{t("Privacy.openAccountMobileTitle3")}</div>
                                     </div>
                                 </div>
                                 <div className='flex flex-wrap gap-5'>

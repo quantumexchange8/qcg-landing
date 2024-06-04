@@ -137,8 +137,11 @@ const Home = () => {
                             {t("Home.homeVideoTitle")}
                         </div>
                         <div className='flex flex-col gap-[10px]'>
-                            <span className='text-white text-sm text-left font-black w-[200px] leading-[1.20]'>{t("Home.homeVideoTitle2")}</span>
-                            <span className='text-white text-xs text-left font-medium w-[260px] leading-[1.20]'>{t("Home.homeVideoDescription")}</span>
+                            <div className='text-white text-sm text-left font-black w-[200px] leading-[1.20]'>{t("Home.homeVideoTitle2")}</div>
+                            <div className={`${language === 'en' ? 'text-white text-xs text-left font-medium w-[260px] leading-[1.20]': 
+                                               language === 'zh' ? 'text-white text-xs text-left font-normal w-[190px] leading-[1.20]':  ''}`}>
+                                {t("Home.homeVideoDescription")}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -192,7 +195,7 @@ const Home = () => {
                                             {t("Home.QCGadvantage_Title")}
                                         </div>
                                     </div>
-                                    <div className='hidden md:text-[#444 text-sm md:text-2xl font-medium leading-tight'>
+                                    <div className='hidden md:flex text-[#444 text-sm md:text-2xl font-medium leading-tight'>
                                         <div className={`${language === 'en' ? 'font-medium w-[1000px]': 
                                                            language === 'zh' ? 'font-medium w-[1000px]':  ''}`}>
                                             <div>{t("Home.QCGadvantage_Description")}</div>
@@ -251,20 +254,20 @@ const Home = () => {
                             </div>
                             <div className='flex flex-col gap-[30px] md:gap-[100px]'>
                                 <div className='flex flex-col items-center gap-[20px] md:gap-[30px]'>
-                                    <div className='w-[110px] md:w-[150px] border border-primary py-[7px] md:py-[10px] px-[18px] md:px-[25px] text-base md:text-xl text-primary font-normal text-center'>
+                                    <div className='w-[110px] md:w-[150px] border border-primary py-[7px] md:py-[10px] text-base md:text-xl text-primary font-normal text-center'>
                                         {t("Home.Platform.platformButton")}
                                     </div>
                                     <div className='flex flex-col'>
                                         <span
                                             ref={textRef}
-                                            className={`text-[#444] text-[30px] md:text-[80px] font-extrabold leading-none ${
+                                            className={`text-[#444] text-[30px] md:text-[80px] font-extrabold leading-[1.20] ${
                                             animate ? 'opacity-100 transition-opacity duration-1000' : 'opacity-0'
                                             }`}
                                         >
                                             {t("Home.Platform.platformTitle")}
                                         </span>
                                         <span
-                                            className={`text-primary text-[30px] md:text-[80px] font-extrabold leading-none ${
+                                            className={`text-primary text-[30px] md:text-[80px] font-extrabold leading-[1.20] ${
                                             animate ? 'opacity-100 transition-opacity duration-1000 delay-500' : 'opacity-0'
                                             }`}
                                         >
@@ -292,8 +295,8 @@ const Home = () => {
                         <div className='flex flex-col gap-[100px] md:gap-[300px]'>
                             <div className='flex flex-col gap-[50px]'>
                                 <div className='hidden md:flex gap-[50px]'>
-                                    <div className='hidden md:flex flex-col'>
-                                        <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[393px] md:w-[500px] h-[300px] md:h-[500px]'>
+                                    <div className='flex flex-col'>
+                                        <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
                                             <source src="/assets/videos/trading.mp4" type='video/mp4'/>
                                         </video>
                                     </div>
@@ -314,7 +317,7 @@ const Home = () => {
                                 <div className='flex gap-[50px] md:hidden'>{/* mobile version */}
                                     <div className='flex flex-col gap-[30px] items-center'>
                                         <div className='flex flex-col gap-5 items-center mx-5'>
-                                            <div className='hidden md:flex w-[100px] h-[30px] border border-primary py-[2px] px-[24px] text-base font-normal text-primary'>
+                                            <div className='flex flex-col w-[100px] h-[30px] border border-primary py-[2px] text-base font-normal text-primary text-center'>
                                                 {t("Home.Pricing.pricingButton")}
                                             </div>
                                             <div className='flex flex-col text-primary text-[30px] text-center leading-[1.20] md:hidden'>
@@ -325,7 +328,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div className='flex flex-col md:hidden'>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[393px] md:w-[500px] h-[300px] md:h-[500px]'>
+                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover h-[300px]'>
                                                 <source src="/assets/videos/trading.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
@@ -388,7 +391,7 @@ const Home = () => {
                             <div className='flex flex-col gap-[50px]'>
                                 <div className='hidden md:flex gap-[80px]'>
                                     <div className='flex flex-col gap-[30px]'>
-                                        <div className='w-[130px] border border-primary py-[10px] px-[18px] text-xl text-primary'>
+                                        <div className='w-[130px] border border-primary py-[10px] text-xl text-primary'>
                                             {t("Home.Securities.securitiesButton")}
                                         </div>
                                         <div className='flex flex-col gap-[50px]'>
@@ -430,7 +433,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
+                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover h-[300px]'>
                                                 <source src="/assets/videos/invest.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
@@ -466,7 +469,7 @@ const Home = () => {
                             <div className='flex flex-col gap-[100px] md:gap-[150px]'>
                             <div className='flex flex-col gap-[100px] md:gap-[150px]'>
                                 <div className='flex flex-col gap-[50px] items-center'>
-                                    <div className='hidden md:flex gap-[80px]'>
+                                    <div className='hidden md:flex'>
                                         <div>
                                             <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
                                                 <source src="/assets/videos/processor.mp4" type='video/mp4'/>
@@ -494,8 +497,8 @@ const Home = () => {
                                      <div className='flex flex-col gap-[30px] md:hidden'>{/* mobile version */}              
                                         <div className='flex flex-col gap-[20px]'>
                                             <div className='border border-primary text-base text-primary self-center'>
-                                                <div className={`${language === 'en' ? 'font-normal w-[100px] py-[5px] px-[24px]': 
-                                                                   language === 'zh' ? 'font-normal w-[84px] py-[7px] px-[10px]':  ''}`}>
+                                                <div className={`${language === 'en' ? 'font-normal w-[100px] py-[5px]': 
+                                                                   language === 'zh' ? 'font-normal w-[84px] py-[7px]':  ''}`}>
                                                     {t("Home.Crypto.cryptoButton")}
                                                 </div>
                                             </div>
@@ -506,7 +509,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
+                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover h-[300px]'>
                                                 <source src="/assets/videos/processor.mp4" type='video/mp4'/>
                                             </video>
                                         </div>

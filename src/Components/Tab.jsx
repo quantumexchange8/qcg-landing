@@ -3,76 +3,57 @@ import { Tab } from '@headlessui/react';
 import { Gmail, Telegram } from './Brand';
 import QRcode from '../Assets/Images/QRCode.png';
 import SubmitEmail from './SubmitEmail';
-// import WhatsappMobile from '../Assets/Images/mobile_whatsapp.png'
-import { useMediaQuery } from 'react-responsive'
-// import { LanguageContext } from "../LanguagesContext";
+import { useMediaQuery } from 'react-responsive';
+import { LanguageContext } from "../LanguagesContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function TabComponent({ selectedButton }) {
-  // const {t} = useContext(LanguageContext);
+  const { t } = useContext(LanguageContext);
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [selectedTab, setSelectedTab] = useState(0); // Initialize with WhatsApp tab (index 0)
+  const [selectedTab, setSelectedTab] = useState(0);
+
+  // Function to update title and content based on selected tab
+  const updateTitleAndContent = (tab) => {
+    if (tab === 0) {
+      setTitle(t("TelegramForm.telegramFormTitle"));
+      setContent(
+        <>
+          <span>{t("TelegramForm.telegramFormDescription")}</span><br />
+          <span>{t("TelegramForm.telegramFormDescription2")}</span><br />
+          <span>{t("TelegramForm.telegramFormDescription3")}</span>
+        </>
+      );
+    } else if (tab === 1) {
+      setTitle(t("MailForm.mailFormTitle"));
+      setContent(
+        <>
+          <span>{t("MailForm.mailFormDescription")}</span><br />
+          <span>{t("MailForm.mailFormDescription2")}</span><br />
+        </>
+      );
+    }
+  };
 
   useEffect(() => {
-    if (selectedButton === 'telegram') {
-      setTitle("Instant chat now");
-      setContent(isMobile ? <>
-        <span>blablabla</span><br />
-        <span>blablabla</span><br />
-        <span>blablabla</span>
-      </> :<>
-      <span>Scan the QR code with your device's </span><br />
-      <span>camera to chat with our customer</span><br />
-      <span>service representative for more details.</span>
-    </>);
-      setSelectedTab(0); // Switch to WhatsApp tab
-    } else if (selectedButton === 'gmail') {
-      setTitle("Send us a message");
-      setContent(isMobile ? <>
-        <span>blablabla</span><br />
-        <span>blablabla</span><br />
-      </> : <>
-      <span>Welcome to QCG </span><br />
-      <span>contact us page</span><br />
-    </>);
-      setSelectedTab(1); // Switch to Gmail tab
+    if (selectedButton === 'service') {
+      setSelectedTab(0); // Switch to Telegram tab
+      updateTitleAndContent(0);
     }
-  }, [selectedButton, isMobile]);
+  }, [selectedButton]);
 
-  // Another useEffect to handle changes in selectedTab
-useEffect(() => {
-  if (selectedTab === 0) {
-    setTitle("Instant chat now");
-    setContent(isMobile ? <>
-      <span>blablabla</span><br />
-      <span>blablabla</span><br />
-      <span>blablabla</span>
-    </> :<>
-    <span>Scan the QR code with your device's </span><br />
-    <span>camera to chat with our customer</span><br />
-    <span>service representative for more details.</span>
-  </>);
-  } else if (selectedTab === 1) {
-    setTitle("Send us a message");
-    setContent(isMobile ? <>
-      <span>blablabla</span><br />
-      <span>blablabla</span><br />
-    </> : <>
-    <span>Welcome to QCG </span><br />
-    <span>contact us page</span><br />
-  </>);
-  }
-}, [selectedTab, isMobile]);
+  useEffect(() => {
+    updateTitleAndContent(selectedTab);
+  }, [selectedTab, isMobile, t]); // Added t to dependencies to ensure it updates on language change
 
   return (
     <div className="w-full max-w-md flex flex-col gap-[30px] md:gap-[35px]">
       <div className='flex flex-col items-center gap-2'>
-        <div className="text-black text-center text-[24px] md:text-[32px] font-bold">
+        <div className="text-black text-center text-[24px] md:text-[32px] font-bold text-[#1C7800]">
           {title}
         </div>
 
@@ -80,7 +61,7 @@ useEffect(() => {
           {content}
         </div>
       </div>
-      <Tab.Group selectedIndex={selectedTab}>
+      <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
         <Tab.List className="flex rounded-xl bg-[#CCC] p-1 w-[300px] md:w-[410px] h-[48.3px] md:h-[66px]">
           <Tab
             className={({ selected }) =>
@@ -90,7 +71,6 @@ useEffect(() => {
                 selected ? 'bg-white text-black shadow' : 'text-[#888] hover:bg-white/[0.12] hover:text-white'
               )
             }
-            onClick={() => setSelectedTab(0)}
           >
             <Telegram /> <span className='text-sm md:text-xl font-bold'>Telegram</span>
           </Tab>
@@ -102,7 +82,6 @@ useEffect(() => {
                 selected ? 'bg-white text-black shadow' : 'text-[#888] hover:bg-white/[0.12] hover:text-white'
               )
             }
-            onClick={() => setSelectedTab(1)}
           >
             <Gmail /> <span className='text-sm md:text-xl font-bold'>Send Mail</span>
           </Tab>
@@ -117,10 +96,9 @@ useEffect(() => {
             <div className='hidden md:flex'>
               <img src={QRcode} alt="qr code" />
             </div>
-            {/* <div className='md:hidden'>
-              <img src={WhatsappMobile} alt="qr code" />
-            </div> */}
-            
+            <div className='md:hidden w-[200px] h-[200px]'>
+              <img src={QRcode} alt="qr code" />
+            </div>
           </Tab.Panel>
           <Tab.Panel
             className={classNames(
@@ -128,11 +106,10 @@ useEffect(() => {
               'ring-white/60 ring-offset-2 ring-offset-blue-400'
             )}
           >
-            {selectedButton === 'telegram' && <SubmitEmail />}
-            {selectedButton === 'gmail' && <SubmitEmail />}
+            <SubmitEmail />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
     </div>
-  )
+  );
 }

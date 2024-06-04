@@ -2,11 +2,9 @@ import React, { useContext, useState, Fragment } from 'react';
 import { Earphone, Lang, Menus } from '../Components/Outline';
 import logo from '../Assets/Images/logo.svg';
 import { Link, useLocation } from "react-router-dom";
-// import { Apple } from '../Components/Brand';
 import { Menu, Transition } from '@headlessui/react'
 import Modal from '../Components/Modal';
 import { LanguageContext } from "../LanguagesContext.js";
-import QCG_Form_Logo from '../Assets/Images/QCG_Form_Logo.png'
 
 const Topbar = () => {
     const location = useLocation();
@@ -27,7 +25,7 @@ const Topbar = () => {
 
     return (
         <div className='flex flex-col'>
-        <div className="w-full h-[60px] fixed z-50 bg-[#dddddde6] flex justify-center backdrop-blur-sm">
+        <div className="w-full h-[60px] fixed z-50 bg-[#dddddde6] flex justify-center">
             <div className="w-[393px] md:w-full max-w-full flex justify-center items-center gap-[50px]">
                 
                 <div className='hidden md:flex'>
@@ -35,22 +33,22 @@ const Topbar = () => {
                         to="/privacy"
                         className='w-10 h-[26px]'
                     >
-                        <img src={logo} alt="icon" className='w-full h-full'/>
+                        <img src={logo} alt="icon" className='md:w-[30px] md:h-[30px]'/>
                     </Link>
                 </div>
 
                 <div className="hidden md:flex justify-center gap-[30px]">
                     <Link
                         to="/"
-                        className={`text-base font-medium ${ 
+                        className={`text-base font-semibold ${ 
                             location.pathname === '/' ? 'bg-[#1c78004d] px-[15px] rounded-[35px]' : ''
                         }`}
-                    >
+                    >   
                         {t("Topbar.homePage")}
                     </Link>
                     <Link
                         to="/products"
-                        className={`text-base font-medium ${
+                        className={`text-base font-semibold ${
                             location.pathname === '/products' ? 'bg-[#1c78004d] px-[15px] rounded-[35px]' : ''
                         }`}
                     >
@@ -58,7 +56,7 @@ const Topbar = () => {
                     </Link>
                     <Link
                         to="/account"
-                        className={`text-base font-medium ${
+                        className={`text-base font-semibold ${
                             location.pathname === '/account' ? 'bg-[#1c78004d] px-[15px] rounded-[35px]' : ''
                         }`}
                     >
@@ -66,24 +64,24 @@ const Topbar = () => {
                     </Link>
                     <Link
                         to="/partner"
-                        className={`text-base font-medium ${
+                        className={`text-base font-semibold ${
                             location.pathname === '/partner' ? 'bg-[#1c78004d] px-[15px] rounded-[35px]' : ''
                         }`}
                     >
                         {t("Topbar.partnerPage")}
                     </Link>
 
-                    <div className='text-base font-medium text-[#1C7800]'>
+                    <div className='text-base font-semibold text-[#1C7800]'>
                         {t("Topbar.register_button")}
                     </div>
 
-                    <div className='text-base font-medium text-[#1C7800]'>
+                    <div className='text-base font-semibold text-[#1C7800]'>
                         {t("Topbar.login_Button")}
                     </div>
                 </div>
 
                 {/* Earphone and Lang icons on web version*/}
-                <div className='hidden md:flex justify-center gap-[30px] cursor-pointer' onClick={() => handleButtonClick('gmail')}>
+                <div className='hidden md:flex justify-center gap-[30px] cursor-pointer' onClick={() => handleButtonClick('service')}>
                     <Earphone/>
                 </div>
                 <div className='hidden md:flex justify-center gap-[30px] cursor-pointer'>
@@ -140,7 +138,7 @@ const Topbar = () => {
                         {/* Language  component */}
                         <Menu as="div" className="relative text-left">
                             <div>
-                                <Menu.Button className="inline-flex w-full justify-center rounded-md text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 mt-1">
+                                <Menu.Button className="inline-flex w-full justify-center rounded-md text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 mt-2">
                                 <Lang />
                                 </Menu.Button>
                             </div>
@@ -183,14 +181,14 @@ const Topbar = () => {
                             </Transition>
                         </Menu>
                         
-                        <Link to="/privacy" className='w-10 h-[26px]'>
-                            <img src={QCG_Form_Logo} alt="icon" className='h-full'/>
+                        <Link to="/privacy" className='w-[40px] h-[40px]'>
+                            <img src={logo} alt="icon" className='h-full'/>
                         </Link>
                         {/* Menu component */}
                         <Menu as="div" className="relative text-left">
                             <div>
-                                <Menu.Button className="inline-flex w-full justify-center rounded-md text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
-                                <Menus/>
+                                <Menu.Button className="inline-flex w-full justify-center rounded-md text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 mt-2">
+                                    <Menus/>
                                 </Menu.Button>
                             </div>
                             <Transition
@@ -203,7 +201,9 @@ const Topbar = () => {
                                 leaveTo="transform opacity-0 scale-95"
                             >
                                 <Menu.Items
-                                className="absolute right-0 mt-4 px-5 rounded-[15px] bg-[#AAA] shadow-lg ring-1 ring-black/5 focus:outline-none text-xl font-semibold text-center object-center place"
+                                className={`absolute right-0 mt-4 px-7 rounded-[15px] bg-[#AAA] shadow-lg ring-1 ring-black/5 focus:outline-none text-xl font-semibold text-center object-center 
+                                    ${language === 'en' ? 'w-[160px]' : 
+                                      language === 'zh' ? 'w-[160px]' : ''}`}
                                 >
                                         <Link
                                             to="/"
@@ -212,10 +212,10 @@ const Topbar = () => {
                                             }`}
                                         >
                                             <Menu.Item>
-                                                {({ active }) => (
-                                                    <button
-                                                    className='group flex flex-col w-full rounded-md py-3'
-                                                  >
+                                            {({ active }) => (
+                                                <button
+                                                className='group flex flex-col w-full rounded-md py-3 pt-[18px] place-items-end'
+                                                >
                                                     {t("mobileTopbar.homePage")}
                                                   </button>
                                                 )}
@@ -230,7 +230,7 @@ const Topbar = () => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <button
-                                                    className='group flex flex-col w-full rounded-md py-3'
+                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end'
                                                   >
                                                     {t("mobileTopbar.productsPage")}
                                                   </button>
@@ -247,7 +247,7 @@ const Topbar = () => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <button
-                                                    className='group flex flex-col w-full rounded-md py-3'
+                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end'
                                                   >
                                                     {t("mobileTopbar.accountPage")}
                                                   </button>
@@ -263,7 +263,7 @@ const Topbar = () => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <button
-                                                    className='group flex flex-col w-full rounded-md py-3'
+                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end'
                                                   >
                                                     {t("mobileTopbar.partnerPage")}
                                                   </button>
@@ -279,7 +279,7 @@ const Topbar = () => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <button
-                                                    className='group flex flex-col w-full rounded-md py-3'
+                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end text-[#1C7800]'
                                                   >
                                                     {t("mobileTopbar.register_button")}
                                                   </button>
@@ -295,13 +295,23 @@ const Topbar = () => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <button
-                                                    className='group flex flex-col w-full rounded-md py-3'
+                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end text-[#1C7800]'
                                                   >
                                                     {t("mobileTopbar.login_Button")}
                                                   </button>
                                                 )}
                                             </Menu.Item>
                                         </Link>
+                                            <Menu.Item>
+                                                {({ active }) => (
+                                                    <button
+                                                    className='group flex flex-col w-full rounded-md py-3 pb-[18px] place-items-end'
+                                                    onClick={() => handleButtonClick('service')}
+                                                  >
+                                                    {t("mobileTopbar.service_Button")}
+                                                  </button>
+                                                )}
+                                            </Menu.Item>
                                 </Menu.Items>
                             </Transition>
                         </Menu>

@@ -11,25 +11,31 @@ const Footer = () => {
 
             </div> */}
             <div className='relative'>
-                <img src={footer} alt="footer" className='w-full h-[500px] md:h-auto'/>
+                <img src={footer} alt="footer" className='w-full h-[500px] md:h-[426px]'/>
 
                 <div className='absolute inset-0 flex justify-center items-center'>
                     <div className='max-w-[1000px] w-full'>
-                        <div className='flex flex-col gap-4 xl:gap-[30px] px-5 py-5 md:px-0 md:py-0'>
+                        <div className='flex flex-col gap-4 md:gap-[30px] px-5 py-5 md:px-0 md:py-0'>
                             <div className='flex flex-col gap-[15px]'>
-                                <img src={logo} alt="footer_logo" className='w-[80px] md:w-[102px] h-[39px] md:h-auto'/>
+                                <img src={logo} alt="footer_logo" className='w-[80px] md:w-[102px] h-[30.5px] md:h-[39px]'/>
 
-                                <div className='text-white text-[12px] md:text-base text-left leading-none'>
-                                    Quantum Capital Group establish in 2021. It committed to delivering a comprehensive and reliable trading experience for forex 
-                                    traders globally. With our team of industry experts and cutting-edge technology, we empower traders with the necessary tools and 
-                                    knowledge to navigate the dynamic foreign exchange market. Our platform provides comprehensive resources, competitive 
-                                    offerings, and robust customer support to ensure a secure and successful trading journey. We strive to be the trusted partner for 
-                                    traders seeking a comprehensive and rewarding forex trading experience.
+                                <div className='flex flex-col text-white text-[12px] md:text-base font-normal text-left'>
+                                    <div className='flex flex-col leading-[1.20]'>
+                                        Quantum Capital Group establish in 2021. It committed to delivering a comprehensive and reliable trading experience for forex 
+                                        traders globally. With our team of industry experts and cutting-edge technology, we empower traders with the necessary tools and 
+                                        knowledge to navigate the dynamic foreign exchange market. Our platform provides comprehensive resources, competitive 
+                                        offerings, and robust customer support to ensure a secure and successful trading journey. We strive to be the trusted partner for 
+                                        traders seeking a comprehensive and rewarding forex trading experience.
+                                    </div>
+                                    
                                 </div>
                             </div>
                             <div className='flex flex-col text-secondary text-[12px] md:text-base font-bold text-left'>
-                                <span>NFA ID: 0555532</span>
-                                <span>Copyright © Quantum Capital Group 2021. All rights reserved.</span>
+                                <div className='flex flex-col leading-[1.20]'>
+                                    <span>NFA ID: 0555532</span>
+                                    <span>Copyright © Quantum Capital Group 2021. All rights reserved.</span>
+                                </div>
+                                
                             </div>
                             <div className='flex flex-col gap-[10px]'>
                                 <span className='text-red text-xs md:text-sm font-bold text-left'>Risk Warning: </span>

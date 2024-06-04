@@ -158,11 +158,10 @@ const Partner = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='w-[300px] flex flex-col gap-[30px] rounded-[20px] items-center pt-[39px] pb-[42px] px-[40px] bg-primary-50 drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]'>
+                                    <div className='w-[300px] flex flex-col gap-[30px] rounded-[20px] items-center pt-[39px] pb-[62px] px-[40px] bg-primary-50 drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]'>
                                         <div className='flex flex-col text-[#1C7800] text-left text-[16px] font-bold'>
                                             {t("Partner.partnerSubtitle3")}
                                         </div>
-
                                         <Bonuses/>
                                         <div className='text-[#444]'>
                                             <div className={`${language === 'en' ? 'md:text-base font-bold w-[220px]': 
@@ -285,9 +284,9 @@ const Partner = () => {
                                                     <div className='md:hidden'>{t("Partner.Rewards.rewardsRow2_mobileTitle")}
                                                     <br />{t("Partner.Rewards.rewardsRow2_mobileTitle2")}</div>
                                                 </td>
-                                                <td className='hidden md:flex h-[30px] border-[2px] border-white'>{t("Partner.Rewards.rewardsData1")}</td>
-                                                <td className='hidden md:flex h-[30px] border-[2px] border-white'>{t("Partner.Rewards.rewardsData2")}</td>
-                                                <td className='hidden md:flex h-[30px] border-[2px] border-white'>{t("Partner.Rewards.rewardsData3")}</td>
+                                                <td className='h-[30px] border-[2px] border-white hidden md:table-cell'>{t("Partner.Rewards.rewardsData1")}</td>
+                                                <td className='h-[30px] border-[2px] border-white hidden md:table-cell'>{t("Partner.Rewards.rewardsData2")}</td>
+                                                <td className='h-[30px] border-[2px] border-white hidden md:table-cell'>{t("Partner.Rewards.rewardsData3")}</td>
                                                 <td className='h-[30px] border-[2px] border-white md:hidden'>{t("Partner.Rewards.rewardsMobileData1")}</td>
                                                 <td className='h-[30px] border-[2px] border-white md:hidden'>{t("Partner.Rewards.rewardsMobileData2")}</td>
                                                 <td className='h-[30px] border-[2px] border-white md:hidden'>{t("Partner.Rewards.rewardsMobileData3")}</td>

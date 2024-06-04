@@ -14,13 +14,18 @@
       "accountPage": "賬戶類型",
       "partnerPage": "合作夥伴",
       "register_button": "註冊帳戶",
-      "login_Button": "登入"
+      "login_Button": "登入",
+      "service_Button": "客服支持"
     },
 
     "Privacy":{
       "privacyVideoTitle":"量子資本集團",
       "privacyVideoDescription":"量子資本集團並非典型的投資經紀公司. 我們的歷史, 抱負和基因源於創意世界, 軟體開發和投資者賦權領域. 這些價值觀仍然是我們最重要的核心.",
       "QCG_BasicDescription":"量子資本集團結合了獨特的多資產交易平台與穩健的金融科技基礎的創新力量.",
+      "QCG_MobileBasicDescription":"量子資本集團結合了獨特的",
+      "QCG_MobileBasicDescription2":"多資產交易平台與穩健的金融科技",
+      "QCG_MobileBasicDescription3":"基礎的創新力量.",
+      "QCG_MobileBasicDescription4":" ",
       "Crypto":{
         "crypto_Title":"加密貨幣",
         "crypto_Description":"我們對區塊鏈技術深感興趣. 未來加密領域的活動應在可靠, 受監管的框架內進行. 通過我們的加密貨幣交易, 我們為客戶打造了高效的交易平台, 確保在加密貨幣交易中以充足的流動性進行安全, 成本效益高的執行. 目前, 我們擁有超過一百種加密貨幣可以通過量子資本進行交易, 目前還正在積極努力增加這個數字.",
@@ -36,7 +41,12 @@
       },
       "COC_Title":"行為準則",
       "COC_Description":"作為在線外匯交易的領導者和金融科技公司, 創新和技術挑戰著傳統的準則. 我們尊重規則, 珍惜重要的企業價值觀. 集團的行為準則指導著其與內部和外部投資者的日常行動.",
-      "openAccountTitle":"開立一個投資交易帳戶與量子資本,體驗數字在活躍的金融市場中的脈搏.",
+      "openAccountTitle":"開立一個投資交易帳戶與量子資本,",
+      "openAccountTitle2":"體驗數字在活躍的金融市場中的脈搏.",
+      "openAccountTitle3":" ",
+      "openAccountMobileTitle":"開立一個投資交易帳戶",
+      "openAccountMobileTitle2":"與量子資本, 體驗數字在活躍的 ",
+      "openAccountMobileTitle3":"金融市場中脈搏跳動.",
       "NFA":{
         "NFA_Title":"National Futures Association (NFA)",
         "NFA_Description":"NFA is a non-profit organisation established by the United States government to regulate and supervise futures traders and futures exchanges. NFA was established under the Futures Exchange Act of 1974 and is authorised by the Futures Trading Commission (CFTC).",
@@ -307,20 +317,17 @@
       "maximumtradesizeMobileTitle2":" "
     },
 
-    "WhatsappForm":{
-      "whatsappFormTitle":"立刻与我们通信",
-      "whatsappFormDescription":"使用您设备的摄像头扫描 QR 码, 与我们的",
-      "whatsappFormDescription2":"客户服务代表进行即时聊天, 获取更多详情. ",
-      "whatsappFormDescription3":" ",
-      "mobileWhatsappFormDescription":"请直接点击以下链接与我们的客服代表进行 ",
-      "mobileWhatsappFormDescription2":"WhatsApp聊天以获取更多详细信息 ",
-      "mobileWhatsappFormDescription3":" "
+    "TelegramForm":{
+      "telegramFormTitle":"立即進行即時聊天",
+      "telegramFormDescription":"使用您設備的相機掃描 QR 碼, 與我們的",
+      "telegramFormDescription2":"客户服务代表进行即时聊天",
+      "telegramFormDescription3":"以獲取更多詳細信息."
     },
 
     "MailForm":{
-      "mailFormTitle":"发送电子邮件与我们联系",
-      "mailFormDescription":"欢迎来到当今科技联系客服页面.",
-      "mailFormDescription2":" ",
+      "mailFormTitle":"給我們發送訊息",
+      "mailFormDescription":"歡迎來到量子资本",
+      "mailFormDescription2":"联系客服頁面",
       "name":"您的姓名",
       "email":"您的电子邮件",
       "message":"输入你想告诉我们的信息",
@@ -329,8 +336,6 @@
       "notificationFailure":"信息发送失败",
       "sendStatusSuccess":"成功!",
       "sendStatusFailure":"错误!",
-      "mobileMailFormDescription":"欢迎来到当今科技联系客服页面. ",
-      "mobileMailFormDescription2":" ",
       "requiredName":"请填写您的姓名",
       "requiredEmail":"请填写您的邮箱",
       "emailFormat":"请填写正确的邮箱格式",
