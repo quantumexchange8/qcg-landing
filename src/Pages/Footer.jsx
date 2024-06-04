@@ -6,10 +6,6 @@ const Footer = () => {
 
     return (
         <div>
-            {/* <img src={footer} alt="" className='w-full'/>
-            <div>
-
-            </div> */}
             <div className='relative'>
                 <img src={footer} alt="footer" className='w-full h-[500px] md:h-[426px]'/>
 

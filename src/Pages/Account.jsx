@@ -65,7 +65,7 @@ const Account = () => {
 
 
     return (
-        <div className='mt-[60px] md:mt-0'>
+        <div>
             <div className='relative'>
                 <video autoPlay loop playsInline muted preload='auto' ref={videoRef} className='w-full'>
                     <source src='/assets/videos/account.mp4' type='video/mp4'/>
