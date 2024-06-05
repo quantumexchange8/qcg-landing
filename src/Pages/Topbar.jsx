@@ -24,7 +24,7 @@ const Topbar = () => {
     };
 
     return (
-        <div className='flex flex-col static'>
+        <div className='flex flex-col'>
         <div className="w-full h-[60px] fixed z-50 bg-[#dddddde6] flex justify-center">
             <div className="w-[393px] md:w-full max-w-full flex justify-center items-center gap-[50px]">
                 
