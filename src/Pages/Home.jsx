@@ -67,7 +67,7 @@ const Home = () => {
       }, []);    
 
     return (
-        <div>
+        <div className='mt-[60px] md:mt-0'>
             <div className='relative'>
                 <video autoPlay loop playsInline muted preload='auto' ref={videoRef} className='w-full'>
                     <source src='/assets/videos/home.mp4' type='video/mp4'/>
@@ -328,7 +328,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div className='flex flex-col md:hidden'>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover h-[300px]'>
+                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='w-full'>
                                                 <source src="/assets/videos/trading.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
@@ -433,7 +433,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover h-[300px]'>
+                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
                                                 <source src="/assets/videos/invest.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
@@ -509,7 +509,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover h-[300px]'>
+                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
                                                 <source src="/assets/videos/processor.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
