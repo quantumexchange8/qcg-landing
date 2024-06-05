@@ -9,7 +9,7 @@ export default function Modal({ open, onClose, title, content, selectedButton })
         <div 
             id="modal-app" 
             onClick={onClose}
-            className={`fixed overflow-y-auto inset-0 flex justify-center z-50 items-center transition-colors backdrop-blur-sm ${open ? "visible bg-black/20" : "invisible"}`}
+            className={`fixed overflow-y-auto py-8 inset-0 flex justify-center z-50 items-center transition-colors backdrop-blur-sm ${open ? "visible bg-black/20" : "invisible"}`}
         >
             <div onClick={(e) => e.stopPropagation()} className={`px-7 md:px-11 pt-[30px] pb-[30px] md:w-[500px] w-[349px] h-auto bg-white rounded-[35px] md:rounded-[20px] shadow transition-all ${open ? "scale-100 opacity-100" : "scale-125 opacity-0"}`}>
                 <div className="flex flex-col gap-10">
