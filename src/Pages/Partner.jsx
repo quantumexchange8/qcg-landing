@@ -68,8 +68,8 @@ const Partner = () => {
       }, []);
 
     return (
-        <div className='mt-[60px] md:mt-0'>
-            <div className='relative'>
+        <div className='md:mt-0'>
+            <div className='relative mt-[60px] md:mt-0'>
                 <video autoPlay loop playsInline muted preload='auto' ref={videoRef} className='w-full'>
                     <source src='/assets/videos/partner.mp4' type='video/mp4'/>
                 </video>

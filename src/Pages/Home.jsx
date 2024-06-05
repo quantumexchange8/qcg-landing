@@ -67,8 +67,8 @@ const Home = () => {
       }, []);    
 
     return (
-        <div className='flex flex-col mt-[60px] md:mt-0'>
-            <div className='relative'>
+        <div className='flex flex-col md:mt-0'>
+            <div className='relative mt-[60px] md:mt-0'>
                 <video autoPlay loop playsInline muted preload='auto' ref={videoRef} className='w-full'>
                     <source src='/assets/videos/home.mp4' type='video/mp4'/>
                 </video>

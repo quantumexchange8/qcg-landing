@@ -9,8 +9,8 @@ import { LanguageContext } from "../LanguagesContext";
 const Privacy = () => {
     const { t, language} = useContext(LanguageContext);
     return (
-        <div className='mt-[60px] md:mt-0'> 
-            <div className='relative'>
+        <div className='md:mt-0'> 
+            <div className='relative mt-[60px] md:mt-0'>
                 <img src={home} alt='home' className='w-full'/>
 
                 <div className='absolute right-[23px] md:right-[100px] bottom-[20px] md:bottom-[100px] flex flex-col justify-center items-end gap-[15px] md:gap-[30px]'>
