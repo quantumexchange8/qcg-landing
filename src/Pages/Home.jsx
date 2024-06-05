@@ -314,7 +314,7 @@ const Home = () => {
                                 </div>
 
                                 
-                                <div className='flex gap-[50px] md:hidden'>{/* mobile version */}
+                                <div className='flex flex-col gap-[50px] md:hidden'>{/* mobile version */}
                                     <div className='flex flex-col gap-[30px] items-center'>
                                         <div className='flex flex-col gap-5 items-center mx-5'>
                                             <div className='flex flex-col w-[100px] h-[30px] border border-primary py-[2px] text-base font-normal text-primary text-center'>
@@ -328,7 +328,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div className='flex flex-col md:hidden'>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='w-full'>
+                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
                                                 <source src="/assets/videos/trading.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
@@ -513,7 +513,7 @@ const Home = () => {
                                                 <source src="/assets/videos/processor.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
-                                        <div className='flex flex-col text-[#444] text-base font-medium items-center leading-tight mx-5 md:mx-0'>
+                                        <div className='flex flex-col text-[#444] text-base font-medium items-center leading-tight'>
                                             <div className={`${language === 'en' ? 'font-normal w-[333px]': 
                                                                 language === 'zh' ? 'font-normal w-[265px]':  ''}`}>
                                                 {t("Home.Crypto.cryptoDescription")}

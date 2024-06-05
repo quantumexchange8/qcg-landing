@@ -11,7 +11,7 @@ const Footer = () => {
 
                 <div className='absolute inset-0 flex justify-center items-center'>
                     <div className='max-w-[1000px] w-full'>
-                        <div className='flex flex-col gap-4 md:gap-[30px] px-5 py-5 md:px-0 md:py-0'>
+                        <div className='flex flex-col gap-4 md:gap-[30px] mx-5'>
                             <div className='flex flex-col gap-[15px]'>
                                 <img src={logo} alt="footer_logo" className='w-[80px] md:w-[102px] h-[30.5px] md:h-[39px]'/>
 
@@ -44,9 +44,7 @@ const Footer = () => {
                                 </span>
                             </div>
                         </div>
-                        
                     </div>
-                    
                 </div>
             </div>
         </div>
