@@ -81,7 +81,7 @@ const Account = () => {
                         </div>
                         <div className='flex flex-col'>
                             <div className='text-white text-left'>
-                                <div className={`${language === 'en' ? 'text-xs md:text-2xl font-semibold w-[325px] md:w-[500px] leading-[1.20]': 
+                                <div className={`${language === 'en' ? 'text-xs md:text-2xl font-semibold w-[325px] md:w-[530px] leading-[1.20]': 
                                                    language === 'zh' ? 'text-xs md:text-3xl font-semibold w-[320px] md:w-[800px] leading-[1.20]':  ''}`}>
                                     {t("Account.accountVideoDescription")}
                                 </div>

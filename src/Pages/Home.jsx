@@ -183,14 +183,14 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='w-full flex flex-col items-center justify-center'>
-                <div className='max-w-[1000px] w-full mt-[100px] md:mt-[200px]'>
+            <div className='flex flex-col items-center justify-center mt-[100px] mx-5'>
+                <div className='max-w-[1000px] w-full md:mt-[200px]'>
                     <div className='flex flex-col gap-[100px] md:gap-[300px]'>
-                        <div className='flex flex-col gap-[100px] md:gap-[200px] mx-5 md:mx-0'>
+                        <div className='flex flex-col gap-[100px] md:gap-[200px]'>
                             <div className='flex flex-col gap-[50px] items-center'>
-                                <div className='flex flex-col gap-5'>
+                                <div className='w-full flex flex-col items-center gap-5'>
                                     <div className='flex flex-col text-primary text-2xl md:text-5xl items-center'>
-                                        <div className={`${language === 'en' ? 'font-bold w-[270px] md:w-[550px]': 
+                                        <div className={`${language === 'en' ? 'font-bold w-[290px] md:w-[550px]': 
                                                         language === 'zh' ? 'font-bold w-[180px] md:w-[1000px]':  ''}`}>
                                             {t("Home.QCGadvantage_Title")}
                                         </div>
@@ -204,10 +204,10 @@ const Home = () => {
                                             <div>{t("Home.QCGadvantage_Description4")}</div>
                                         </div>
                                     </div>
-                                    <div className='text-[#444 font-medium leading-tight md:hidden'>
-                                        <div className={`${language === 'en' ? 'text-sm font-medium w-[283px] leading-[1.20]': 
+                                    <div className='text-[#444] font-medium leading-tight md:hidden'>
+                                        <div className={`${language === 'en' ? 'text-sm font-medium w-[290px] leading-[1.20]': 
                                                            language === 'zh' ? 'text-base font-semibold w-[300px] leading-[1.20]':  ''}`}>
-                                            <div>{t("Home.QCGadvantage_mobileDescription")}</div>
+                                            {t("Home.QCGadvantage_mobileDescription")}
                                         </div>
                                     </div>
                                 </div>
@@ -235,7 +235,7 @@ const Home = () => {
                                 </div>
 
                                 {/* mobile version */}
-                                <div className='bg-primary-50 rounded-[20px] flex flex-col items-center w-[353px] gap-[30px] py-[20px] md:hidden'>
+                                <div className='bg-primary-50 rounded-[20px] flex flex-col items-center w-full gap-[30px] py-[20px] md:hidden'>
                                     <div className='bg-white flex flex-col items-center rounded-[20px] py-[30px] gap-5 w-[313px] drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]'>
                                         <Built/>
                                         <div className='flex flex-col text-base font-bold leading-[1.20]'>
@@ -296,7 +296,7 @@ const Home = () => {
                             <div className='flex flex-col gap-[50px]'>
                                 <div className='hidden md:flex gap-[50px]'>
                                     <div className='flex flex-col'>
-                                        <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
+                                        <video playsInline autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
                                             <source src="/assets/videos/trading.mp4" type='video/mp4'/>
                                         </video>
                                     </div>
@@ -328,7 +328,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div className='flex flex-col md:hidden'>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
+                                            <video playsInline autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
                                                 <source src="/assets/videos/trading.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
@@ -377,13 +377,13 @@ const Home = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='flex flex-col gap-[10px]'>
-                                        <span className='text-[#444] text-base md:text-[32px] font-medium md:font-semibold leading-[1.20]'>
+                                    <div className='flex flex-col items-center gap-[10px]'>
+                                        <div className='w-[280px] md:w-full text-[#444] text-base md:text-[32px] font-medium md:font-semibold leading-[1.20]'>
                                             {t("Home.Pricing.pricingDescription")}
-                                        </span>
-                                        <span className='text-primary text-base md:text-2xl font-medium leading-[1.20]'>
+                                        </div>
+                                        <div className='w-[300px] md:w-full text-primary text-base md:text-2xl font-medium leading-[1.20]'>
                                             {t("Home.Pricing.pricingDescription2")}
-                                        </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -412,7 +412,7 @@ const Home = () => {
                                     </div>
 
                                     <div>
-                                        <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
+                                        <video playsInline autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
                                             <source src="/assets/videos/invest.mp4" type='video/mp4'/>
                                         </video>
                                     </div>
@@ -433,7 +433,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
+                                            <video playsInline autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
                                                 <source src="/assets/videos/invest.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
@@ -471,7 +471,7 @@ const Home = () => {
                                 <div className='flex flex-col gap-[50px] items-center'>
                                     <div className='hidden md:flex'>
                                         <div>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
+                                            <video playsInline autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-[500px] h-[500px]'>
                                                 <source src="/assets/videos/processor.mp4" type='video/mp4'/>
                                             </video>
                                         </div>
@@ -509,7 +509,7 @@ const Home = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <video autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
+                                            <video playsInline autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
                                                 <source src="/assets/videos/processor.mp4" type='video/mp4'/>
                                             </video>
                                         </div>

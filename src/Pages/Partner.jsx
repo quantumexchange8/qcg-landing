@@ -81,7 +81,7 @@ const Partner = () => {
                         </div>
                         <div className='flex flex-col'>
                             <div className='text-white text-left'>
-                                <div className={`${language === 'en' ? 'text-xs md:text-2xl font-semibold w-[310px] md:w-[650px]': 
+                                <div className={`${language === 'en' ? 'text-xs md:text-2xl font-semibold w-[350px] md:w-[680px]': 
                                                    language === 'zh' ? 'text-xs md:text-3xl font-semibold w-[350px] md:w-[850px]':  ''}`}>
                                         {t("Partner.partnerVideoDescription")}
                                 </div>
@@ -113,8 +113,8 @@ const Partner = () => {
                                             </div>
                                         </div>
                                         <div className='flex flex-col text-[#444] font-medium text-left'>
-                                            <div className={`${language === 'en' ? 'text-base md:text-[36px] font-medium md:w-[900px] leading-[1.20]': 
-                                                               language === 'zh' ? 'text-base md:text-[36px] font-medium md:w-[1000px] leading-[1.20]':  ''}`}>
+                                            <div className={`${language === 'en' ? 'text-base md:text-[36px] font-medium md:w-full leading-[1.20]': 
+                                                               language === 'zh' ? 'text-base md:text-[36px] font-medium md:w-full leading-[1.20]':  ''}`}>
                                                 {t("Partner.partnerDescription")}
                                             </div>
                                         </div>
@@ -180,7 +180,7 @@ const Partner = () => {
                                         </div>
                                         <Sponsor/>
                                         <div className='text-[#444] leading-tight'>
-                                            <div className={`${language === 'en' ? 'text-base font-bold w-[225px]': 
+                                            <div className={`${language === 'en' ? 'text-base font-bold w-[250px]': 
                                                                language === 'zh' ? 'text-base font-bold w-[205px]':  ''}`}>
                                                 <div className='leading-[1.20]'>{t("Partner.partnerSubtitleDescription")}</div>
                                             </div>
@@ -204,7 +204,7 @@ const Partner = () => {
                                         </div>
                                         <Bonuses/>
                                         <div className='text-[#444] leading-tight'>
-                                            <div className={`${language === 'en' ? 'text-base font-bold w-[240px]': 
+                                            <div className={`${language === 'en' ? 'text-base font-bold w-[250px]': 
                                                                language === 'zh' ? 'text-base font-bold w-[220px]':  ''}`}>
                                                 <div className='leading-[1.20]'>{t("Partner.partnerSubtitle3Description")}</div>
                                             </div>

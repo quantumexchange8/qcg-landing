@@ -18,7 +18,7 @@ const Privacy = () => {
                         {t("Privacy.privacyVideoTitle")}
                     </div>
                     <div className='flex flex-col text-white text-[12px] md:text-3xl text-right leading-[1.20]'>
-                        <div className={`${language === 'en' ? 'font-medium md:font-semibold w-[297px] md:w-[730px]': 
+                        <div className={`${language === 'en' ? 'font-medium md:font-semibold w-[297px] md:w-[750px]': 
                                            language === 'zh' ? 'font-medium md:font-semibold w-[280px] md:w-[720px]':  ''}`}>
                             {t("Privacy.privacyVideoDescription")}
                         </div>
@@ -29,7 +29,7 @@ const Privacy = () => {
             <div className='w-full flex flex-col items-center justify-center'>
                 <div className='max-w-[1000px] w-full mt-[100px] md:mt-[200px] mb-[100px]'>
                     <div className='flex flex-col mx-5 md:mx-0 gap-[100px] md:gap-[200px]'>
-                        <div className='flex flex-col text-[#1C7800] font-bold text-center md:text-left'>
+                        <div className='flex flex-col text-[#1C7800] font-bold text-left'>
                             <div className={`${language === 'en' ? 'text-2xl md:text-5xl font-bold leading-[1.20] w-[333px] md:w-[900px]': 
                                                language === 'zh' ? 'text-xl md:text-5xl font-bold md:w-[950px]':  ''}`}>
                                     <div className='hidden md:flex flex-col'>{t("Privacy.QCG_BasicDescription")}</div>
@@ -49,9 +49,9 @@ const Privacy = () => {
                                     </div>
                                 </div>
                                 
-                                <div className='flex flex-col md:w-[930px] text-[#444] text-[14px] md:text-4xl text-left leading-[1.20]'>
-                                    <div className={`${language === 'en' ? 'font-medium md:font-semibold md:w-[930px]': 
-                                                       language === 'zh' ? 'font-medium md:font-semibold md:w-[1000px]':  ''}`}>
+                                <div className='flex flex-col md:w-full text-[#444] text-[14px] md:text-4xl text-left leading-[1.20]'>
+                                    <div className={`${language === 'en' ? 'font-medium md:font-semibold md:w-full': 
+                                                       language === 'zh' ? 'font-medium md:font-semibold md:w-full':  ''}`}>
                                         {t("Privacy.Crypto.crypto_Description")}
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@ const Privacy = () => {
                             </div>
                             <div className='flex flex-col gap-[20px] md:gap-[50px]'>
                             <div className='text-[32px] md:text-8xl text-primary font-bold text-left'>
-                                <div className={`${language === 'en' ? 'font-bold md:w-[1000px]': 
+                                <div className={`${language === 'en' ? 'font-bold w-56 md:w-[1000px] leading-tight': 
                                                    language === 'zh' ? 'font-bold md:w-[950px]':  ''}`}>
                                     {t("Privacy.COC_Title")}
                                 </div>
@@ -138,14 +138,14 @@ const Privacy = () => {
                         <div className='flex flex-col gap-[100px] md:gap-[150px]'>
                             <div className='flex flex-col gap-[100px] items-center'>
                                 <div className='text-primary text-2xl md:text-5xl leading=[1.20]'>
-                                    <div className={`${language === 'en' ? 'font-bold w-[318px] md:w-[1000px]': 
-                                                       language === 'zh' ? 'font-bold w-[353px] md:w-[781px]':  ''}`}>
+                                    <div className={`${language === 'en' ? 'flex flex-col items-center font-bold w-[330px] md:w-[1000px]': 
+                                                       language === 'zh' ? 'flex flex-col items-center font-bold w-[353px] md:w-[781px]':  ''}`}>
                                         <div className='hidden md:flex flex-col'>{t("Privacy.openAccountTitle")}</div>
                                         <div className='hidden md:flex flex-col'>{t("Privacy.openAccountTitle2")}</div>
                                         <div className='hidden md:flex flex-col'>{t("Privacy.openAccountTitle3")}</div>
                                         <div className='md:hidden'>{t("Privacy.openAccountMobileTitle")}</div>
                                         <div className='md:hidden'>{t("Privacy.openAccountMobileTitle2")}</div>
-                                        <div className='md:hidden'>{t("Privacy.openAccountMobileTitle3")}</div>
+                                        <div className='w-[270px] md:hidden'>{t("Privacy.openAccountMobileTitle3")}</div>
                                     </div>
                                 </div>
                                 <div className='flex flex-wrap gap-5'>
@@ -171,7 +171,7 @@ const Privacy = () => {
                                                 commodity futures sector.
                                             </div>
                                             <div>
-                                                Learn more about our NFA license <span className='text-[#0028FC] text-base md:text-2xl font-medium underline'>here.</span>
+                                                Learn more about our NFA license <a href="https://www.nfa.futures.org/BasicNet/basic-profile.aspx?nfaid=P9pXtPj6e%2F4%3D"><span className='text-[#0028FC] text-base md:text-2xl font-medium underline'>here.</span></a>
                                             </div>
                                         </div>
                                     </div>

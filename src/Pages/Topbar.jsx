@@ -72,11 +72,15 @@ const Topbar = () => {
                     </Link>
 
                     <div className='text-base font-semibold text-[#1C7800]'>
-                        {t("Topbar.register_button")}
+                        <a href="https://login.qcgbrokertw.com/register">
+                            {t("Topbar.register_button")}
+                        </a>
                     </div>
 
                     <div className='text-base font-semibold text-[#1C7800]'>
-                        {t("Topbar.login_Button")}
+                        <a href="https://login.qcgbrokertw.com/login">
+                            {t("Topbar.login_Button")}
+                        </a>
                     </div>
                 </div>
 
@@ -270,38 +274,28 @@ const Topbar = () => {
                                                 )}
                                             </Menu.Item>
                                         </Link>
-                                        <Link
-                                            to="/partner"
-                                            className={`${
-                                                location.pathname === '/partner' 
-                                            }`}
-                                        >
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <button
-                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end text-[#1C7800]'
-                                                  >
+                                        <Menu.Item>
+                                            {({ active }) => (
+                                                <button
+                                                className='group flex flex-col w-full rounded-md py-3 place-items-end text-[#1C7800]'
+                                                >
+                                                <a href="https://login.qcgbrokertw.com/register">
                                                     {t("mobileTopbar.register_button")}
-                                                  </button>
-                                                )}
-                                            </Menu.Item>
-                                        </Link>
-                                        <Link
-                                            to="/partner"
-                                            className={`${
-                                                location.pathname === '/partner' 
-                                            }`}
-                                        >
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <button
-                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end text-[#1C7800]'
-                                                  >
+                                                </a>
+                                                </button>
+                                            )}
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            {({ active }) => (
+                                                <button
+                                                className='group flex flex-col w-full rounded-md py-3 place-items-end text-[#1C7800]'
+                                                >
+                                                <a href="https://login.qcgbrokertw.com">
                                                     {t("mobileTopbar.login_Button")}
-                                                  </button>
-                                                )}
-                                            </Menu.Item>
-                                        </Link>
+                                                </a>
+                                                </button>
+                                            )}
+                                        </Menu.Item>
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <button

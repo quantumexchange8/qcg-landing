@@ -1,13 +1,15 @@
 import React from 'react';
 import footer from '../Assets/Images/footer.png';
 import logo from '../Assets/Images/footer_logo.svg';
+import mobileFooter from '../Assets/Images/mobileFooter.png';
 
 const Footer = () => {
 
     return (
         <div>
             <div className='relative'>
-                <img src={footer} alt="footer" className='w-full h-[500px] md:h-[426px]'/>
+                <img src={footer} alt="footer" className='w-full hidden md:block'/>
+                <img src={mobileFooter} alt="footer" className='w-full md:hidden'/>
 
                 <div className='absolute inset-0 flex justify-center items-center'>
                     <div className='max-w-[1000px] w-full'>
