@@ -20,8 +20,10 @@
 
     "Privacy":{
       "privacyVideoTitle":"量子資本集團",
-      "privacyVideoDescription":"量子資本集團並非典型的投資經紀公司. 我們的歷史, 抱負和基因源於創意世界, 軟體開發和投資者賦權領域. 這些價值觀仍然是我們最重要的核心.",
+      "privacyVideoDescription":"通過智能結算實現無縫交易.",
       "QCG_BasicDescription":"量子資本集團結合了獨特的多資產交易平台與穩健的金融科技基礎的創新力量.",
+      "QCG_BasicDescriptionCn":"量子資本集團結合了獨特的多資產",
+      "QCG_BasicDescriptionCn2":"交易平台和穩健金融科技基礎的創新力量.",
       "QCG_MobileBasicDescription":"量子資本集團結合了獨特的",
       "QCG_MobileBasicDescription2":"多資產交易平台與穩健的金融科技",
       "QCG_MobileBasicDescription3":"基礎的創新力量.",

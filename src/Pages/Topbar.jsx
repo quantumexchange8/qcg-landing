@@ -2,7 +2,7 @@ import React, { useContext, useState, Fragment } from 'react';
 import { Earphone, Lang, Menus } from '../Components/Outline';
 import logo from '../Assets/Images/logo.svg';
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Transition } from '@headlessui/react'
+import { Menu, Transition, Dialog } from '@headlessui/react'
 import Modal from '../Components/Modal';
 import { LanguageContext } from "../LanguagesContext.js";
 
@@ -13,20 +13,41 @@ const Topbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // Define isMenuOpen state
     const { t, language, updateLanguage } = useContext(LanguageContext);
 
+    let [langIsOpen, setLangIsOpen] = useState(false);
+    let [menuIsOpen, setMenuIsOpen] = useState(false);
+
+    function closeLangModal() {
+        setLangIsOpen(false)
+    }
+    
+    function openLangModal() {
+        setLangIsOpen(true)
+    }
+
+    function closeMenuModal() {
+        setMenuIsOpen(false)
+    }
+    
+    function openMenuModal() {
+        setMenuIsOpen(true)
+    }
+
     const handleButtonClick = (button) => {
         setOpenButton(true);
+        setMenuIsOpen(false)
         setSelectedButton(button);
     };
 
     const handleLanguageChange = (lang) => {
         updateLanguage(lang);
         setIsMenuOpen(false); // Close the menu after language change
+        setLangIsOpen(false); 
     };
 
     return (
         <div className='flex flex-col'>
         <div className="w-full h-[60px] fixed z-50 bg-[#dddddde6] flex justify-center">
-            <div className="w-[393px] md:w-full max-w-full flex justify-center items-center gap-[50px]">
+            <div className=" w-full md:w-full max-w-full flex md:justify-center items-center gap-[50px] px-[30px] md:px-0">
                 
                 <div className='hidden md:flex'>
                     <Link
@@ -85,7 +106,7 @@ const Topbar = () => {
                 </div>
 
                 {/* Earphone and Lang icons on web version*/}
-                <div className='hidden md:flex justify-center gap-[30px] cursor-pointer' onClick={() => handleButtonClick('service')}>
+                <div className='hidden md:flex justify-center gap-[30px] cursor-pointer'>
                     <Earphone/>
                 </div>
                 <div className='hidden md:flex justify-center gap-[30px] cursor-pointer'>
@@ -104,17 +125,17 @@ const Topbar = () => {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className="absolute mt-5 w-[200px] h-[64px] rounded-[30px] bg-[#AAA] shadow-lg ring-1 ring-black/5 focus:outline-none text-xl font-semibold text-right left-1/2 transform -translate-x-1/2">
-                                <div className="flex flex-row">
+                            <Menu.Items className="absolute mt-5 w-[200px] h-[60px] rounded-[30px] bg-[#AAA] shadow-lg ring-1 ring-black/5 focus:outline-none text-xl font-semibold md:font-medium text-right left-1/2 transform -translate-x-1/2">
+                                <div className="flex flex-row justify-center items-center gap-[30px] py-5 px-9">
                                     <Menu.Item>
                                         {({ active }) => (
                                             <button
                                                 className={`${
                                                     active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                                                } group flex flex-row w-full text-base place-items-center rounded-[30px] px-7 py-5`}
+                                                } text-base `}
                                                 onClick={() => handleLanguageChange('en')}
                                             >
-                                                English 
+                                                English
                                             </button>
                                         )}
                                     </Menu.Item>
@@ -124,7 +145,7 @@ const Topbar = () => {
                                             <button
                                                 className={`${
                                                     active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                                                } group flex flex-row w-full text-base place-items-center rounded-[30px] px-[30px] py-5`}
+                                                } text-base `}
                                                 onClick={() => handleLanguageChange('zh')}
                                             >
                                                 中文 
@@ -138,58 +159,64 @@ const Topbar = () => {
                 </div>
 
                 {/* LogoSvg between Earphone and Lang on mobile version */}
-                <div className='flex flex-row justify-center gap-[130px] md:hidden space-y-1'>
+                <div className='w-full flex flex-row justify-between md:justify-center md:gap-[130px] md:hidden space-y-1'>
                         {/* Language  component */}
-                        <Menu as="div" className="relative text-left">
-                            <div>
-                                <Menu.Button className="inline-flex w-full justify-center rounded-md text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 mt-2">
-                                <Lang />
-                                </Menu.Button>
-                            </div>
-                            <Transition
-                                as={Fragment}
-                                enter="transition ease-out duration-100"
-                                enterFrom="transform opacity-0 scale-95"
-                                enterTo="transform opacity-100 scale-100"
-                                leave="transition ease-in duration-75"
-                                leaveFrom="transform opacity-100 scale-100"
-                                leaveTo="transform opacity-0 scale-95"
+
+                        <div className="flex items-center justify-center">
+                            <button
+                            type="button"
+                            onClick={openLangModal}
+                            className="rounded-md bg-black/20 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
                             >
-                                <Menu.Items className="absolute left-0 mt-4 w-[120px] rounded-[15px] bg-[#AAA] shadow-lg ring-1 ring-black/5 focus:outline-none text-xl font-semibold text-right">
-                                    <Menu.Item>
-                                        {({ active }) => (
-                                            <button
-                                                className={`${
-                                                    active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                                                } group flex flex-col w-full place-items-center rounded-md px-7 py-3`}
-                                                onClick={() => handleLanguageChange('en')}
-                                            >
-                                                English
-                                            </button>
-                                        )}
-                                    </Menu.Item>
-                            
-                                    <Menu.Item>
-                                        {({ active }) => (
-                                            <button
-                                                className={`${
-                                                    active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                                                } group flex flex-col w-full place-items-center rounded-md px-7 py-3`}
-                                                onClick={() => handleLanguageChange('zh')}
-                                            >
-                                                中文
-                                            </button>
-                                        )}
-                                    </Menu.Item>
-                                </Menu.Items>
-                            </Transition>
-                        </Menu>
+                            <Lang />
+                            </button>
+                        </div>
+
+                        <Transition appear show={langIsOpen} as={Fragment}>
+                            <Dialog as="div" className="relative z-10" onClose={closeLangModal}>
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                                <div className="fixed inset-0 bg-[#1a1b1dc2] opacity-100 " />
+                            </Transition.Child>
+
+                            <div className="fixed inset-0 overflow-y-auto">
+                                <div className="flex items-center justify-center px-4 pb-4 pt-16 text-center">
+                                <Transition.Child
+                                    as={Fragment}
+                                    enter="ease-out duration-300"
+                                    enterFrom="opacity-0 scale-95"
+                                    enterTo="opacity-100 scale-100"
+                                    leave="ease-in duration-200"
+                                    leaveFrom="opacity-100 scale-100"
+                                    leaveTo="opacity-0 scale-95"
+                                >
+                                    <Dialog.Panel className="flex flex-col gap-5 w-130px transform overflow-hidden rounded-[5px] bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                    
+                                        <button onClick={() => handleLanguageChange('en')}>
+                                            <span className='text-xl font-semibold'>English</span>
+                                        </button>
+                                        <button onClick={() => handleLanguageChange('zh')}>
+                                            <span className='text-xl font-semibold'>中文</span>
+                                        </button>
+                                    </Dialog.Panel>
+                                </Transition.Child>
+                                </div>
+                            </div>
+                            </Dialog>
+                        </Transition>
                         
                         <Link to="/privacy" className='w-[40px] h-[40px]'>
                             <img src={logo} alt="icon" className='h-full'/>
                         </Link>
                         {/* Menu component */}
-                        <Menu as="div" className="relative text-left">
+                        {/* <Menu as="div" className="relative text-left">
                             <div>
                                 <Menu.Button className="inline-flex w-full justify-center rounded-md text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 mt-2">
                                     <Menus/>
@@ -308,7 +335,125 @@ const Topbar = () => {
                                             </Menu.Item>
                                 </Menu.Items>
                             </Transition>
-                        </Menu>
+                        </Menu> */}
+
+                        <div className="flex items-center justify-center">
+                            <button
+                            type="button"
+                            onClick={openMenuModal}
+                            className="rounded-md bg-black/20 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+                            >
+                                <Menus/>
+                            </button>
+                        </div>
+
+                        <Transition appear show={menuIsOpen} as={Fragment}>
+                            <Dialog as="div" className="relative z-10" onClose={closeMenuModal}>
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                                <div className="fixed inset-0 bg-[#1a1b1dc2] opacity-100 " />
+                            </Transition.Child>
+
+                            <div className="fixed inset-0 overflow-y-auto">
+                                <div className="flex items-center justify-center px-4 pb-4 pt-16 text-center">
+                                <Transition.Child
+                                    as={Fragment}
+                                    enter="ease-out duration-300"
+                                    enterFrom="opacity-0 scale-95"
+                                    enterTo="opacity-100 scale-100"
+                                    leave="ease-in duration-200"
+                                    leaveFrom="opacity-100 scale-100"
+                                    leaveTo="opacity-0 scale-95"
+                                >
+                                    <Dialog.Panel className="flex flex-col gap-5 w-130px transform overflow-hidden rounded-[5px] bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                    
+                                        <Link
+                                            to="/home"
+                                            className={`${
+                                                location.pathname === '/home' 
+                                            }`}
+                                        >
+                                            <button
+                                                className='text-black text-xl font-semibold text-center w-full'
+                                                onClick={closeMenuModal}
+                                            >
+                                                {t("mobileTopbar.homePage")}
+                                            </button>
+                                        </Link>
+                                        <Link
+                                            to="/products"
+                                            className={`${
+                                                location.pathname === '/products' 
+                                            }`}
+                                        >
+                                            <button
+                                                className='text-black text-xl font-semibold text-center w-full'
+                                                onClick={closeMenuModal}
+                                            >
+                                                {t("mobileTopbar.productsPage")}
+                                            </button>
+                                        </Link>
+                                        <Link
+                                            to="/account"
+                                            className={`${
+                                                location.pathname === '/account' 
+                                            }`}
+                                        >
+                                            <button
+                                                className='text-black text-xl font-semibold text-center w-full'
+                                                onClick={closeMenuModal}
+                                            >
+                                                {t("mobileTopbar.accountPage")}
+                                            </button>
+                                        </Link>
+                                        <Link
+                                            to="/partner"
+                                            className={`${
+                                                location.pathname === '/partner' 
+                                            }`}
+                                        >
+                                            <button
+                                                className='text-black text-xl font-semibold text-center w-full'
+                                                onClick={closeMenuModal}
+                                            >
+                                                {t("mobileTopbar.partnerPage")}
+                                            </button>
+                                        </Link>
+                                        <button
+                                            className='text-black text-xl font-semibold text-center w-full'
+                                            onClick={() => handleButtonClick('service')}
+                                        >
+                                               {t("mobileTopbar.service_Button")}
+                                        </button>
+                                        <button
+                                            className='text-black text-xl font-semibold text-primary'
+                                            onClick={closeMenuModal}
+                                        >
+                                                <a href="https://login.qcgbrokertw.com/register">
+                                                {t("mobileTopbar.register_button")}
+                                            </a>
+                                        </button>
+                                        <button
+                                            className='text-black text-xl font-semibold text-primary'
+                                            onClick={closeMenuModal}
+                                        >
+                                                <a href="https://login.qcgbrokertw.com">
+                                                {t("mobileTopbar.login_Button")}
+                                            </a>
+                                        </button>
+                                    </Dialog.Panel>
+                                </Transition.Child>
+                                </div>
+                            </div>
+                            </Dialog>
+                        </Transition>
                     </div>
             </div>
             <Modal open={openButton} onClose={() => setOpenButton(false)} selectedButton={selectedButton}/>

@@ -12,12 +12,12 @@ const Footer = () => {
                 <img src={mobileFooter} alt="footer" className='w-full md:hidden'/>
 
                 <div className='absolute inset-0 flex justify-center items-center'>
-                    <div className='max-w-[1000px] w-full'>
-                        <div className='flex flex-col gap-4 md:gap-[30px] mx-5'>
-                            <div className='flex flex-col gap-[15px]'>
-                                <img src={logo} alt="footer_logo" className='w-[80px] md:w-[102px] h-[30.5px] md:h-[39px]'/>
+                    <div className='max-w-[1000px] w-full px-[30px] md:px-0'>
+                        <div className='flex flex-col gap-[30px] xs:gap-[50px] md:gap-[30px]'>
+                            <div className='flex flex-col gap-[10px] md:gap-5'>
+                                <img src={logo} alt="footer_logo" className='w-[100px] h-[39px] md:w-[150px] md:h-[58px]'/>
 
-                                <div className='flex flex-col text-white text-[12px] md:text-base font-normal text-left'>
+                                <div className='flex flex-col text-white text-[12px] md:text-base text-left'>
                                     <div className='flex flex-col leading-[1.20]'>
                                         Quantum Capital Group establish in 2021. It committed to delivering a comprehensive and reliable trading experience for forex 
                                         traders globally. With our team of industry experts and cutting-edge technology, we empower traders with the necessary tools and 
@@ -25,10 +25,9 @@ const Footer = () => {
                                         offerings, and robust customer support to ensure a secure and successful trading journey. We strive to be the trusted partner for 
                                         traders seeking a comprehensive and rewarding forex trading experience.
                                     </div>
-                                    
                                 </div>
                             </div>
-                            <div className='flex flex-col text-secondary text-[12px] md:text-base font-bold text-left'>
+                            <div className='flex flex-col text-secondary text-xs md:text-base font-bold text-left'>
                                 <div className='flex flex-col leading-[1.20]'>
                                     <span>NFA ID: 0555532</span>
                                     <span>Copyright © Quantum Capital Group 2021. All rights reserved.</span>
@@ -37,7 +36,7 @@ const Footer = () => {
                             </div>
                             <div className='flex flex-col gap-[10px]'>
                                 <span className='text-red text-xs md:text-sm font-bold text-left'>Risk Warning: </span>
-                                <span className='text-white text-[10px] md:text-xs font-light text-left'>
+                                <span className='text-white text-[10px] md:text-xs text-left leading-tight md:leading-none'>
                                     Trading foreign exchange, spot precious metals and any other product on the Forex platform involves significant risk of loss and may not be suitable for all investors. Prior to opening an account with QCG, consider 
                                     your level of experience, investment objectives, assets, income and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not speculate, 
                                     invest or hedge with capital you cannot afford to lose, that is borrowed or urgently needed or necessary for personal or family subsistence. You should be aware of all the risks associated with foreign exchange 

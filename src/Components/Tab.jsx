@@ -23,9 +23,7 @@ export default function TabComponent({ selectedButton }) {
       setTitle(t("TelegramForm.telegramFormTitle"));
       setContent(
         <>
-          <span>{t("TelegramForm.telegramFormDescription")}</span><br />
-          <span>{t("TelegramForm.telegramFormDescription2")}</span><br />
-          <span>{t("TelegramForm.telegramFormDescription3")}</span>
+          <span>{t("TelegramForm.telegramFormDescription")}</span>
         </>
       );
     } else if (tab === 1) {
@@ -51,65 +49,17 @@ export default function TabComponent({ selectedButton }) {
   }, [selectedTab, isMobile, t]); // Added t to dependencies to ensure it updates on language change
 
   return (
-    <div className="w-full max-w-md flex flex-col gap-[30px] md:gap-[35px]">
-      <div className='flex flex-col items-center gap-2'>
-        <div className="text-black text-center text-[24px] md:text-[32px] font-bold text-[#1C7800]">
+    <div className="w-full max-w-md flex flex-col gap-[30px] md:gap-10">
+      <div className='flex flex-col items-center gap-[10px]'>
+        <div className="text-black text-center text-xl font-bold text-[#1C7800] leading-none">
           {title}
         </div>
 
-        <div className="text-black text-center text-[14px] md:text-base font-medium">
+        <div className="text-black text-center text-sm md:text-base font-medium leading-none w-36 md:w-full">
           {content}
         </div>
       </div>
-      <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
-        <Tab.List className="flex rounded-xl bg-[#CCC] p-1 w-[300px] md:w-[410px] h-[48.3px] md:h-[66px]">
-          <Tab
-            className={({ selected }) =>
-              classNames(
-                'flex items-center gap-[10px] md:gap-4 w-full rounded-lg py-2 px-4 md:px-6 text-sm font-medium leading-5',
-                'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none',
-                selected ? 'bg-white text-black shadow' : 'text-[#888] hover:bg-white/[0.12] hover:text-white'
-              )
-            }
-          >
-            <Telegram /> <span className='text-sm md:text-xl font-bold'>Telegram</span>
-          </Tab>
-          <Tab
-            className={({ selected }) =>
-              classNames(
-                'flex items-center gap-[10px] md:gap-4 w-full rounded-lg py-2 px-4 md:px-6 text-sm font-medium leading-5',
-                'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none',
-                selected ? 'bg-white text-black shadow' : 'text-[#888] hover:bg-white/[0.12] hover:text-white'
-              )
-            }
-          >
-            <Gmail /> <span className='text-sm md:text-xl font-bold'>Send Mail</span>
-          </Tab>
-        </Tab.List>
-        <Tab.Panels>
-          <Tab.Panel
-            className={classNames(
-              'rounded-xl bg-white flex justify-center',
-              'ring-white/60 ring-offset-2 ring-offset-blue-400'
-            )}
-          >
-            <div className='hidden md:flex'>
-              <img src={QRcode} alt="qr code" />
-            </div>
-            <div className='md:hidden w-[200px] h-[200px]'>
-              <img src={QRcode} alt="qr code" />
-            </div>
-          </Tab.Panel>
-          <Tab.Panel
-            className={classNames(
-              'rounded-xl bg-white flex justify-center',
-              'ring-white/60 ring-offset-2 ring-offset-blue-400'
-            )}
-          >
-            <SubmitEmail />
-          </Tab.Panel>
-        </Tab.Panels>
-      </Tab.Group>
+      <SubmitEmail />
     </div>
   );
 }

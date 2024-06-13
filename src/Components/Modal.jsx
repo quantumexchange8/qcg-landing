@@ -11,9 +11,9 @@ export default function Modal({ open, onClose, title, content, selectedButton })
             onClick={onClose}
             className={`fixed overflow-y-auto py-8 inset-0 flex justify-center z-50 items-center transition-colors backdrop-blur-sm ${open ? "visible bg-black/20" : "invisible"}`}
         >
-            <div onClick={(e) => e.stopPropagation()} className={`px-7 md:px-11 pt-[30px] pb-[30px] md:w-[500px] w-[349px] h-auto bg-white rounded-[35px] md:rounded-[20px] shadow transition-all ${open ? "scale-100 opacity-100" : "scale-125 opacity-0"}`}>
+            <div onClick={(e) => e.stopPropagation()} className={`px-7 pt-[30px] pb-10 md:p-11 md:w-[500px] w-[349px] h-auto bg-white rounded-[5px] md:rounded-[20px] shadow transition-all ${open ? "scale-100 opacity-100" : "scale-125 opacity-0"}`}>
                 <div className="flex flex-col gap-10">
-                    <div className='flex flex-col gap-3 md:gap-5'>
+                    <div className='flex flex-col gap-3 md:gap-4'>
                         <div className="relative">
                             <div className="flex justify-center items-center">
                                 <div className="rounded-[20px] flex justify-center">
