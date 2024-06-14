@@ -1,13 +1,29 @@
 import React, { useRef, useEffect, useState, useContext } from 'react';
-import google from '../Assets/Images/googleplay.svg';
-import apple from '../Assets/Images/apple.svg';
-import { Window } from '../Components/Brand';
-import partner_IMG from '../Assets/Images/partner_img.png';
-import Equal from '../Assets/Images/equal.png';
-import Gifts from '../Assets/Images/gift.png';
-import { Sponsor, Friends, Bonuses} from '../Components/Outline';
-import mobile_IOS_PS from '../Assets/Images/mobile_IOS_PS.svg';
+import { BonusIcon, 
+    CreditBonusIcon, 
+    DailyRebateIcon, 
+    FormIcon, 
+    IntelligentIcon, 
+    RebateAllocateIcon, 
+    RebateIcon, 
+    RegisterIcon, 
+    ShareIcon, 
+    StreamLinedIcon,
+    RebateMobileIcon,
+    CreditBonusMobileIcon,
+    RebateAllocateMobileIcon,
+    DailyRebateMobileIcon,
+    IntelligentMobileIcon,
+    StreamLinedMobileIcon,
+    FormMobileIcon,
+} from '../Components/Brand';
 import { LanguageContext } from "../LanguagesContext";
+import Trade from '../Assets/Videos/trade.mp4';
+import Modal from '../Components/Modal';
+import { AppleMobileIcon, PlayStoreIcon } from '../Components/Brand';
+import google from '../Assets/Images/google.svg';
+import apple from '../Assets/Images/apple.svg';
+import window from '../Assets/Images/window.png';
 
 const Partner = () => {
     const textRef = useRef(null);
@@ -67,317 +83,418 @@ const Partner = () => {
         };
       }, []);
 
+      const [openButton, setOpenButton] = useState(false);
+      const [selectedButton, setSelectedButton] = useState(null);
+
+      const handleButtonClick = (button) => {
+        setOpenButton(true);
+        setSelectedButton(button);
+    };
+
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col md:pt-[60px]'>
             <div className='relative mt-[60px] md:mt-0'>
                 <video autoPlay loop playsInline muted preload='auto' ref={videoRef} className='w-full'>
                     <source src='/assets/videos/partner.mp4' type='video/mp4'/>
                 </video>
 
-                <div className='absolute left-[20px] md:left-[100px] bottom-[20px] md:bottom-[100px] flex flex-col justify-center items-start gap-[50px]'>
-                    <div className='flex flex-col gap-[15px] md:gap-5'>
-                        <div className='text-white text-base md:text-5xl font-bold leading-none text-left w-[210px] md:w-[624px]'>
+                <div className='absolute inset-0 flex justify-center'>
+                    <div className='max-w-[1000px] w-full flex flex-col items-start justify-end gap-[10px] md:gap-5 py-[50px] px-[30px] md:px-0 md:py-[100px]'>
+                        <div className='text-white text-xl md:text-5xl text-left font-bold leading-none'>
                             {t("Partner.partnerVideoTitle")}
                         </div>
-                        <div className='flex flex-col'>
-                            <div className='text-white text-left'>
-                                <div className={`${language === 'en' ? 'text-xs md:text-2xl font-semibold w-[350px] md:w-[680px]': 
-                                                   language === 'zh' ? 'text-xs md:text-3xl font-semibold w-[350px] md:w-[850px]':  ''}`}>
-                                        {t("Partner.partnerVideoDescription")}
-                                </div>
-                            </div>
+                        <div className='hidden md:block text-white text-sm md:text-2xl font-semibold md:font-bold leading-tight text-left w-[260px] md:w-[530px]'>
+                            {t("Partner.partnerVideoDescription")}
+                        </div>
+                        <div className='flex flex-col md:hidden text-white text-sm md:text-2xl font-semibold md:font-bold leading-tight text-left w-[260px] md:w-[530px]'>
+                            <div>{t("Partner.partnerVideoDescriptionMobile")}</div>
+                            <div className='w-[250px]'>{t("Partner.partnerVideoDescriptionMobile2")}</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className='w-full flex flex-col items-center justify-center'>
-                <div className='max-w-[1000px] w-full mt-[100px] md:mt-[150px]'>
-                    <div className='flex flex-col gap-[100px] md:gap-[150px] mb-[100px] md:mb-[150px] mx-5 md:mx-0'>
-                        <div className='flex flex-col gap-[50px] md:gap-[200px]'>
-                            <div className='flex flex-col gap-[100px] md:gap-[200px]'>
-                                <div className='flex flex-col gap-[150px]'>
-                                    <div className='flex flex-col gap-[10px] md:gap-[30px]'>
-                                        <div className='flex flex-col text-[#1C7800] text-left'>
-                                            <div className={`${language === 'en' ? 'text-[24px] md:text-[40px] font-bold md:w-[1000px] leading-[1.20]': 
-                                                               language === 'zh' ? 'text-[24px] md:text-[40px] font-bold md:w-[1000px] leading-[1.20]':  ''}`}>
-                                                    <div className='hidden md:flex flex-col'>
-                                                        <div>{t("Partner.partnerTitle")}</div> 
-                                                        <div>{t("Partner.partnerTitle2")}</div> 
-                                                    </div>
-                                                    <div className='md:hidden'>
-                                                        {t("Partner.partnerTitle")}
-                                                        {t("Partner.partnerTitle2")}
-                                                    </div>
-                                                    
-                                            </div>
-                                        </div>
-                                        <div className='flex flex-col text-[#444] font-medium text-left'>
-                                            <div className={`${language === 'en' ? 'text-base md:text-[36px] font-medium md:w-full leading-[1.20]': 
-                                                               language === 'zh' ? 'text-base md:text-[36px] font-medium md:w-full leading-[1.20]':  ''}`}>
-                                                {t("Partner.partnerDescription")}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <div className='w-full flex justify-center'>
+                <div className='max-w-[1000px] w-full py-[50px] px-[30px] md:px-0 md:py-[150px]'>
 
-                                <div className='flex flex-row gap-[45px] md:gap-[147px] justify-center'>
-                                    <img src={partner_IMG} alt="partners" className='w-[60px] h-[60px] md:h-[200px] md:w-[200px]' />
-                                    <div className='flex flex-col w-[30px] md:w-[100px] h-[18px] md:h-[60px] mt-[25px] md:mt-[70px]'>
-                                        <img src={Equal} alt="Equal" />
-                                    </div>
-                                    
-                                    <div className='flex flex-row gap-[2px] md:gap-[5px]'>
-                                        <img src={Gifts} alt="gifts" className='w-[60px] md:w-[200px] h-[60px] md:h-[200px]'/>
-                                        <img src={Gifts} alt="gifts" className='w-[60px] md:w-[200px] h-[60px] md:h-[200px]'/>
-                                    </div>
-                                </div>
+                    <div className='flex flex-col gap-[100px] md:gap-[150px]'>
 
-                                <div className='hidden md:flex justify-center gap-[50px]'>
-                                    <div className='w-[300px] flex flex-col gap-[30px] rounded-[20px] items-center pt-[38px] pb-[62px] px-[40px] bg-primary-50 drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]'>
-                                        <div className='flex flex-col text-[#1C7800] text-left text-[16px] font-bold'>
-                                            {t("Partner.partnerSubtitle")}
+                        <div className='flex flex-col gap-[100px]'>
+                            <div className='flex flex-col gap-[10px] md:gap-5'>
+                                <div className='flex flex-col text-[#1C7800] text-left text-xl md:text-[40px] font-bold leading-tight'>
+                                    <div className='hidden md:flex flex-col'>
+                                        <div>{t("Partner.partnerTitle")}</div> 
+                                        <div>{t("Partner.partnerTitle2")}</div> 
+                                    </div>
+                                    <div className='flex flex-col md:hidden'>
+                                        <div>{t("Partner.partnerTitleMobile")}</div>
+                                        <div>{t("Partner.partnerTitleMobile2")}</div>
+                                        <div>{t("Partner.partnerTitleMobile3")}</div>
+                                    </div>
+                                </div>
+                                <div className='flex flex-col text-[#444] font-semibold text-left text-sm md:text-2xl leading-tight w-[310px] md:w-full'>
+                                    {t("Partner.partnerDescription")}
+                                </div>
+                            </div>
+                            <div className='flex flex-col md:flex-row items-center gap-5 md:gap-[50px]'>
+                                <div className=' w-full md:w-[300px] h-[180px] bg-[#ECFFE6] flex flex-col justify-center items-center gap-[30px] rounded-[5px]'>
+                                    <div className='text-base font-bold text-primary leading-none'>{t("Partner.Referral.referral1")}</div>
+                                    <div>
+                                        <ShareIcon/>
+                                    </div>
+                                </div>
+                                <div className=' w-full md:w-[300px] h-[180px] bg-[#ECFFE6] flex flex-col justify-center items-center gap-[30px] rounded-[5px]'>
+                                    <div className='text-base font-bold text-primary leading-none flex flex-col'>
+                                        <div>{t("Partner.Referral.referral2")}</div>
+                                        <div>{t("Partner.Referral.referral21")}</div>
+                                    </div>
+                                    <div>
+                                        <RegisterIcon/>
+                                    </div>
+                                </div>
+                                <div className=' w-full md:w-[300px] h-[180px] bg-[#ECFFE6] flex flex-col justify-center items-center gap-[30px] rounded-[5px]'>
+                                    <div className='text-base font-bold text-primary leading-none'>{t("Partner.Referral.referral3")}</div>
+                                    <div>
+                                        <BonusIcon/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='flex flex-col gap-[100px]'>
+                            <div className='flex flex-col items-center gap-[10px] md:gap-5'>
+                                <div className='hidden md:flex flex-col items-center text-2xl md:text-[64px] font-bold md:font-extrabold leading-tight'>
+                                    <div className=' text-primary'>{t("Partner.Referral.businessads")}</div>
+                                    <div className=' text-[#444]'></div>
+                                </div>
+                                <div className='md:hidden text-2xl md:text-[64px] font-bold md:font-extrabold leading-tight'>
+                                    <div className=' text-primary'>{t("Partner.Referral.businessads")} <span className='text-[#444]'>{t("Partner.Referral.businessads2")}</span></div>
+                                </div>
+                                <div className=' text-[#444] text-sm md:text-2xl font-semibold leading-tight md:w-[730px]'>
+                                    {t("Partner.Referral.qcgbusinessads")}
+                                </div>
+                            </div>
+                            <div>
+                                <video autoPlay loop playsInline muted preload='auto' ref={videoRef} className='w-full rounded-[5px]'>
+                                    <source src={Trade} type='video/mp4'/>
+                                </video>
+                            </div>
+                        </div>
+
+                        <div className='flex flex-col gap-[100px] items-center'>
+                            <div className='flex flex-col text-2xl md:text-[64px] font-bold md:font-extrabold leading-tight'>
+                                <div className=' text-primary'>
+                                    {t("Partner.Referral.benefit")}
+                                </div>
+                                <div className='text-[#444]'>
+                                    {t("Partner.Referral.benefit2")}
+                                </div>
+                            </div>
+                            <div className=' hidden md:flex flex-col gap-[100px]'>
+                                <div className='flex items-center justify-between w-[700px]'>
+                                    <div className='flex flex-col gap-[30px] items-center'>
+                                        <div>
+                                            <RebateIcon/>
                                         </div>
-                                        <Sponsor/>
-                                        <div className='text-[#444]'>
-                                            <div className={`${language === 'en' ? 'md:text-base font-bold w-[220px]': 
-                                                            language === 'zh' ? 'md:text-base font-bold w-[220px]':  ''}`}>
-                                                <div className='leading-[1.20]'>{t("Partner.partnerSubtitleDescription")}</div>
-                                            </div>
+                                        <div className='flex flex-col text-xl leading-tight'>
+                                            <div>{t("Partner.Referral.rebate")} <span className=' text-primary font-bold'>$ 8.00</span></div>
+                                            <div>{t("Partner.Referral.rebate2")}</div>
                                         </div>
                                     </div>
-                                    <div className='w-[300px] flex flex-col gap-[30px] rounded-[20px] items-center pt-[38px] pb-[82px] px-[40px] bg-primary-50 drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]'>
-                                        <div className='flex flex-col text-[#1C7800] text-left text-[16px] font-bold'>
-                                            {t("Partner.partnerSubtitle2")}
+                                    <div className='flex flex-col gap-[30px] items-center'>
+                                        <div>
+                                            <CreditBonusIcon/>
                                         </div>
-                                        <Friends/>
-                                        <div className='text-[#444]'>
-                                            <div className={`${language === 'en' ? 'md:text-base font-bold w-[220px]': 
-                                                            language === 'zh' ? 'md:text-base font-bold w-[220px]':  ''}`}>
-                                                <div className='leading-[1.20]'>{t("Partner.partnerSubtitle2Description")}</div>
-                                            </div>
+                                        <div className='flex flex-col text-xl leading-tight'>
+                                            <div>{t("Partner.Referral.creditBonus")}</div>
+                                            <div className=' text-primary font-bold'>{t("Partner.Referral.creditBonus2")}</div>
                                         </div>
                                     </div>
-                                    <div className='w-[300px] flex flex-col gap-[30px] rounded-[20px] items-center pt-[39px] pb-[62px] px-[40px] bg-primary-50 drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]'>
-                                        <div className='flex flex-col text-[#1C7800] text-left text-[16px] font-bold'>
-                                            {t("Partner.partnerSubtitle3")}
+                                    <div className='flex flex-col gap-[30px] items-center'>
+                                        <div>
+                                            <RebateAllocateIcon/>
                                         </div>
-                                        <Bonuses/>
-                                        <div className='text-[#444]'>
-                                            <div className={`${language === 'en' ? 'md:text-base font-bold w-[220px]': 
-                                                            language === 'zh' ? 'md:text-base font-bold w-[220px]':  ''}`}>
-                                                <div className='leading-[1.20]'>{t("Partner.partnerSubtitle3Description")}</div>
-                                            </div>
+                                        <div className='flex flex-col text-xl leading-tight'>
+                                            <div>{t("Partner.Referral.rebateAllocate")}</div>
+                                            <div className=' text-primary font-bold'>{t("Partner.Referral.rebateAllocate2")}</div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                {/* mobile version */}
-                                <div className='flex flex-col justify-center gap-[30px] md:gap-[50px] md:hidden items-center'>
-                                    <div className='w-[313px] flex flex-col gap-[20px] rounded-[20px] items-center pt-[30px] pb-[60px] px-[31px] bg-primary-50 drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]'>
-                                        <div className='flex flex-col text-[#1C7800] text-left text-[16px] font-bold leading-tight'>
-                                            {t("Partner.partnerSubtitle")}
+                                <div className='flex items-center justify-between w-[700px]'>
+                                    <div className='flex flex-col gap-[30px] items-center'>
+                                        <div>
+                                            <DailyRebateIcon/>
                                         </div>
-                                        <Sponsor/>
-                                        <div className='text-[#444] leading-tight'>
-                                            <div className={`${language === 'en' ? 'text-base font-bold w-[250px]': 
-                                                               language === 'zh' ? 'text-base font-bold w-[205px]':  ''}`}>
-                                                <div className='leading-[1.20]'>{t("Partner.partnerSubtitleDescription")}</div>
-                                            </div>
+                                        <div className='flex flex-col text-xl leading-tight'>
+                                            <div className=' text-primary font-bold'>{t("Partner.Referral.DailyRebate")}</div>
+                                            <div>{t("Partner.Referral.DailyRebate2")}</div>
                                         </div>
                                     </div>
-                                    <div className='w-[313px] flex flex-col gap-[20px] rounded-[20px] items-center pt-[30px] pb-[60px] px-[31px] bg-primary-50 drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]'>
-                                        <div className='flex flex-col text-[#1C7800] text-left text-[16px] font-bold leading-tight'>
-                                            {t("Partner.partnerSubtitle2")}
+                                    <div className='flex flex-col gap-[30px] items-center'>
+                                        <div>
+                                            <IntelligentIcon/>
                                         </div>
-                                        <Friends/>
-                                        <div className='text-[#444] leading-tight'>
-                                            <div className={`${language === 'en' ? 'text-base font-bold w-[220px]': 
-                                                               language === 'zh' ? 'text-base font-bold w-[170px]':  ''}`}>
-                                                    <div className='leading-[1.20]'>{t("Partner.partnerSubtitle2Description")}</div>
-                                                </div>
-                                            </div>
+                                        <div className='flex flex-col text-xl leading-tight'>
+                                            <div>{t("Partner.Referral.intelligent")}</div>
+                                            <div className=' text-primary font-bold'>{t("Partner.Referral.intelligent2")}</div>
+                                        </div>
                                     </div>
-                                    <div className='w-[313px] flex flex-col gap-[20px] rounded-[20px] items-center pt-[30px] pb-[45px] px-[32px] bg-primary-50 drop-shadow-[2px_2px_4px_rgba(0,0,0,0.5)]'>
-                                        <div className='flex flex-col text-[#1C7800] text-left text-[16px] font-bold leading-tight'>
-                                            {t("Partner.partnerSubtitle3")}
+                                    <div className='flex flex-col gap-[30px] items-center'>
+                                        <div>
+                                            <StreamLinedIcon/>
                                         </div>
-                                        <Bonuses/>
-                                        <div className='text-[#444] leading-tight'>
-                                            <div className={`${language === 'en' ? 'text-base font-bold w-[250px]': 
-                                                               language === 'zh' ? 'text-base font-bold w-[220px]':  ''}`}>
-                                                <div className='leading-[1.20]'>{t("Partner.partnerSubtitle3Description")}</div>
-                                            </div>
+                                        <div className='flex flex-col text-xl leading-tight'>
+                                            <div className=' text-primary font-bold'>{t("Partner.Referral.streamlined")}</div>
+                                            <div>{t("Partner.Referral.streamlined2")}</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div className='flex flex-col gap-[30px]'>
-                                <div className='flex flex-col gap-[10px]'>
-                                    <div className='flex flex-col text-[#1C7800] text-left text-2xl md:text-[40px] font-bold'>
-                                        {t("Partner.Rewards.rewardsTitle")}
+                            <div className='grid grid-cols-2 items-center justify-center gap-[50px] md:hidden'>
+                                <div className='flex flex-col gap-[30px] items-center'>
+                                    <div>
+                                        <RebateMobileIcon/>
                                     </div>
-                                    <div className='flex flex-col text-[#444] text-left'>
-                                        <div className={`${language === 'en' ? 'text-base md:text-xl font-medium md:w-[900px] leading-[1.20]': 
-                                                           language === 'zh' ? 'text-base md:text-4xl font-medium md:w-[1000px] leading-[1.20]':  ''}`}>
-                                            <div className='leading-[1.20]'>{t("Partner.Rewards.rewardsDescription")}</div>
-                                        </div>
+                                    <div className='flex flex-col text-base font-medium leading-tight'>
+                                        <div>{t("Partner.Referral.rebate")} <span className=' text-primary font-bold'>$ 8.00</span></div>
+                                        <div>{t("Partner.Referral.rebate2")}</div>
                                     </div>
                                 </div>
-                                <div className='flex flex-col gap-[10px] md:gap-[20px]'>
+                                <div className='flex flex-col gap-[30px] items-center'>
                                     <div>
-                                        <table className="table-auto w-[100%] border-collapse text-center font-medium">
-                                            <thead>
-                                            <tr className=' bg-[#1C7800] text-[#fff] border-white text-[10px] md:text-[16px]'>
-                                                <th className='h-[30px] border-[2px] border-white w-[69px] md:w-[312px] pl-[6px] md:pl-[20px] font-medium'>
-                                                    <div className='hidden md:flex text-left font-medium'>{t("Partner.Rewards.rewardsCol1_Title")}</div>
-                                                    <div className='md:hidden text-left'>
-                                                        <div className={`${language === 'en' ? 'font-semibold md:font-medium': 
-                                                                       language === 'zh' ? 'font-semibold md:font-medium':  ''}`}>
-                                                            {t("Partner.Rewards.rewardsCol1_mobileTitle")}<br />{t("Partner.Rewards.rewardsCol1_mobileTitle2")}
-                                                        </div>
-                                                    </div>
-                                                </th>
-                                                <th className='h-[30px] w-[69px] md:w-[170px] border-[2px] border-white'>
-                                                    <div className='hidden md:flex justify-center font-medium'>{t("Partner.Rewards.rewardsCol2_Title")}</div>
-                                                    <div className='md:hidden justify-center'>{t("Partner.Rewards.rewardsCol2_mobileTitle")}
-                                                        <br />{t("Partner.Rewards.rewardsCol2_mobileTitle2")}
-                                                    </div>
-                                                </th>
-                                                <th className='h-[30px] w-[69px] md:w-[170px] border-[2px] border-white'>
-                                                    <div className='hidden md:flex justify-center font-medium'>{t("Partner.Rewards.rewardsCol3_Title")}</div>
-                                                    <div className='md:hidden justify-center'>{t("Partner.Rewards.rewardsCol3_mobileTitle")}
-                                                        <br />{t("Partner.Rewards.rewardsCol3_mobileTitle2")}
-                                                    </div>
-                                                </th>
-                                                <th className='h-[30px] w-[69px] md:w-[170px] border-[2px] border-white'>
-                                                    <div className='hidden md:flex justify-center font-medium'>{t("Partner.Rewards.rewardsCol4_Title")}</div>
-                                                    <div className='md:hidden justify-center'>{t("Partner.Rewards.rewardsCol4_mobileTitle")}
-                                                        <br />{t("Partner.Rewards.rewardsCol4_mobileTitle2")}
-                                                    </div>
-                                                </th>
-                                                <th className='h-[30px] w-[69px] md:w-[170px] border-[2px] border-white'>
-                                                    <div className='hidden md:flex justify-center font-medium'>{t("Partner.Rewards.rewardsCol5_Title")}</div>
-                                                    <div className='md:hidden justify-center'>{t("Partner.Rewards.rewardsCol5_mobileTitle")}
-                                                        <br />{t("Partner.Rewards.rewardsCol5_mobileTitle2")}
-                                                    </div>
-                                                </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr className=' bg-[#ECFFE6] text-[10px] md:text-[14px]'>
-                                                <td className='h-[40px] md:h-[30px] border-[2px] border-white text-left pl-[6px] md:pl-[20px]'>
-                                                    <div className='hidden md:flex'>{t("Partner.Rewards.rewardsRow1_Title")}</div>
-                                                    <div className='md:hidden'>{t("Partner.Rewards.rewardsRow1_mobileTitle")}
-                                                        <br />{t("Partner.Rewards.rewardsRow1_mobileTitle2")}
-                                                    </div>
-                                                </td>
-                                                <td rowSpan={4}>14</td>
-                                                <td className='h-[30px] border-[2px] border-white'>3,000.00</td>
-                                                <td className='h-[30px] border-[2px] border-white'>5,000.00</td>
-                                                <td className='h-[30px] border-[2px] border-white'>10,000.00</td>
-                                            </tr>
-                                            <tr className=' bg-[#ECFFE6] text-[10px] md:text-[14px]'>
-                                                <td className='h-[40px] md:h-[30px] border-[2px] border-white text-left pl-[6px] md:pl-[20px]'>
-                                                    <div className='hidden md:flex'>{t("Partner.Rewards.rewardsRow2_Title")}</div>
-                                                    <div className='md:hidden'>{t("Partner.Rewards.rewardsRow2_mobileTitle")}
-                                                    <br />{t("Partner.Rewards.rewardsRow2_mobileTitle2")}</div>
-                                                </td>
-                                                <td className='h-[30px] border-[2px] border-white hidden md:table-cell'>{t("Partner.Rewards.rewardsData1")}</td>
-                                                <td className='h-[30px] border-[2px] border-white hidden md:table-cell'>{t("Partner.Rewards.rewardsData2")}</td>
-                                                <td className='h-[30px] border-[2px] border-white hidden md:table-cell'>{t("Partner.Rewards.rewardsData3")}</td>
-                                                <td className='h-[30px] border-[2px] border-white md:hidden'>{t("Partner.Rewards.rewardsMobileData1")}</td>
-                                                <td className='h-[30px] border-[2px] border-white md:hidden'>{t("Partner.Rewards.rewardsMobileData2")}</td>
-                                                <td className='h-[30px] border-[2px] border-white md:hidden'>{t("Partner.Rewards.rewardsMobileData3")}</td>
-                                            </tr>
-                                            <tr className=' bg-[#ECFFE6] text-[10px] md:text-[14px]'>
-                                                <td className='h-[40px] md:h-[30px] border-[2px] border-white text-left pl-[6px] md:pl-[20px]'>
-                                                    <div className='hidden md:flex'>{t("Partner.Rewards.rewardsRow3_Title")}</div>
-                                                    <div className='md:hidden'>{t("Partner.Rewards.rewardsRow3_mobileTitle")}
-                                                    <br />{t("Partner.Rewards.rewardsRow3_mobileTitle2")}</div>
-                                                </td>
-                                                <td className='h-[30px] border-[2px] border-white'>100.00</td>
-                                                <td className='h-[30px] border-[2px] border-white'>200.00</td>
-                                                <td className='h-[30px] border-[2px] border-white'>500.00</td>
-                                            </tr>
-                                            <tr className=' bg-[#ECFFE6] text-[10px] md:text-[14px]'>
-                                                <td className='h-[40px] md:h-[30px] border-[2px] border-white text-left pl-[6px] md:pl-[20px]'>
-                                                    <div className='hidden md:flex'>{t("Partner.Rewards.rewardsRow4_Title")}</div>
-                                                    <div className='md:hidden'>{t("Partner.Rewards.rewardsRow4_mobileTitle")}
-                                                    <br />{t("Partner.Rewards.rewardsRow4_mobileTitle2")}</div>
-                                                </td>
-                                                <td className='h-[30px] border-[2px] border-white'>100.00</td>
-                                                <td className='h-[30px] border-[2px] border-white'>200.00</td>
-                                                <td className='h-[30px] border-[2px] border-white'>500.00</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                        <CreditBonusMobileIcon/>
                                     </div>
-                                    <ul className='list-disc text-[#444] font-normal text-2xl mx-7'>
-                                        <li className=' text-[#1C7800] text-xs font-medium underline text-left'>
-                                            <div className={`${language === 'en' ? 'text-xs md:text-[20px] font-medium': 
-                                                               language === 'zh' ? 'text-sm md:text-[20px] font-semibold md:font-medium':  ''}`}>
-                                                {t("Partner.Rewards.rewardReminder")}
-                                            </div>
-                                        </li> 
-                                    </ul>
+                                    <div className='flex flex-col text-base font-medium leading-tight'>
+                                        <div>{t("Partner.Referral.creditBonus")}</div>
+                                        <div className=' text-primary font-bold'>{t("Partner.Referral.creditBonus2")}</div>
+                                    </div>
+                                </div>
+                                <div className='flex flex-col gap-[30px] items-center'>
+                                    <div>
+                                        <RebateAllocateMobileIcon/>
+                                    </div>
+                                    <div className='flex flex-col text-base font-medium leading-tight'>
+                                        <div>{t("Partner.Referral.rebateAllocate")}</div>
+                                        <div className=' text-primary font-bold'>{t("Partner.Referral.rebateAllocate2")}</div>
+                                    </div>
+                                </div>
+                                <div className='flex flex-col gap-[30px] items-center'>
+                                    <div>
+                                        <DailyRebateMobileIcon/>
+                                    </div>
+                                    <div className='flex flex-col text-base font-medium leading-tight'>
+                                        <div className=' text-primary font-bold'>{t("Partner.Referral.DailyRebate")}</div>
+                                        <div>{t("Partner.Referral.DailyRebate2")}</div>
+                                    </div>
+                                </div>
+                                <div className='flex flex-col gap-[30px] items-center'>
+                                    <div>
+                                        <IntelligentMobileIcon/>
+                                    </div>
+                                    <div className='flex flex-col text-base font-medium leading-tight'>
+                                        <div>{t("Partner.Referral.intelligent")}</div>
+                                        <div className=' text-primary font-bold'>{t("Partner.Referral.intelligent2")}</div>
+                                    </div>
+                                </div>
+                                <div className='flex flex-col gap-[30px] items-center'>
+                                    <div>
+                                        <StreamLinedMobileIcon/>
+                                    </div>
+                                    <div className='flex flex-col text-base font-medium leading-tight'>
+                                        <div className=' text-primary font-bold'>{t("Partner.Referral.streamlined")}</div>
+                                        <div>{t("Partner.Referral.streamlined2")}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div className='flex flex-col gap-[10px] md:gap-[30px]'>
-                            <div className='text-[#444] text-base md:text-3xl font-bold text-left'>
-                                <div className={`${language === 'en' ? 'font-bold md:w-[563px]': 
-                                                    language === 'zh' ? 'font-bold md:w-[950px]':  ''}`}>
-                                    {t("openTradingACC.openTradingACC_Title")}
+                        <div className='w-full h-[1px] bg-primary'></div>
+
+                        <div className='flex flex-col gap-[10px] md:gap-[50px]'>
+                            <div className='flex flex-col gap-[30px]'>
+                                <div className=' text-2xl md:text-5xl font-bold text-left'>
+                                    <div className='text-[#444]'>{t("Partner.Micro.microtitle")} <span className='text-[#1C7800]'>{t("Partner.Micro.microtitle2")}</span></div>
                                 </div>
+                                <div className='text-sm md:text-2xl text-[#444] font-bold md:font-semibold leading-tight text-left'>
+                                    {t("Partner.Micro.microdesc")}
+                                </div>
+                            </div>
+                            
+                            <div className='hidden md:flex flex-col'>
+                                <ul className='list-disc text-[#444] font-normal text-2xl text-left mx-7 space-y-8'>
+                                    <li> 
+                                        <div className='font-bold flex flex-col'>
+                                            <div>{t("Partner.Micro.rapid")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-2'>
+                                                <div> - </div>
+                                                <div className=''> {t("Partner.Micro.rapid2")}</div> 
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li> 
+                                        <div className='font-bold flex flex-col'>
+                                            <div>{t("Partner.Micro.cost")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-2'>
+                                                <div> - </div>
+                                                <div className=' md:w-[900px]'> {t("Partner.Micro.cost2")}</div> 
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li> 
+                                        <div className='font-bold flex flex-col'>
+                                            <div>{t("Partner.Micro.risk")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-2'>
+                                                <div> - </div>
+                                                <div className=''> {t("Partner.Micro.risk2")}</div> 
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li> 
+                                        <div className='font-bold flex flex-col'>
+                                            <div>{t("Partner.Micro.brand")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-2'>
+                                                <div> - </div>
+                                                <div className=''> {t("Partner.Micro.brand2")}</div> 
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li> 
+                                        <div className='font-bold flex flex-col'>
+                                            <div>{t("Partner.Micro.focus")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-2'>
+                                                <div> - </div>
+                                                <div className=' md:w-[900px]'> {t("Partner.Micro.focus2")}</div> 
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='flex flex-col md:hidden'>
+                                <div className='text-[#444] text-sm space-y-4'>
+                                    <div className='leading-[1.20] text-left'>
+                                        <div className='flex flex-col'>
+                                            <div className='font-bold'>{t("Partner.Micro.rapid")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-1'>
+                                                <div className='font-semibold'> - </div>
+                                                <div className='font-medium'> {t("Partner.Micro.rapid2")}</div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='leading-[1.20] text-left'>
+                                        <div className='flex flex-col'>
+                                            <div className='font-bold'>{t("Partner.Micro.cost")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-1'>
+                                                <div className='font-semibold'> - </div>
+                                                <div className='font-medium'> {t("Partner.Micro.cost2")}</div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='leading-[1.20] text-left'>
+                                        <div className='flex flex-col'>
+                                            <div className='font-bold'>{t("Partner.Micro.risk")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-1'>
+                                                <div className='font-semibold'> - </div>
+                                                <div className='font-medium'> {t("Partner.Micro.risk2")}</div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='leading-[1.20] text-left'>
+                                        <div className='flex flex-col'>
+                                            <div className='font-bold'>{t("Partner.Micro.brand")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-1'>
+                                                <div className='font-semibold'> - </div>
+                                                <div className='font-medium'> {t("Partner.Micro.brand2")}</div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='leading-[1.20] text-left'>
+                                        <div className='flex flex-col'>
+                                            <div className='font-bold'>{t("Partner.Micro.focus")}</div>
+                                            <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-1'>
+                                                <div className='font-semibold'> - </div>
+                                                <div className='font-medium'> {t("Partner.Micro.focus2")}</div> 
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='flex flex-col gap-[30px] md:gap-[50px]'>
+                                <div className='flex flex-col gap-5 md:gap-[30px]'>
+                                    <div className=' text-2xl w-[210px] md:w-full md:text-5xl font-bold text-left leading-tight'>
+                                        <div className='text-[#444]'>{t("Partner.MicroLabel.microtitle")} <span className='text-[#1C7800]'>{t("Partner.MicroLabel.microtitle2")}</span></div>
+                                    </div>
+                                    <div className='flex flex-col gap-[10px] md:gap-5'>
+                                        <div className=' text-xl md:text-5xl text-[#444] font-bold leading-tight text-left'>
+                                            {t("Partner.MicroLabel.microdesctitle")}
+                                        </div>
+                                        <div className=' text-[#444] text-sm md:text-[32px] leading-tight font-semibold text-left'>
+                                            {t("Partner.MicroLabel.microdesc")}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='flex items-center gap-5 md:gap-9 md:w-[500px] cursor-pointer hover:bg-[#eaeaea2c] hover:rounded-[21px]' onClick={() => handleButtonClick('service')}>
+                                    <div className=' hidden md:flex justify-center items-center rounded-[21px] border border-[#ccc] bg-white p-[22px]'>
+                                        <FormIcon/>
+                                    </div>
+                                    <div className=' flex md:hidden justify-center items-center rounded-[10px] border border-[#ccc] bg-white p-[11px]'>
+                                        <FormMobileIcon/>
+                                    </div>
+                                    <div className='flex flex-col text-left text-[#666] text-sm md:text-2xl font-semibold'>
+                                        <div>{t("Partner.MicroLabel.form")}</div>
+                                        <div>{t("Partner.MicroLabel.form2")}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='flex flex-col gap-5 md:gap-[30px]'>
+                            <div className='text-[#444] text-base md:text-2xl text-left font-bold leading-tight md:leading-none'>
+                                {t("openTradingACC.openTradingACC_Title")}
                             </div>
                             <div className='flex flex-col gap-[30px] md:gap-[15px]'>
                                 <div className='flex gap-[20px] md:gap-[10px]'>
                                     <div className='hidden md:flex gap-[20px] md:gap-[10px]'>
                                         <img src={google} alt="google" />
                                         <img src={apple} alt="apple" />
-                                        <Window/>
+                                        <img src={window} alt="window" />
                                     </div>
-                                    <div className='md:hidden'>
-                                        <img src={mobile_IOS_PS} alt="IOS_PS" />
-                                    </div>
-                                    <div className='w-[180px] md:w-[150px] bg-[#1C7800] text-white rounded-[5px] md:rounded-md flex items-center justify-center text-sm md:text-base font-bold'>
-                                        <div className={`${language === 'en' ? 'font-bold md:w-[150px]': 
-                                                        language === 'zh' ? 'font-bold md:w-[950px]':  ''}`}>
+                                    <div className='flex items-center gap-[26px] md:hidden'>
+                                        <AppleMobileIcon/>
+                                        <PlayStoreIcon/>
+                                        <div className='w-[180px] h-[50px] md:w-[150px] bg-[#1C7800] text-white rounded-[5px] md:rounded-md flex items-center justify-center text-sm md:text-base font-bold'>
                                             {t("openTradingACC.liveACC_Title")}
                                         </div>
                                     </div>
+                                    <div className='w-[180px] md:w-[159px] bg-[#1C7800] text-white rounded-[5px] md:rounded-md items-center justify-center text-sm md:text-base font-bold hidden md:flex'>
+                                        {t("openTradingACC.liveACC_Title")}
+                                    </div>
                                 </div>
                                 <div className='hidden md:flex flex-col'>
-                                    <div className='text-[#444] text-xl text-left'>
-                                        <div className={`${language === 'en' ? 'font-medium md:w-[563px]': 
-                                                            language === 'zh' ? ' font-normal md:w-[950px]':  ''}`}>
-                                            {t("openTradingACC.tradingAcc_Description")}
-                                        </div>
+                                    <div className='text-[#444] text-2xl text-left font-medium leading-tight'>
+                                        {t("openTradingACC.tradingAcc_Description")}
                                     </div>
-                                    <div className='text-[#444] text-xl font-medium text-left'> 
-                                        <div className={`${language === 'en' ? 'font-medium md:w-[1000px]': 
-                                                            language === 'zh' ? 'font-normal md:w-[950px]':  ''}`}>
-                                                            {t("openTradingACC.tradingAcc_Description2")}
-                                            <span className={`${language === 'en' ? ' text-[#1C7800] font-medium': 
-                                                                language === 'zh' ? 'text-[#1C7800] font-medium':  ''}`}>
-                                                {t("openTradingACC.tradingAcc_Description3")}
-                                            </span>
-                                        </div>
+                                    <div className='text-[#444] text-2xl text-left font-medium leading-tight'> 
+                                        {t("openTradingACC.tradingAcc_Description2")}
+                                        <span className="text-[#1C7800]">
+                                            {t("openTradingACC.tradingAcc_Description3")}
+                                        </span>
                                     </div>
                                 </div>
                                 <div className='flex flex-col md:hidden'>
-                                    <div className='text-[#444] text-base font-medium text-left leading-[1.20]'>
+                                    <div className='text-[#444] text-sm md:text-2xl font-medium text-left leading-[1.20]'>
                                         {t("openTradingACC.tradingAcc_Description")}
-                                        {t("openTradingACC.tradingAcc_Description2")}
+                                        {t("openTradingACC.tradingAcc_Description2")} <span className='text-primary font-semibold md:font-medium'>{t("openTradingACC.tradingAcc_Description3")}</span>
                                         {language === 'en' ? (
                                             <span className='text-[#1C7800] font-medium leading-[1.20]'>
-                                                {t("openTradingACC.tradingAcc_Description3")}
+                                                
                                             </span>
                                         ) : language === 'zh' ? (
-                                            <div className='text-base text-primary font-medium leading-[1.20]'>
+                                            <div className='text-base  font-medium leading-[1.20]'>
                                                 {t("openTradingACC.tradingAcc_Description3")}
                                             </div>
                                         ) : null}
@@ -385,9 +502,13 @@ const Partner = () => {
                                 </div>
                             </div>
                         </div>
+                        {/* HERE */}
                     </div>
                 </div>
             </div>
+
+            <Modal open={openButton} onClose={() => setOpenButton(false)} selectedButton={selectedButton}/>
+
         </div>
     )
 }

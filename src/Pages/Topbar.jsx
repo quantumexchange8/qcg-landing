@@ -106,7 +106,7 @@ const Topbar = () => {
                 </div>
 
                 {/* Earphone and Lang icons on web version*/}
-                <div className='hidden md:flex justify-center gap-[30px] cursor-pointer'>
+                <div className='hidden md:flex justify-center gap-[30px] cursor-pointer' onClick={() => handleButtonClick('service')}>
                     <Earphone/>
                 </div>
                 <div className='hidden md:flex justify-center gap-[30px] cursor-pointer'>
@@ -375,9 +375,9 @@ const Topbar = () => {
                                     <Dialog.Panel className="flex flex-col gap-5 w-130px transform overflow-hidden rounded-[5px] bg-white p-6 text-left align-middle shadow-xl transition-all">
                                     
                                         <Link
-                                            to="/home"
+                                            to="/"
                                             className={`${
-                                                location.pathname === '/home' 
+                                                location.pathname === '/' 
                                             }`}
                                         >
                                             <button

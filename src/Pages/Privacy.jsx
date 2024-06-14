@@ -8,14 +8,19 @@ import window from '../Assets/Images/window.png';
 // import mobile_IOS_PS from '../Assets/Images/mobile_IOS_PS.svg';
 import { LanguageContext } from "../LanguagesContext";
 import { AppleMobileIcon, PlayStoreIcon } from '../Components/Brand';
+import LazyLoad from 'react-lazyload';
 
 const Privacy = () => {
     const { t, language} = useContext(LanguageContext);
     return (
         <div className='flex flex-col md:pt-[60px]'> 
             <div className='relative mt-[60px] md:mt-0'>
-                <img src={home} alt='home' className='w-full hidden md:block'/>
-                <img src={homeMobile} alt='homeMobile' className='w-full block md:hidden'/>
+                <LazyLoad height={200} offset={100} once>
+                    <img src={home} alt='home' className='w-full hidden md:block'/>
+                </LazyLoad>
+                <LazyLoad height={200} offset={100} once>
+                    <img src={homeMobile} alt='homeMobile' className='w-full block md:hidden'/>
+                </LazyLoad>
 
                 <div className='absolute inset-0 flex justify-center'>
                     <div className='max-w-[1000px] w-full flex flex-col items-start justify-end gap-[10px] md:gap-5 py-[50px] px-[30px] md:px-0 md:py-[100px]'>
@@ -165,7 +170,7 @@ const Privacy = () => {
                                     The document discloses the ways the 
                                     company gathers, uses, discloses, 
                                     and manages your personal 
-                                    information. <a href="#/ "><span className='text-[#0028FC] text-base md:text-2xl font-semibold md:font-medium underline'>more...</span></a>
+                                    information. <a href="/privacy-policy "><span className='text-[#0028FC] text-base md:text-2xl font-semibold md:font-medium underline'>more...</span></a>
                                 </div>
                             </div>
                             <div className='flex flex-col gap-5'>
