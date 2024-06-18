@@ -10,8 +10,8 @@ const Topbar = () => {
     const location = useLocation();
     const [openButton, setOpenButton] = useState(false);
     const [selectedButton, setSelectedButton] = useState(null);
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // Define isMenuOpen state
-    const { t, language, updateLanguage } = useContext(LanguageContext);
+    const [, setIsMenuOpen] = useState(false); // Define isMenuOpen state
+    const { t, updateLanguage } = useContext(LanguageContext);
 
     let [langIsOpen, setLangIsOpen] = useState(false);
     let [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -372,7 +372,7 @@ const Topbar = () => {
                                     leaveFrom="opacity-100 scale-100"
                                     leaveTo="opacity-0 scale-95"
                                 >
-                                    <Dialog.Panel className="flex flex-col gap-5 w-130px transform overflow-hidden rounded-[5px] bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                    <Dialog.Panel className="flex flex-col gap-5 w-170px transform overflow-hidden rounded-[5px] bg-white px-10 py-8 text-left align-middle shadow-xl transition-all">
                                     
                                         <Link
                                             to="/"

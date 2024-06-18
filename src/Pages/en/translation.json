@@ -213,6 +213,31 @@
         "disclaimerSubtitle8":"Market Manipulation: ",
         "disclaimerSubtitle8Description":"Investors are not allowed to engage in any market manipulation activities, including but not limited to manipulating prices, spreading false information, or abusing market rules. ",
         "disclaimerReminder":"Please note that this company does not provide any guarantees or representations, either express or implied, regarding the success or failure of Forex trading results or any specific investment strategy. Investors should carefully read and understand these risks before engaging in Forex trading and seek professional advice when necessary."
+      },
+      "table": {
+        "aud": "Australian Dollar",
+        "cad": "Canadian Dollar",
+        "chf": "Swiss Franc",
+        "jpy": "Japanese Yen",
+        "nzd": "New Zealand Dollar",
+        "usd": "US Dollar",
+        "eur": "Euro",
+        "gbp": "British Pound",
+        "xau": "Gold",
+        "xag": "Silver",
+        "XPDUSD": "Palladium",
+        "XPTUSD": "Palladium",
+        "CHINA50": "Spot China 50 (USD)",
+        "NIK225": "Spot Japan 225 (JPY)",
+        "DE40": "Spot Germany 40 (EUR)",
+        "FR40": "Spot France 40 (EUR)",
+        "ES": "Spot Spain 35 (EUR)",
+        "CH": "Spot Switzerland 20 (CHF)",
+        "US500": "Spot US 500 (USD)",
+        "NAS100": "Spot US Tech 100 (USD)",
+        "GB100": "Spot UK 100 (GBP)",
+        "EU50": "Spot EU Stocks 50 (EUR)",
+        "US30": "Spot US 30 (USD)"
       }
     },
 
@@ -457,5 +482,10 @@
       "requiredEmail":"Your email is required.",
       "emailFormat":"The email must be a valid email address.",
       "requiredMessage":"Your message is required."
+    },
+
+    "Contact": {
+      "header": "Leave your contact",
+      "desc": "We will contact you as soon as possible"
     }
   }
