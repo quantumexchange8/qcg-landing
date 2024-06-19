@@ -6,7 +6,6 @@ import { Menu, Transition, Dialog } from '@headlessui/react'
 import Modal from '../Components/Modal';
 import { useTranslation } from 'react-i18next';
 // import { LanguageContext } from "../LanguagesContext.js";
-import ScrollToTop from '../Components/ScrollToTop';
 
 const Topbar = () => {
     const location = useLocation();
@@ -15,7 +14,6 @@ const Topbar = () => {
     // const [, setIsMenuOpen] = useState(false);
     // const { t, updateLanguage } = useContext(LanguageContext);
     const { t, i18n } = useTranslation();
-    ScrollToTop();
 
     const toggleLanguage = (langCode) => {
         i18n.changeLanguage(langCode);
@@ -266,7 +264,7 @@ const Topbar = () => {
                                         <Link
                                             to="/"
                                             className={`${
-                                                location.pathname === '/' 
+                                                location.pathname === '/' ? 'active' : ''
                                             }`}
                                         >
                                             <button
@@ -279,7 +277,7 @@ const Topbar = () => {
                                         <Link
                                             to="/products"
                                             className={`${
-                                                location.pathname === '/products' 
+                                                location.pathname === '/products' ? 'active' : ''
                                             }`}
                                         >
                                             <button
@@ -292,7 +290,7 @@ const Topbar = () => {
                                         <Link
                                             to="/account"
                                             className={`${
-                                                location.pathname === '/account' 
+                                                location.pathname === '/account' ? 'active' : ''
                                             }`}
                                         >
                                             <button
@@ -305,7 +303,7 @@ const Topbar = () => {
                                         <Link
                                             to="/partner"
                                             className={`${
-                                                location.pathname === '/partner' 
+                                                location.pathname === '/partner' ? 'active' : ''
                                             }`}
                                         >
                                             <button
