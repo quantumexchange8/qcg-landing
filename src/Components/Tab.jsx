@@ -9,7 +9,7 @@ import { LanguageContext } from "../LanguagesContext";
 //   return classes.filter(Boolean).join(' ');
 // }
 
-export default function TabComponent({ selectedButton }) {
+export default function TabComponent({ selectedButton, onClose }) {
   const [, setSelectedTab] = useState(0);
   const { t} = useContext(LanguageContext);
 
@@ -30,7 +30,7 @@ export default function TabComponent({ selectedButton }) {
           {t("Contact.desc")}
         </div>
       </div>
-      <SubmitEmail />
+      <SubmitEmail onClose={onClose}/>
     </div>
   );
 }

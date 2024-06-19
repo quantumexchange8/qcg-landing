@@ -1,72 +1,84 @@
-import React, { useRef, useState, useContext } from "react";
-import emailjs from '@emailjs/browser';
-import Swal from 'sweetalert2';
-import { LanguageContext } from "../LanguagesContext";
+import React, { useEffect, useRef, useState } from "react";
+import axios from 'axios';
+import { useTranslation } from 'react-i18next';
+import Swal from "sweetalert2";
 
-export default function FormSubmission() {
-    const { t } = useContext(LanguageContext);
+export default function FormSubmission({ onClose }) {
+    const { t, i18n } = useTranslation();
+    const [, setLanguage] = useState(i18n.language);
     const form = useRef();
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [errors, setErrors] = useState({
-        userName: '',
-        userEmail: '',
-        userMessage: ''
-    });
+    const [errors, setErrors] = useState({});
 
-    const validateEmail = (email) => {
-        const emailPattern = /^[a-zA-Z0-9][a-zA-Z0-9._-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return emailPattern.test(email);
-    };
-
-    const validateForm = () => {
-        const formData = new FormData(form.current);
-        const userName = formData.get("userName");
-        const userEmail = formData.get("userEmail");
-        const userMessage = formData.get("userMessage");
-        let valid = true;
-        const newErrors = {
-            userName: '',
-            userEmail: '',
-            userMessage: ''
+    useEffect(() => {
+        if (i18n.language !== 'en') {
+            i18n.changeLanguage('en');
+        }
+        const languageChangeListener = () => {
+            setLanguage(i18n.language);
         };
 
-        if (!userName) {
-            newErrors.userName = t("MailForm.requiredName");
-            valid = false;
-        }
-        if (!userEmail) {
-            newErrors.userEmail = t("MailForm.requiredEmail");
-            valid = false;
-        } else if (!validateEmail(userEmail)) {
-            newErrors.userEmail = t("MailForm.emailFormat");
-            valid = false;
-        }
-        if (!userMessage) {
-            newErrors.userMessage = t("MailForm.requiredMessage");
-            valid = false;
+        if (i18n.on) {
+            i18n.on('languageChanged', languageChangeListener);
         }
 
-        setErrors(newErrors);
-        return valid;
-    };
+        return () => {
+            if (i18n.off) {
+                i18n.off('languageChanged', languageChangeListener);
+            }
+        };
+    }, [i18n]);
 
-    const sendEmail = (e) => {
+    // const sendEmail = () => {
+
+    // }
+
+    const sendEmail = async (e) => {
         e.preventDefault();
-        if (isSubmitting) return; // Prevent multiple submissions
-        if (!validateForm()) return; // Validate form before sending
-
-        setIsSubmitting(true);
-        emailjs.sendForm('service_w2wr8zs', 'template_lqwi5ab', form.current, 'zJVrLr0TC5IaZBX3a')
-        .then(() => {
-            setIsSubmitting(false); // Enable the button after submission
-            Swal.fire(t("MailForm.sendStatusSuccess"), t("MailForm.notificationSuccessfully"), "success");
-            form.current.reset(); // Reset the form
-        },
-        (error) => {
-            setIsSubmitting(false); // Enable the button after submission
-            Swal.fire(t("MailForm.sendStatusFailure"), t("MailForm.notificationFailure"), "error");
-        });
-    };
+    
+        const formData = new FormData(form.current);
+        const userName = formData.get('userName');
+        const userEmail = formData.get('userEmail');
+        const userMessage = formData.get('userMessage');
+    
+        const errors = {};
+        if (!userName) errors.userName = "Name is required";
+        if (!userEmail) errors.userEmail = "Email is required";
+        if (!userMessage) errors.userMessage = "Message is required";
+        setErrors(errors);
+        if (Object.keys(errors).length > 0) return;
+    
+        const emailData = {
+          sender: { email: userEmail },
+          to: [{ email: "account@qcgexchange.com" }],
+          subject: "New Contact Form Submission",
+          htmlContent: `
+            <h1>Contact Form Submission</h1>
+            <p><strong>Name:</strong> ${userName}</p>
+            <p><strong>Email:</strong> ${userEmail}</p>
+            <p><strong>Message:</strong> ${userMessage}</p>
+          `
+        };
+    
+        try {
+          await axios.post('https://api.brevo.com/v3/smtp/email', emailData, {
+            headers: {
+              'Content-Type': 'application/json',
+              'api-key': '', //api key
+            },
+          });
+          Swal.fire({
+            title: "Message sent",
+            icon: "success"
+          });
+          onClose(false)
+        } catch (error) {
+          console.error("Error sending email:", error);
+          Swal.fire({
+            title: "Fail to sent message",
+            icon: "error"
+          });
+        }
+      };
 
     return (
         <form className="w-full" ref={form} onSubmit={sendEmail}>

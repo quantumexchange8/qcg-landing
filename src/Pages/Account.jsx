@@ -1,16 +1,15 @@
-import React, { useRef, useEffect, useState, useContext } from 'react';
-import google from '../Assets/Images/googleplay.svg';
-import apple from '../Assets/Images/apple.svg';
+import React, { useRef, useEffect, useState } from 'react';
+import google from '../Assets/Images/GetItOnGooglePlay.png';
+import apple from '../Assets/Images/apple.png';
 import window from '../Assets/Images/window.png';
-// import mobile_IOS_PS from '../Assets/Images/mobile_IOS_PS.svg';
-import { LanguageContext } from "../LanguagesContext";
 import { AppleMobileIcon, PlayStoreIcon } from '../Components/Brand';
 import AccountMobile from '../Assets/Videos/account.mp4';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Account = () => {
     const textRef = useRef(null);
     const [, setAnimate] = useState(false);
-    const { t, language} = useContext(LanguageContext);
     const videoRef = useRef(null);
 
     useEffect(() => {
@@ -65,7 +64,27 @@ const Account = () => {
         };
       }, []);    
 
+    const { t, i18n } = useTranslation();
+    const [language, setLanguage] = useState(i18n.language);
 
+    useEffect(() => {
+        if (i18n.language !== 'en') {
+            i18n.changeLanguage('en');
+        }
+        const languageChangeListener = () => {
+            setLanguage(i18n.language);
+        };
+
+        if (i18n.on) {
+            i18n.on('languageChanged', languageChangeListener);
+        }
+
+        return () => {
+            if (i18n.off) {
+                i18n.off('languageChanged', languageChangeListener);
+            }
+        };
+    }, [i18n]);
     return (
         <div className='flex flex-col md:pt-[60px]'>
             <div className='relative mt-[60px] md:mt-0'>
@@ -80,7 +99,7 @@ const Account = () => {
                 <div className='absolute inset-0 flex justify-center'>
                     <div className='max-w-[1000px] w-full flex flex-col items-start justify-end gap-[10px] md:gap-5 py-[50px] px-[30px] md:px-0 md:py-[100px]'>
                         <div className='text-white text-xl md:text-5xl text-left font-bold leading-none'>
-                            <div className='w-[160px] md:w-full'>
+                            <div className='w-[200px] md:w-full'>
                                 {t("Account.accountVideoTitle")}
                             </div>
                             
@@ -459,15 +478,25 @@ const Account = () => {
                             <div className='flex flex-col gap-[30px] md:gap-[15px]'>
                                 <div className='flex gap-[20px] md:gap-[10px]'>
                                     <div className='hidden md:flex gap-[20px] md:gap-[10px]'>
-                                        <img src={google} alt="google" />
-                                        <img src={apple} alt="apple" />
-                                        <img src={window} alt="window" />
+                                        <Link to='https://play.google.com/store/apps/details?id=com.spotware.ct&hl=en'>
+                                            <img src={google} alt="google" className='h-full'/>
+                                        </Link>
+                                        <Link to='https://apps.apple.com/my/app/ctrader/id767428811?platform=iphone'>
+                                            <img src={apple} alt="apple" className='h-full'/>
+                                        </Link>
+                                        <Link to='https://spotware.ctrader.com/ctrader-spotware-setup.exe'>
+                                            <img src={window} alt="window" className='h-full'/>
+                                        </Link>
                                         {/* <Window/> */}
                                     </div>
                                     <div className='flex items-center gap-[26px] md:hidden'>
                                         {/* <img src={mobile_IOS_PS} alt="IOS_PS" /> */}
-                                        <AppleMobileIcon/>
-                                        <PlayStoreIcon/>
+                                        <Link to='https://apps.apple.com/my/app/ctrader/id767428811?platform=iphone'>
+                                            <AppleMobileIcon/>
+                                        </Link>
+                                        <Link to='https://play.google.com/store/apps/details?id=com.spotware.ct&hl=en'>
+                                            <PlayStoreIcon/>
+                                        </Link>
                                         <a href="https://login.qcgbrokertw.com/login">
                                             <button className='w-[180px] h-[50px] md:w-[150px] bg-[#1C7800] text-white rounded-[5px] md:rounded-md flex items-center justify-center text-sm md:text-base font-bold'>
                                                 {t("openTradingACC.liveACC_Title")}

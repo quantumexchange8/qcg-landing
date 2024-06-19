@@ -1,17 +1,25 @@
-import React, { useContext, useState, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Earphone, Lang, Menus } from '../Components/Outline';
 import logo from '../Assets/Images/logo.svg';
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Transition, Dialog } from '@headlessui/react'
 import Modal from '../Components/Modal';
-import { LanguageContext } from "../LanguagesContext.js";
+import { useTranslation } from 'react-i18next';
+// import { LanguageContext } from "../LanguagesContext.js";
+import ScrollToTop from '../Components/ScrollToTop';
 
 const Topbar = () => {
     const location = useLocation();
     const [openButton, setOpenButton] = useState(false);
     const [selectedButton, setSelectedButton] = useState(null);
-    const [, setIsMenuOpen] = useState(false); // Define isMenuOpen state
-    const { t, updateLanguage } = useContext(LanguageContext);
+    // const [, setIsMenuOpen] = useState(false);
+    // const { t, updateLanguage } = useContext(LanguageContext);
+    const { t, i18n } = useTranslation();
+    ScrollToTop();
+
+    const toggleLanguage = (langCode) => {
+        i18n.changeLanguage(langCode);
+    };
 
     let [langIsOpen, setLangIsOpen] = useState(false);
     let [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -38,11 +46,13 @@ const Topbar = () => {
         setSelectedButton(button);
     };
 
-    const handleLanguageChange = (lang) => {
-        updateLanguage(lang);
-        setIsMenuOpen(false); // Close the menu after language change
-        setLangIsOpen(false); 
-    };
+    
+
+    // const handleLanguageChange = (lang) => {
+        // updateLanguage(lang);
+    //     setIsMenuOpen(false); // Close the menu after language change
+    //     setLangIsOpen(false); 
+    // };
 
     return (
         <div className='flex flex-col'>
@@ -133,7 +143,7 @@ const Topbar = () => {
                                                 className={`${
                                                     active ? 'bg-violet-500 text-white' : 'text-gray-900'
                                                 } text-base `}
-                                                onClick={() => handleLanguageChange('en')}
+                                                onClick={() => toggleLanguage('en')}
                                             >
                                                 English
                                             </button>
@@ -146,7 +156,7 @@ const Topbar = () => {
                                                 className={`${
                                                     active ? 'bg-violet-500 text-white' : 'text-gray-900'
                                                 } text-base `}
-                                                onClick={() => handleLanguageChange('zh')}
+                                                onClick={() => toggleLanguage('zh')}
                                             >
                                                 中文 
                                             </button>
@@ -199,10 +209,10 @@ const Topbar = () => {
                                 >
                                     <Dialog.Panel className="flex flex-col gap-5 w-130px transform overflow-hidden rounded-[5px] bg-white p-6 text-left align-middle shadow-xl transition-all">
                                     
-                                        <button onClick={() => handleLanguageChange('en')}>
+                                        <button onClick={() => toggleLanguage('en')}>
                                             <span className='text-xl font-semibold'>English</span>
                                         </button>
-                                        <button onClick={() => handleLanguageChange('zh')}>
+                                        <button onClick={() => toggleLanguage('zh')}>
                                             <span className='text-xl font-semibold'>中文</span>
                                         </button>
                                     </Dialog.Panel>
@@ -215,128 +225,7 @@ const Topbar = () => {
                         <Link to="/privacy" className='w-[40px] h-[40px]'>
                             <img src={logo} alt="icon" className='h-full'/>
                         </Link>
-                        {/* Menu component */}
-                        {/* <Menu as="div" className="relative text-left">
-                            <div>
-                                <Menu.Button className="inline-flex w-full justify-center rounded-md text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 mt-2">
-                                    <Menus/>
-                                </Menu.Button>
-                            </div>
-                            <Transition
-                                as={Fragment}
-                                enter="transition ease-out duration-100"
-                                enterFrom="transform opacity-0 scale-95"
-                                enterTo="transform opacity-100 scale-100"
-                                leave="transition ease-in duration-75"
-                                leaveFrom="transform opacity-100 scale-100"
-                                leaveTo="transform opacity-0 scale-95"
-                            >
-                                <Menu.Items
-                                className={`absolute right-0 mt-4 px-7 rounded-[15px] bg-[#AAA] shadow-lg ring-1 ring-black/5 focus:outline-none text-xl font-semibold text-center object-center 
-                                    ${language === 'en' ? 'w-[160px]' : 
-                                      language === 'zh' ? 'w-[160px]' : ''}`}
-                                >
-                                        <Link
-                                            to="/"
-                                            className={`${
-                                                location.pathname === '/' 
-                                            }`}
-                                        >
-                                            <Menu.Item>
-                                            {({ active }) => (
-                                                <button
-                                                className='group flex flex-col w-full rounded-md py-3 pt-[18px] place-items-end'
-                                                >
-                                                    {t("mobileTopbar.homePage")}
-                                                  </button>
-                                                )}
-                                            </Menu.Item>
-                                        </Link>
-                                        <Link
-                                            to="/products"
-                                            className={`${
-                                                location.pathname === '/products' 
-                                            }`}
-                                        >
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <button
-                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end'
-                                                  >
-                                                    {t("mobileTopbar.productsPage")}
-                                                  </button>
-                                                )}
-                                            </Menu.Item>
-                                        </Link>
-                                    
-                                        <Link
-                                            to="/account"
-                                            className={`${
-                                                location.pathname === '/account' 
-                                            }`}
-                                        >
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <button
-                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end'
-                                                  >
-                                                    {t("mobileTopbar.accountPage")}
-                                                  </button>
-                                                )}
-                                            </Menu.Item>
-                                        </Link>
-                                        <Link
-                                            to="/partner"
-                                            className={`${
-                                                location.pathname === '/partner' 
-                                            }`}
-                                        >
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <button
-                                                    className='group flex flex-col w-full rounded-md py-3 place-items-end'
-                                                  >
-                                                    {t("mobileTopbar.partnerPage")}
-                                                  </button>
-                                                )}
-                                            </Menu.Item>
-                                        </Link>
-                                        <Menu.Item>
-                                            {({ active }) => (
-                                                <button
-                                                className='group flex flex-col w-full rounded-md py-3 place-items-end text-[#1C7800]'
-                                                >
-                                                <a href="https://login.qcgbrokertw.com/register">
-                                                    {t("mobileTopbar.register_button")}
-                                                </a>
-                                                </button>
-                                            )}
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                            {({ active }) => (
-                                                <button
-                                                className='group flex flex-col w-full rounded-md py-3 place-items-end text-[#1C7800]'
-                                                >
-                                                <a href="https://login.qcgbrokertw.com">
-                                                    {t("mobileTopbar.login_Button")}
-                                                </a>
-                                                </button>
-                                            )}
-                                        </Menu.Item>
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <button
-                                                    className='group flex flex-col w-full rounded-md py-3 pb-[18px] place-items-end'
-                                                    onClick={() => handleButtonClick('service')}
-                                                  >
-                                                    {t("mobileTopbar.service_Button")}
-                                                  </button>
-                                                )}
-                                            </Menu.Item>
-                                </Menu.Items>
-                            </Transition>
-                        </Menu> */}
-
+                        
                         <div className="flex items-center justify-center">
                             <button
                             type="button"
