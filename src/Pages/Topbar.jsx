@@ -264,7 +264,7 @@ const Topbar = () => {
                                         <Link
                                             to="/"
                                             className={`${
-                                                location.pathname === '/' ? 'active' : ''
+                                                location.pathname === '/' ? 'text-primary' : ''
                                             }`}
                                         >
                                             <button
@@ -277,7 +277,7 @@ const Topbar = () => {
                                         <Link
                                             to="/products"
                                             className={`${
-                                                location.pathname === '/products' ? 'active' : ''
+                                                location.pathname === '/products' ? 'text-primary' : ''
                                             }`}
                                         >
                                             <button
@@ -290,7 +290,7 @@ const Topbar = () => {
                                         <Link
                                             to="/account"
                                             className={`${
-                                                location.pathname === '/account' ? 'active' : ''
+                                                location.pathname === '/account' ? 'text-primary' : ''
                                             }`}
                                         >
                                             <button
@@ -303,7 +303,7 @@ const Topbar = () => {
                                         <Link
                                             to="/partner"
                                             className={`${
-                                                location.pathname === '/partner' ? 'active' : ''
+                                                location.pathname === '/partner' ? 'text-primary' : ''
                                             }`}
                                         >
                                             <button

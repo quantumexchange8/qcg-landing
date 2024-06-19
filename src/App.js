@@ -21,11 +21,11 @@ function App() {
         <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/partner" element={<Partner />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="products" element={<Products />} />
+            <Route path="account" element={<Account />} />
+            <Route path="partner" element={<Partner />} />
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         <Footer />
       </div>
