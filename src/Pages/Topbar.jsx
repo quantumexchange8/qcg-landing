@@ -5,7 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, Transition, Dialog } from '@headlessui/react'
 import Modal from '../Components/Modal';
 import { useTranslation } from 'react-i18next';
-// import { LanguageContext } from "../LanguagesContext.js";
 
 const Topbar = () => {
     const location = useLocation();
@@ -17,6 +16,8 @@ const Topbar = () => {
 
     const toggleLanguage = (langCode) => {
         i18n.changeLanguage(langCode);
+        localStorage.setItem('i18nextLng', langCode);
+        setLangIsOpen(false)
     };
 
     let [langIsOpen, setLangIsOpen] = useState(false);
@@ -266,6 +267,7 @@ const Topbar = () => {
                                             className={`${
                                                 location.pathname === '/' ? 'text-primary' : ''
                                             }`}
+                                            
                                         >
                                             <button
                                                 className='text-black text-xl font-semibold text-center w-full'
@@ -341,7 +343,7 @@ const Topbar = () => {
                             </div>
                             </Dialog>
                         </Transition>
-                    </div>
+                </div>
             </div>
             <Modal open={openButton} onClose={() => setOpenButton(false)} selectedButton={selectedButton}/>
         </div></div>

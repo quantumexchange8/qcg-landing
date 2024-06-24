@@ -92,26 +92,6 @@ const Partner = () => {
     };
 
     const { t, i18n } = useTranslation();
-    const [language, setLanguage] = useState(i18n.language);
-
-    useEffect(() => {
-        if (i18n.language !== 'en') {
-            i18n.changeLanguage('en');
-        }
-        const languageChangeListener = () => {
-            setLanguage(i18n.language);
-        };
-
-        if (i18n.on) {
-            i18n.on('languageChanged', languageChangeListener);
-        }
-
-        return () => {
-            if (i18n.off) {
-                i18n.off('languageChanged', languageChangeListener);
-            }
-        };
-    }, [i18n]);
 
     return (
         <div className='flex flex-col md:pt-[60px]'>
@@ -126,7 +106,7 @@ const Partner = () => {
                             {t("Partner.partnerVideoTitle")}
                         </div>
                         {
-                            language === 'en' ? (
+                            i18n.language === 'en' ? (
                                 <div className='hidden md:block text-white text-sm md:text-2xl font-semibold md:font-bold leading-tight text-left w-[260px] md:w-[530px]'>
                                     {t("Partner.partnerVideoDescription")}
                                 </div>
@@ -159,7 +139,7 @@ const Partner = () => {
                                         <div>{t("Partner.partnerTitle2")}</div> 
                                     </div>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='flex flex-col md:hidden'>
                                                 <div>{t("Partner.partnerTitleMobile")}</div>
                                                 <div>{t("Partner.partnerTitleMobile2")}</div>
@@ -187,7 +167,7 @@ const Partner = () => {
                                 </div>
                                 <div className=' w-full md:w-[300px] h-[180px] bg-[#ECFFE6] flex flex-col justify-center items-center gap-[30px] rounded-[5px]'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='text-base font-bold text-primary leading-none flex flex-col'>
                                                 <div>{t("Partner.Referral.referral2")}</div>
                                                 <div>{t("Partner.Referral.referral21")}</div>
@@ -219,7 +199,7 @@ const Partner = () => {
                                     <div className=' text-[#444]'>{t("Partner.Referral.businessads2")}</div>
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='md:hidden text-2xl md:text-[64px] font-bold md:font-extrabold leading-tight'>
                                             <div className=' text-primary'>{t("Partner.Referral.businessads")} <span className='text-[#444]'>{t("Partner.Referral.businessads2")}</span></div>
                                         </div>
@@ -232,7 +212,7 @@ const Partner = () => {
                                 }
                                 
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className=' text-[#444] text-sm md:text-2xl font-semibold leading-tight md:w-[730px]'>
                                             {t("Partner.Referral.qcgbusinessads")}
                                         </div>
@@ -387,7 +367,7 @@ const Partner = () => {
                             <div className='flex flex-col gap-[10px] md:gap-[30px]'>
                                 <div className=' text-2xl md:text-5xl font-bold text-left'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='text-[#444]'>{t("Partner.Micro.microtitle")} <span className='text-[#1C7800]'>{t("Partner.Micro.microtitle2")}</span></div>
                                         ) : (
                                             <div className='text-[#444]'>{t("Partner.Micro.microtitle")}<span className='text-[#1C7800]'>{t("Partner.Micro.microtitle2")}</span></div>
@@ -396,7 +376,7 @@ const Partner = () => {
                                     
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='text-sm md:text-2xl text-[#444] font-bold md:font-semibold leading-tight text-left'>
                                             {t("Partner.Micro.microdesc")}
                                         </div>
@@ -525,7 +505,7 @@ const Partner = () => {
                                             {t("Partner.MicroLabel.microdesctitle")}
                                         </div>
                                         {
-                                            language === 'en' ? (
+                                            i18n.language === 'en' ? (
                                                 <div className=' text-[#444] text-sm md:text-[32px] leading-tight font-semibold text-left'>
                                                     {t("Partner.MicroLabel.microdesc")}
                                                 </div>
@@ -599,7 +579,7 @@ const Partner = () => {
                                     
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='hidden md:flex flex-col'>
                                             <div className='text-[#444] text-2xl text-left font-medium leading-tight'>
                                                 {t("openTradingACC.tradingAcc_Description")}
@@ -628,7 +608,7 @@ const Partner = () => {
                                 
                                 <div className='flex flex-col md:hidden'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='text-[#444] text-sm md:text-2xl font-medium text-left leading-[1.20]'>
                                                 {t("openTradingACC.tradingAcc_Description")}
                                                 {t("openTradingACC.tradingAcc_Description2")} <span className='text-primary font-semibold md:font-medium'>{t("openTradingACC.tradingAcc_Description3")}</span>

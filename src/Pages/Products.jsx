@@ -67,26 +67,6 @@ const Products = () => {
       }, []);
 
     const { t, i18n } = useTranslation();
-    const [language, setLanguage] = useState(i18n.language);
-
-    useEffect(() => {
-        if (i18n.language !== 'en') {
-            i18n.changeLanguage('en');
-        }
-        const languageChangeListener = () => {
-            setLanguage(i18n.language);
-        };
-
-        if (i18n.on) {
-            i18n.on('languageChanged', languageChangeListener);
-        }
-
-        return () => {
-            if (i18n.off) {
-                i18n.off('languageChanged', languageChangeListener);
-            }
-        };
-    }, [i18n]);
 
     return (
         <div className='flex flex-col md:pt-[60px]'>
@@ -103,7 +83,7 @@ const Products = () => {
                             {t("Products.productsVideoTitle")}
                         </div>
                         {
-                            language === 'en' ? (
+                            i18n.language === 'en' ? (
                                 <div className=' text-sm md:text-2xl text-white font-bold leading-tight md:leading-none w-[220px] md:w-[449px] text-left'>
                                     {t("Products.productsVideoDescription")}
                                 </div>
@@ -127,7 +107,7 @@ const Products = () => {
                                 {t("Products.currencyTitle")}
                             </div>
                             {
-                                language === 'en' ? (
+                                i18n.language === 'en' ? (
                                     <div className='text-[#444] text-sm md:text-2xl text-left font-semibold leading-tight md:leading-none'>
                                         <div className='hidden md:block'>{t("Products.currencyDescription")}</div>
                                         <div className='hidden md:block'>{t("Products.currencyDescription2")}</div>
@@ -153,7 +133,7 @@ const Products = () => {
                                     {t("Products.c&pMetal_Title")}
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='text-[#444] text-sm md:text-2xl text-left leading-tight font-semibold'>
                                             <div className=' md:w-[980px]'>
                                                 {t("Products.c&pMetal_Description")}
@@ -178,10 +158,10 @@ const Products = () => {
                                         <table className="table-auto w-[100%] border-collapse text-center font-semibold">
                                             <thead>
                                             <tr className=' bg-[#1C7800] text-[#fff] border-white text-sm'>
-                                                <th className='h-[30px] border border-white font-semibold'>{t("currenciesTable.symbolTitle")}</th>
-                                                <th className='h-[30px] border border-white font-semibold'>{t("currenciesTable.descriptionsTitle")}</th>
-                                                <th className='h-[30px] border border-white font-semibold'>{t("currenciesTable.minimumspreadTitle")}</th>
-                                                <th className='h-[30px] border border-white font-semibold'>{t("currenciesTable.minimumtradesizeTitle")}</th>
+                                                <th className='h-[30px] w-[120px] border border-white font-semibold'>{t("currenciesTable.symbolTitle")}</th>
+                                                <th className='h-[30px] w-[395px] border border-white font-semibold'>{t("currenciesTable.descriptionsTitle")}</th>
+                                                <th className='h-[30px] border w-[140px] border-white font-semibold'>{t("currenciesTable.minimumspreadTitle")}</th>
+                                                <th className='h-[30px] border w-[165px] border-white font-semibold'>{t("currenciesTable.minimumtradesizeTitle")}</th>
                                                 <th className='h-[30px] border border-white font-semibold'>{t("currenciesTable.maximumtradesizeTitle")}</th>
                                             </tr>
                                             </thead>
@@ -570,112 +550,114 @@ const Products = () => {
                                     </div>
                                 </div>
 
-                                <div className='hidden md:flex flex-col'>
-                                    <table className="table-auto w-[100%] border-collapse text-center font-semibold">
-                                        <thead>
-                                            <tr className=' bg-[#1C7800] text-[#fff] border-white text-sm font-semibold'>
-                                                <th className='h-[30px] border border-white'>{t("currenciesTable.symbolTitle")}</th>
-                                                <th className='h-[30px] border border-white'>{t("currenciesTable.descriptionsTitle")}</th>
-                                                <th className='h-[30px] border border-white'>{t("currenciesTable.minimumspreadTitle")}</th>
-                                                <th className='h-[30px] border border-white'>{t("currenciesTable.minimumtradesizeTitle")}</th>
-                                                <th className='h-[30px] border border-white'>{t("currenciesTable.maximumtradesizeTitle")}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr className=' bg-[#ECFFE6] text-sm text-[#444]'>
-                                                <td className='h-[30px] border border-white'>XAUUSD</td>
-                                                <td className='h-[30px] border border-white'>{t("Products.table.xau")} vs. {t("Products.table.usd")}</td>
-                                                <td className='h-[30px] border border-white'>23</td>
-                                                <td className='h-[30px] border border-white'>0.01</td>
-                                                <td className='h-[30px] border border-white'>50</td>
-                                            </tr>
-                                            <tr className=' bg-[#FFF] text-sm text-[#444]'>
-                                                <td className='h-[30px] border border-white'>XAUEUR</td>
-                                                <td className='h-[30px] border border-white'>{t("Products.table.xau")} vs. {t("Products.table.eur")}</td>
-                                                <td className='h-[30px] border border-white'>21</td>
-                                                <td className='h-[30px] border border-white'>0.01</td>
-                                                <td className='h-[30px] border border-white'>50</td>
-                                            </tr>
-                                            <tr className=' bg-[#ECFFE6] text-sm text-[#444]'>
-                                            <td className='h-[30px] border border-white'>XAGUSD</td>
-                                                <td className='h-[30px] border border-white'>{t("Products.table.xag")} vs. {t("Products.table.usd")}</td>
-                                                <td className='h-[30px] border border-white'>109</td>
-                                                <td className='h-[30px] border border-white'>0.01</td>
-                                                <td className='h-[30px] border border-white'>20</td>
-                                            </tr>
-                                            <tr className=' bg-[#FFF] text-sm text-[#444]'>
-                                            <td className='h-[30px] border border-white'>XPDUSD</td>
-                                                {
-                                                    language === 'en' ? (
-                                                        <td className='h-[30px] border border-white'>{t("Products.table.XPDUSD")}</td>
-                                                    ) : (
-                                                        <td className='h-[30px] border border-white'>{t("Products.table.xpd")} vs. {t("Products.table.usd")}</td>
-                                                    )
-                                                }
-                                                <td className='h-[30px] border border-white'>31</td>
-                                                <td className='h-[30px] border border-white'>0.01</td>
-                                                <td className='h-[30px] border border-white'>10</td>
-                                            </tr>
-                                            <tr className=' bg-[#ECFFE6] text-sm text-[#444]'>
-                                            <td className='h-[30px] border border-white'>XPTUSD</td>
-                                                {
-                                                    language === 'en' ? (
-                                                        <td className='h-[30px] border border-white'>{t("Products.table.XPTUSD")}</td>
-                                                    ) : (
-                                                        <td className='h-[30px] border border-white'>{t("Products.table.xpd")} vs. {t("Products.table.usd")}</td>
-                                                    )
-                                                }
-                                                <td className='h-[30px] border border-white'>35</td>
-                                                <td className='h-[30px] border border-white'>0.01</td>
-                                                <td className='h-[30px] border border-white'>10</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                {/* mobile version */}
-                                <div className='flex flex-col md:hidden' >
-                                    <table className="table-auto w-[100%] border-collapse text-center font-medium md:hidden">
-                                        <thead>
-                                            <tr className=' bg-[#1C7800] text-[#fff] border-white text-xs font-semibold'>
-                                                <th className='w-[87px] h-[50px] border-[2px] border-white'>{t("currenciesTable.symbolTitle")}</th>
-                                                <th className='w-[87px] h-[50px] border-[2px] border-white'>{t("currenciesTable.minimumspreadMobileTitle")}<br/>{t("currenciesTable.minimumspreadMobileTitle2")}</th>
-                                                <th className='w-[87px] h-[50px] border-[2px] border-white'>{t("currenciesTable.minimumtradesizeMobileTitle")}<br/>{t("currenciesTable.minimumtradesizeMobileTitle2")}</th>
-                                                <th className='w-[87px] h-[50px] border-[2px] border-white'>{t("currenciesTable.maximumtradesizeMobileTitle")}<br/>{t("currenciesTable.maximumtradesizeMobileTitle2")}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr className=' bg-[#ECFFE6] text-xs text-[#444] font-semibold'>
-                                                <td className='h-[30px] border-[2px] border-white'>XAUUSD</td>
-                                                <td className='h-[30px] border-[2px] border-white'>23</td>
-                                                <td className='h-[30px] border-[2px] border-white'>0.01</td>
-                                                <td className='h-[30px] border-[2px] border-white'>50</td>
-                                            </tr>
-                                            <tr className=' bg-[#FFF] text-xs text-[#444] font-semibold'>
-                                                <td className='h-[30px] border-[2px] border-white'>XAUEUR</td>
-                                                <td className='h-[30px] border-[2px] border-white'>21</td>
-                                                <td className='h-[30px] border-[2px] border-white'>0.01</td>
-                                                <td className='h-[30px] border-[2px] border-white'>50</td>
-                                            </tr>
-                                            <tr className=' bg-[#ECFFE6] text-xs text-[#444] font-semibold'>
-                                                <td className='h-[30px] border-[2px] border-white'>XAGUSD</td>
-                                                <td className='h-[30px] border-[2px] border-white'>109</td>
-                                                <td className='h-[30px] border-[2px] border-white'>0.01</td>
-                                                <td className='h-[30px] border-[2px] border-white'>20</td>
-                                            </tr>
-                                            <tr className=' bg-[#FFF] text-xs text-[#444] font-semibold'>
-                                                <td className='h-[30px] border-[2px] border-white'>XPDUSD</td>
-                                                <td className='h-[30px] border-[2px] border-white'>31</td>
-                                                <td className='h-[30px] border-[2px] border-white'>0.01</td>
-                                                <td className='h-[30px] border-[2px] border-white'>10</td>
-                                            </tr>
-                                            <tr className=' bg-[#ECFFE6] text-xs text-[#444] font-semibold'>
-                                                <td className='h-[30px] border-[2px] border-white'>XPTUSD</td>
-                                                <td className='h-[30px] border-[2px] border-white'>35</td>
-                                                <td className='h-[30px] border-[2px] border-white'>0.01</td>
-                                                <td className='h-[30px] border-[2px] border-white'>10</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div className='flex flex-col gap-[20px]'>
+                                    <div className='hidden md:flex flex-col'>
+                                        <table className="table-auto w-[100%] border-collapse text-center font-semibold">
+                                            <thead>
+                                                <tr className=' bg-[#1C7800] text-[#fff] border-white text-sm font-semibold'>
+                                                    <th className='h-[30px] w-[120px] border border-white'>{t("currenciesTable.symbolTitle")}</th>
+                                                    <th className='h-[30px] w-[395px] border border-white'>{t("currenciesTable.descriptionsTitle")}</th>
+                                                    <th className='h-[30px] border w-[140px] border-white'>{t("currenciesTable.minimumspreadTitle")}</th>
+                                                    <th className='h-[30px] border w-[165px] border-white'>{t("currenciesTable.minimumtradesizeTitle")}</th>
+                                                    <th className='h-[30px] border border-white'>{t("currenciesTable.maximumtradesizeTitle")}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr className=' bg-[#ECFFE6] text-sm text-[#444]'>
+                                                    <td className='h-[30px] border border-white'>XAUUSD</td>
+                                                    <td className='h-[30px] border border-white'>{t("Products.table.xau")} vs. {t("Products.table.usd")}</td>
+                                                    <td className='h-[30px] border border-white'>23</td>
+                                                    <td className='h-[30px] border border-white'>0.01</td>
+                                                    <td className='h-[30px] border border-white'>50</td>
+                                                </tr>
+                                                <tr className=' bg-[#FFF] text-sm text-[#444]'>
+                                                    <td className='h-[30px] border border-white'>XAUEUR</td>
+                                                    <td className='h-[30px] border border-white'>{t("Products.table.xau")} vs. {t("Products.table.eur")}</td>
+                                                    <td className='h-[30px] border border-white'>21</td>
+                                                    <td className='h-[30px] border border-white'>0.01</td>
+                                                    <td className='h-[30px] border border-white'>50</td>
+                                                </tr>
+                                                <tr className=' bg-[#ECFFE6] text-sm text-[#444]'>
+                                                <td className='h-[30px] border border-white'>XAGUSD</td>
+                                                    <td className='h-[30px] border border-white'>{t("Products.table.xag")} vs. {t("Products.table.usd")}</td>
+                                                    <td className='h-[30px] border border-white'>109</td>
+                                                    <td className='h-[30px] border border-white'>0.01</td>
+                                                    <td className='h-[30px] border border-white'>20</td>
+                                                </tr>
+                                                <tr className=' bg-[#FFF] text-sm text-[#444]'>
+                                                <td className='h-[30px] border border-white'>XPDUSD</td>
+                                                    {
+                                                        i18n.language === 'en' ? (
+                                                            <td className='h-[30px] border border-white'>{t("Products.table.XPDUSD")}</td>
+                                                        ) : (
+                                                            <td className='h-[30px] border border-white'>{t("Products.table.xpd")} vs. {t("Products.table.usd")}</td>
+                                                        )
+                                                    }
+                                                    <td className='h-[30px] border border-white'>31</td>
+                                                    <td className='h-[30px] border border-white'>0.01</td>
+                                                    <td className='h-[30px] border border-white'>10</td>
+                                                </tr>
+                                                <tr className=' bg-[#ECFFE6] text-sm text-[#444]'>
+                                                <td className='h-[30px] border border-white'>XPTUSD</td>
+                                                    {
+                                                        i18n.language === 'en' ? (
+                                                            <td className='h-[30px] border border-white'>{t("Products.table.XPTUSD")}</td>
+                                                        ) : (
+                                                            <td className='h-[30px] border border-white'>{t("Products.table.xpd")} vs. {t("Products.table.usd")}</td>
+                                                        )
+                                                    }
+                                                    <td className='h-[30px] border border-white'>35</td>
+                                                    <td className='h-[30px] border border-white'>0.01</td>
+                                                    <td className='h-[30px] border border-white'>10</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {/* mobile version */}
+                                    <div className='flex flex-col md:hidden' >
+                                        <table className="table-auto w-[100%] border-collapse text-center font-medium md:hidden">
+                                            <thead>
+                                                <tr className=' bg-[#1C7800] text-[#fff] border-white text-xs font-semibold'>
+                                                    <th className='w-[87px] h-[50px] border-[2px] border-white'>{t("currenciesTable.symbolTitle")}</th>
+                                                    <th className='w-[87px] h-[50px] border-[2px] border-white'>{t("currenciesTable.minimumspreadMobileTitle")}<br/>{t("currenciesTable.minimumspreadMobileTitle2")}</th>
+                                                    <th className='w-[87px] h-[50px] border-[2px] border-white'>{t("currenciesTable.minimumtradesizeMobileTitle")}<br/>{t("currenciesTable.minimumtradesizeMobileTitle2")}</th>
+                                                    <th className='w-[87px] h-[50px] border-[2px] border-white'>{t("currenciesTable.maximumtradesizeMobileTitle")}<br/>{t("currenciesTable.maximumtradesizeMobileTitle2")}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr className=' bg-[#ECFFE6] text-xs text-[#444] font-semibold'>
+                                                    <td className='h-[30px] border-[2px] border-white'>XAUUSD</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>23</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>0.01</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>50</td>
+                                                </tr>
+                                                <tr className=' bg-[#FFF] text-xs text-[#444] font-semibold'>
+                                                    <td className='h-[30px] border-[2px] border-white'>XAUEUR</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>21</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>0.01</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>50</td>
+                                                </tr>
+                                                <tr className=' bg-[#ECFFE6] text-xs text-[#444] font-semibold'>
+                                                    <td className='h-[30px] border-[2px] border-white'>XAGUSD</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>109</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>0.01</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>20</td>
+                                                </tr>
+                                                <tr className=' bg-[#FFF] text-xs text-[#444] font-semibold'>
+                                                    <td className='h-[30px] border-[2px] border-white'>XPDUSD</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>31</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>0.01</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>10</td>
+                                                </tr>
+                                                <tr className=' bg-[#ECFFE6] text-xs text-[#444] font-semibold'>
+                                                    <td className='h-[30px] border-[2px] border-white'>XPTUSD</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>35</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>0.01</td>
+                                                    <td className='h-[30px] border-[2px] border-white'>10</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -686,7 +668,7 @@ const Products = () => {
                                     {t("Products.CFDsIndicesTitle")}
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='text-[#444] text-sm md:text-2xl text-left font-semibold leading-none'>
                                             <div className=' flex flex-col w-full md:w-[950px]'>
                                                 <div className='hidden md:block'>{t("Products.CFDsIndicesDescription")}</div>
@@ -714,10 +696,10 @@ const Products = () => {
                                 <table className="table-auto w-[100%] border-collapse text-center font-semibold">
                                     <thead>
                                         <tr className=' bg-[#1C7800] text-[#fff] border-white text-sm font-semibold'>
-                                            <th className='h-[30px] border border-white'>{t("currenciesTable.symbolTitle")}</th>
-                                            <th className='h-[30px] border border-white'>{t("currenciesTable.descriptionsTitle")}</th>
-                                            <th className='h-[30px] border border-white'>{t("currenciesTable.minimumspreadTitle")}</th>
-                                            <th className='h-[30px] border border-white'>{t("currenciesTable.minimumtradesizeTitle")}</th>
+                                            <th className='h-[30px] w-[120px] border border-white'>{t("currenciesTable.symbolTitle")}</th>
+                                            <th className='h-[30px] w-[395px] border border-white'>{t("currenciesTable.descriptionsTitle")}</th>
+                                            <th className='h-[30px] w-[140px] border border-white'>{t("currenciesTable.minimumspreadTitle")}</th>
+                                            <th className='h-[30px] w-[165px] border border-white'>{t("currenciesTable.minimumtradesizeTitle")}</th>
                                             <th className='h-[30px] border border-white'>{t("currenciesTable.maximumtradesizeTitle")}</th>
                                         </tr>
                                     </thead>
@@ -891,7 +873,7 @@ const Products = () => {
                             </div>
                             <div className='flex flex-col text-[#444] text-sm md:text-2xl font-semibold text-left leading-tight gap-4 md:gap-8'>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div>
                                             {t("Products.stopoutlevel_Description")}
                                         </div>
@@ -1020,7 +1002,7 @@ const Products = () => {
                                     
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='hidden md:flex flex-col'>
                                             <div className='text-[#444] text-2xl text-left font-medium leading-tight'>
                                                 {t("openTradingACC.tradingAcc_Description")}
@@ -1049,7 +1031,7 @@ const Products = () => {
                                 
                                 <div className='flex flex-col md:hidden'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='text-[#444] text-sm md:text-2xl font-medium text-left leading-[1.20]'>
                                                 {t("openTradingACC.tradingAcc_Description")}
                                                 {t("openTradingACC.tradingAcc_Description2")} <span className='text-primary font-semibold md:font-medium'>{t("openTradingACC.tradingAcc_Description3")}</span>

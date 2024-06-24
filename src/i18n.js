@@ -1,75 +1,32 @@
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next' 
-import languageDetector from 'i18next-browser-languagedetector'
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import languageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
+import enTranslation from "./locales/en/translation.json";
+import zhTranslation from "./locales/zh/translation.json";
 
 i18n
   .use(Backend)
   .use(languageDetector)
   .use(initReactI18next)
   .init({
+    resources: {
+      en: { translation: enTranslation },
+      zh: { translation: zhTranslation },
+    },
     debug: false,
     fallbackLng: 'en',
     supportedLngs: ['en', 'zh'],
-    returnObjects: true,
+    detection: {
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"], // Ensure the language is cached in localStorage
+    },
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
-    }
-    // backend: {
-    //   // Load translations from backend first, then fallback to static files
-    //   loadPath: '/locales/{{lng}}/translation.json',
-    // },
+    },
+    onInitialized: (options) => {
+      console.log("Detected language:", options.lng);
+    },
   });
 
 export default i18n;
-
-// i18n.use(languageDetector).use(initReactI18next).init({
-//     debug: true,
-//     lng: "en",
-//     resources: {
-//         en: {
-//             translation: {
-//                 downloadButton: "Download",
-//             },
-//         },
-//         zh: {
-//             translation: {
-//                 downloadButton: "下载",
-//             },
-//         }
-//     }
-// })
-
-
-// import i18n from 'i18next';
-// import { initReactI18next } from 'react-i18next';
-
-// import Backend from 'i18next-http-backend';
-// import LanguageDetector from 'i18next-browser-languagedetector';
-// // don't want to use this?
-// // have a look at the Quick start guide 
-// // for passing in lng and translations on init
-
-// i18n
-//   // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
-//   // learn more: https://github.com/i18next/i18next-http-backend
-//   // want your translations to be loaded from a professional CDN? => https://github.com/locize/react-tutorial#step-2---use-the-locize-cdn
-//   .use(Backend)
-//   // detect user language
-//   // learn more: https://github.com/i18next/i18next-browser-languageDetector
-//   .use(LanguageDetector)
-//   // pass the i18n instance to react-i18next.
-//   .use(initReactI18next)
-//   // init i18next
-//   // for all options read: https://www.i18next.com/overview/configuration-options
-//   .init({
-//     fallbackLng: 'en',
-//     debug: true,
-
-//     interpolation: {
-//       escapeValue: false, // not needed for react as it escapes by default
-//     }
-//   });
-
-
-// export default i18n;

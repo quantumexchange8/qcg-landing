@@ -1,23 +1,17 @@
-import React, { useState, useEffect, useContext } from 'react';
-// import { Tab } from '@headlessui/react';
-// import { Gmail, Telegram } from './Brand';
-// import QRcode from '../Assets/Images/QRCode.png';
+import React, { useState, useEffect } from 'react';
 import SubmitEmail from './SubmitEmail';
-import { LanguageContext } from "../LanguagesContext";
-
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ');
-// }
+import { useTranslation } from 'react-i18next';
 
 export default function TabComponent({ selectedButton, onClose }) {
   const [, setSelectedTab] = useState(0);
-  const { t} = useContext(LanguageContext);
 
   useEffect(() => {
     if (selectedButton === 'service') {
       setSelectedTab(0);
     }
   }, [selectedButton]);
+
+  const { t } = useTranslation();
 
   return (
     <div className="w-full max-w-md flex flex-col gap-[30px] md:gap-10">

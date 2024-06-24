@@ -15,6 +15,7 @@ const Home = () => {
     const textRef = useRef(null);
     const [animate, setAnimate] = useState(false);
     const videoRef = useRef(null);
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -66,29 +67,7 @@ const Home = () => {
         return () => {
           video.removeEventListener('canplaythrough', handleCanPlayThrough);
         };
-      }, []);    
-
-    const { t, i18n } = useTranslation();
-    const [language, setLanguage] = useState(i18n.language);
-
-    useEffect(() => {
-        if (i18n.language !== 'en') {
-            i18n.changeLanguage('en');
-        }
-        const languageChangeListener = () => {
-            setLanguage(i18n.language);
-        };
-
-        if (i18n.on) {
-            i18n.on('languageChanged', languageChangeListener);
-        }
-
-        return () => {
-            if (i18n.off) {
-                i18n.off('languageChanged', languageChangeListener);
-            }
-        };
-    }, [i18n]);
+      }, []);
 
     return (
         <div className='flex flex-col md:pt-[60px]'>
@@ -103,7 +82,7 @@ const Home = () => {
 
                 <div className=' flex justify-center items-center absolute inset-x-0 inset-y-0 text-left gap-[50px]'>
                     {
-                        language === 'en' ? (
+                        i18n.language === 'en' ? (
                             <div className='max-w-[1000px] text-[#ffffff66] text-5xl md:text-[200px] font-bold leading-none text-left'>
                                 {t("Home.homeVideoTitle")}
                             </div>
@@ -127,7 +106,7 @@ const Home = () => {
                                     <div>{t("Home.QCGadvantage_Title2")}</div>
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='text-[#444] text-sm md:text-2xl font-semibold leading-tight min-w-[280px] md:w-[950px]'>
                                             <div className='hidden md:block'>{t("Home.QCGadvantage_Description")}</div>
                                             <div className='block md:hidden w-[290px]'>{t("Home.QCGadvantage_DescriptionMobile")}</div>
@@ -188,12 +167,12 @@ const Home = () => {
                                         </span>
                                     </div>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='flex text-[#444] text-sm md:text-2xl font-semibold min-w-[160px] w-[180px] md:w-[400px]'>
                                                 {t("Home.Platform.platformDescription")}
                                             </div>
                                         ) : (
-                                            <div className='flex text-[#444] text-sm md:text-2xl font-semibold min-w-[160px] w-full md:w-[400px]'>
+                                            <div className='flex justify-center text-[#444] text-sm md:text-2xl font-semibold min-w-[160px] w-full md:w-full'>
                                                 {t("Home.Platform.platformDescription")}
                                             </div>
                                         )
@@ -216,7 +195,7 @@ const Home = () => {
                                 </div>
                                 <div className='flex flex-col gap-5 items-center'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='flex flex-col text-center'>
                                                 <div className='text-[#444] text-2xl md:text-[64px] font-bold leading-none'>{t("Home.Pricing.pricingTitle")}</div>
                                                 <div className='text-primary text-2xl md:text-[64px] font-bold leading-none'>{t("Home.Pricing.pricingTitle2")} {t("Home.Pricing.pricingTitle3")}</div>
@@ -229,7 +208,7 @@ const Home = () => {
                                         )
                                     }
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='hidden md:block text-[#444] text-2xl font-semibold md:w-[400px]'>
                                                 {t("Home.Pricing.pricingDescription")}
                                             </div>
@@ -263,7 +242,7 @@ const Home = () => {
                                 </div>
                                  <div className='flex flex-col gap-5 items-center'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='flex flex-col items-center md:w-[920px]'>
                                                 <div className='text-[#444] text-2xl md:text-[64px] font-bold leading-tight hidden md:block'>{t("Home.Securities.securitiesTitle")}</div>
                                                 <div className='text-[#444] text-2xl md:text-[64px] font-bold leading-none block md:hidden'>{t("Home.Securities.securitiesTitleMobile")}</div>
@@ -282,7 +261,7 @@ const Home = () => {
                                     }
                                     
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='text-[#444] text-sm md:text-2xl font-semibold leading-none w-[320px] min-w-[310px] md:w-[740px]'>
                                                 {t("Home.Securities.securitiesDescription")}
                                             </div>
@@ -306,7 +285,7 @@ const Home = () => {
                                 </video>
                                 <div className='w-full bg-[#ECFFE6] rounded-[5px] flex justify-center py-3 px-4 md:py-[25px] md:px-0'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className=' text-sm md:text-2xl font-semibold text-[#444] leading-tight md:w-[850px]'>
                                                 {t("Home.Securities.offer")}
                                             </div>
@@ -332,9 +311,9 @@ const Home = () => {
                                 <div className='w-[150px] border border-primary py-[10px] px-[18px] text-xl font-normal text-primary rounded-[5px]'>
                                     {t("Home.Crypto.cryptoButton")}
                                 </div>
-                                <div className='flex flex-col gap-[10px] md:gap-5'>
+                                <div className='flex flex-col gap-[10px] items-center md:gap-5'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='flex flex-col items-center gap-1 md:gap-0'>
                                                 <div className='text-primary text-2xl md:text-[64px] font-bold leading-tight'>{t("Home.Crypto.cryptoTitle")}</div>
                                                 <div className='text-[#444] text-2xl md:text-[64px] font-bold leading-tight'>{t("Home.Crypto.cryptoTitle2")}</div>
@@ -348,7 +327,7 @@ const Home = () => {
                                     }
                                     
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='text-[#444] text-sm md:text-2xl font-semibold w-[320px] md:w-[660px]'>
                                                 {t("Home.Crypto.cryptoDescription")}
                                             </div>
@@ -363,15 +342,15 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className='flex flex-col gap-5'>
-                                <video playsInline autoPlay loop muted preload='auto' ref={videoRef} className='object-cover w-full'>
+                                <video playsInline autoPlay loop muted preload='auto' ref={videoRef} className='w-full rounded-[5px]'>
                                     <source src="/assets/videos/processor.mp4" type='video/mp4'/>
                                 </video>
                                 <div className='w-full bg-[#ECFFE6] rounded-[5px] flex justify-center p-4 md:py-[25px] md:px-0'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='flex flex-col md:flex-row items-center gap-[10px] md:gap-[30px]'>
                                                 <div className='text-primary text-xl md:text-[40px] font-bold text-center md:text-left'>{t("Home.Crypto.cryptoSubtitle")}</div>
-                                                <div className='text-sm md:text-2xl font-semibold text-[#444] leading-tight md:w-[640px]'>
+                                                <div className='text-sm md:text-2xl font-semibold text-[#444] leading-tight md:w-[640px] md:text-left'>
                                                     {t("Home.Crypto.cryptoSubtitle_Description")}
                                                 </div>
                                             </div>
@@ -434,7 +413,7 @@ const Home = () => {
                                     
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='hidden md:flex flex-col'>
                                             <div className='text-[#444] text-2xl text-left font-medium leading-tight'>
                                                 {t("openTradingACC.tradingAcc_Description")}
@@ -463,7 +442,7 @@ const Home = () => {
                                 
                                 <div className='flex flex-col md:hidden'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='text-[#444] text-sm md:text-2xl font-medium text-left leading-[1.20]'>
                                                 {t("openTradingACC.tradingAcc_Description")}
                                                 {t("openTradingACC.tradingAcc_Description2")} <span className='text-primary font-semibold md:font-medium'>{t("openTradingACC.tradingAcc_Description3")}</span>
@@ -480,7 +459,7 @@ const Home = () => {
                             </div>
                         </div>
 
-                        <img src={iphone} alt="iphone" className='hidden md:block' />
+                        <img src={iphone} alt="iphone" className='hidden md:block mb-[-2px]' />
                     </div>
                 </div>
             </div>

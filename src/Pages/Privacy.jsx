@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import home from '../Assets/Images/qcgpp.png';
 import homeMobile from '../Assets/Images/qcgpp1.png';
 import google from '../Assets/Images/GetItOnGooglePlay.png';
@@ -11,26 +11,6 @@ import { Link } from 'react-router-dom';
 
 const Privacy = () => {
     const { t, i18n } = useTranslation();
-    const [language, setLanguage] = useState(i18n.language);
-
-    useEffect(() => {
-        if (i18n.language !== 'en') {
-            i18n.changeLanguage('en');
-        }
-        const languageChangeListener = () => {
-            setLanguage(i18n.language);
-        };
-
-        if (i18n.on) {
-            i18n.on('languageChanged', languageChangeListener);
-        }
-
-        return () => {
-            if (i18n.off) {
-                i18n.off('languageChanged', languageChangeListener);
-            }
-        };
-    }, [i18n]);
 
     return (
         <div className='flex flex-col md:pt-[60px]'> 
@@ -58,7 +38,7 @@ const Privacy = () => {
                 <div className='max-w-[1000px] w-full py-[50px] px-[30px] md:px-0 md:py-[150px]'>
                     <div className='flex flex-col gap-[50px] md:gap-[150px]'>
                         {
-                            language === 'en' ? (
+                            i18n.language === 'en' ? (
                                 <div className='text-[#1C7800] max-w-[320px] md:max-w-none text-base md:text-4xl leading-none font-bold text-left'>
                                     {t("Privacy.QCG_BasicDescription")}
                                 </div>
@@ -75,7 +55,7 @@ const Privacy = () => {
                             <div className='flex flex-col text-[#1C7800] text-2xl md:text-[64px] text-left leading-none md:leading-[1.20] font-bold'>
                                 <div>{t("Privacy.Crypto.crypto_Title1")}</div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div>{t("Privacy.Crypto.crypto_Title2")}</div>
                                     ) : (
                                         null
@@ -86,7 +66,7 @@ const Privacy = () => {
                             
                             <div className='flex flex-col text-[#444] text-sm md:text-4xl text-left leading-tight md:leading-[1.20] font-bold md:font-semibold'>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='hidden md:block '>
                                             <div>
                                                 {t("Privacy.Crypto.crypto_Description1")}
@@ -112,7 +92,7 @@ const Privacy = () => {
                         <div className='flex flex-col gap-[10px] md:gap-[30px]'>
                             <div className='flex flex-col text-primary text-base md:text-4xl font-bold text-left leading-tight md:leading-[1.20]'>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div>
                                             <div className='hidden md:block '>
                                                 {t("Privacy.Crypto.cryptoSubtitle1")}
@@ -152,7 +132,7 @@ const Privacy = () => {
                             <div className='flex flex-col gap-4 md:gap-6 min-w-[330px] md:min-w-none text-[#444] text-sm md:text-2xl font-semibold text-left leading-tight md:leading-[1.20]'>
                                 <div>{t("Privacy.Crypto.cryptoSubtitle3_Description")}</div>
                                 {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div>
                                                 {t("Privacy.Crypto.cryptoSubtitle3_Description2")}
                                             </div>
@@ -172,7 +152,7 @@ const Privacy = () => {
 
                         <div className='flex flex-col gap-[10px] md:gap-[30px] w-full'>
                             {
-                                language === 'en' ? (
+                                i18n.language === 'en' ? (
                                     <div className='text-2xl md:text-[64px] text-primary font-bold text-left leading-tight'>
                                         {t("Privacy.COC_Title")}
                                     </div>
@@ -183,7 +163,7 @@ const Privacy = () => {
                                 )
                             }
                             {
-                                language === 'en' ? (
+                                i18n.language === 'en' ? (
                                     <div className='flex flex-col text-[#444] text-sm md:text-4xl text-left leading-tight font-semibold'>
                                         <div className='hidden md:block'>{t("Privacy.COC_Description1")}</div>
                                         <div className='hidden md:block'>{t("Privacy.COC_Description2")}</div>
@@ -204,7 +184,7 @@ const Privacy = () => {
 
                         <div className='flex flex-col gap-[50px]'>
                             {
-                                language === 'en' ? (
+                                i18n.language === 'en' ? (
                                     <div className='flex flex-col text-primary text-2xl md:text-[40px] text-left font-bold leading-tight'>
                                         <div className='hidden md:block'>{t("Privacy.openAccountTitle")}</div>
                                         <div className='hidden md:block'>{t("Privacy.openAccountTitle2")}</div>
@@ -329,7 +309,7 @@ const Privacy = () => {
                                     
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='hidden md:flex flex-col'>
                                             <div className='text-[#444] text-2xl text-left font-medium leading-tight'>
                                                 {t("openTradingACC.tradingAcc_Description")}
@@ -358,7 +338,7 @@ const Privacy = () => {
                                 
                                 <div className='flex flex-col md:hidden'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='text-[#444] text-sm md:text-2xl font-medium text-left leading-[1.20]'>
                                                 {t("openTradingACC.tradingAcc_Description")}
                                                 {t("openTradingACC.tradingAcc_Description2")} <span className='text-primary font-semibold md:font-medium'>{t("openTradingACC.tradingAcc_Description3")}</span>

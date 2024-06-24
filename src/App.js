@@ -10,12 +10,10 @@ import Privacy from "./Pages/Privacy";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import ScrollToTop from './Pages/ScrollToTop';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { LanguageProvider } from "./LanguagesContext.js";
 
 function App() {
   return (
     <Router>
-      <LanguageProvider>
       <div className="App">
         <Topbar />
         <ScrollToTop />
@@ -29,7 +27,6 @@ function App() {
           </Routes>
         <Footer />
       </div>
-    </LanguageProvider>
     </Router>
     
   );

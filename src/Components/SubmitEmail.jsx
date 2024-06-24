@@ -1,32 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import Swal from "sweetalert2";
 
 export default function FormSubmission({ onClose }) {
-    const { t, i18n } = useTranslation();
-    const [, setLanguage] = useState(i18n.language);
+    const { t,  } = useTranslation();
     const form = useRef();
     const [errors, setErrors] = useState({});
-
-    useEffect(() => {
-        if (i18n.language !== 'en') {
-            i18n.changeLanguage('en');
-        }
-        const languageChangeListener = () => {
-            setLanguage(i18n.language);
-        };
-
-        if (i18n.on) {
-            i18n.on('languageChanged', languageChangeListener);
-        }
-
-        return () => {
-            if (i18n.off) {
-                i18n.off('languageChanged', languageChangeListener);
-            }
-        };
-    }, [i18n]);
 
     // const sendEmail = () => {
 

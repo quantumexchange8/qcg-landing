@@ -65,26 +65,7 @@ const Account = () => {
       }, []);    
 
     const { t, i18n } = useTranslation();
-    const [language, setLanguage] = useState(i18n.language);
-
-    useEffect(() => {
-        if (i18n.language !== 'en') {
-            i18n.changeLanguage('en');
-        }
-        const languageChangeListener = () => {
-            setLanguage(i18n.language);
-        };
-
-        if (i18n.on) {
-            i18n.on('languageChanged', languageChangeListener);
-        }
-
-        return () => {
-            if (i18n.off) {
-                i18n.off('languageChanged', languageChangeListener);
-            }
-        };
-    }, [i18n]);
+    
     return (
         <div className='flex flex-col md:pt-[60px]'>
             <div className='relative mt-[60px] md:mt-0'>
@@ -105,7 +86,7 @@ const Account = () => {
                             
                         </div>
                         {
-                            language === 'en' ? (
+                            i18n.language === 'en' ? (
                                 <div className='text-white text-sm md:text-2xl text-left leading-tight md:leading-none font-semibold md:font-bold max-w-[175px] md:max-w-[300px]'>
                                     {t("Account.accountVideoDescription")}
                                 </div>
@@ -131,7 +112,7 @@ const Account = () => {
                                 {t("Account.accountTitle")}
                             </div>
                             {
-                                language === 'en' ? (
+                                i18n.language === 'en' ? (
                                     <div className='flex flex-col text-[#444] text-left text-sm md:text-2xl font-semibold leading-tight'>
                                         <div className='hidden md:block'>{t("Account.accountDescription")}</div>
                                         <div className='hidden md:block'>{t("Account.accountDescription2")}</div>
@@ -150,7 +131,7 @@ const Account = () => {
                         </div>
 
                         {
-                            language === 'en' ? (
+                            i18n.language === 'en' ? (
                                 <div className='block md:hidden'></div>
                             ) : (
                                 null
@@ -225,7 +206,7 @@ const Account = () => {
                                         
                                     </li>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <li> 
                                                 <div className='font-bold flex flex-col'>
                                                     <div>{t("Account.Standard.standardSubtitle7")}</div>
@@ -339,7 +320,7 @@ const Account = () => {
                                         
                                     </li>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <li> 
                                                 <div className='font-bold flex flex-col'>
                                                     <div>{t("Account.ECN.ECNSubtitle4")}</div>
@@ -374,7 +355,7 @@ const Account = () => {
                                         
                                     </li>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <li> 
                                                 <div className='font-bold flex flex-col'>
                                                     <div>{t("Account.ECN.ECNSubtitle7")}</div>
@@ -396,7 +377,7 @@ const Account = () => {
                                     <div className='leading-[1.20] text-left'>
                                         <div className='flex flex-col'>
                                             {
-                                                language === 'en' ? (
+                                                i18n.language === 'en' ? (
                                                     <div className='font-bold'>{t("Account.Standard.standardSubtitle1")}</div>
                                                 ) : (
                                                     <div className='font-bold'>{t("Account.Standard.standardSubtitle1")}</div>
@@ -447,7 +428,7 @@ const Account = () => {
                                     </div>
                                     <div className='leading-[1.20] text-left'>
                                         {
-                                            language === 'en' ? (
+                                            i18n.language === 'en' ? (
                                                 <div className='flex flex-col'>
                                                     <div className='font-bold'>{t("Account.ECN.ECNSubtitle7")}</div>
                                                     <div className='text-[#444] md:text-2xl font-medium flex flex-row gap-1'>
@@ -513,7 +494,7 @@ const Account = () => {
                                     
                                 </div>
                                 {
-                                    language === 'en' ? (
+                                    i18n.language === 'en' ? (
                                         <div className='hidden md:flex flex-col'>
                                             <div className='text-[#444] text-2xl text-left font-medium leading-tight'>
                                                 {t("openTradingACC.tradingAcc_Description")}
@@ -542,7 +523,7 @@ const Account = () => {
                                 
                                 <div className='flex flex-col md:hidden'>
                                     {
-                                        language === 'en' ? (
+                                        i18n.language === 'en' ? (
                                             <div className='text-[#444] text-sm md:text-2xl font-medium text-left leading-[1.20]'>
                                                 {t("openTradingACC.tradingAcc_Description")}
                                                 {t("openTradingACC.tradingAcc_Description2")} <span className='text-primary font-semibold md:font-medium'>{t("openTradingACC.tradingAcc_Description3")}</span>
