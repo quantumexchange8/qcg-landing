@@ -80,15 +80,37 @@ const Home = () => {
                     <source src={HomeMobile} type='video/mp4'/>
                 </video>
 
-                <div className=' flex justify-center items-center absolute inset-x-0 inset-y-0 text-left gap-[50px]'>
+                <div className=' flex flex-col justify-center items-center absolute inset-x-0 inset-y-0 text-left gap-[50px]'>
                     {
                         i18n.language === 'en' ? (
-                            <div className='max-w-[1000px] text-[#ffffff66] text-5xl md:text-[200px] font-bold leading-none text-left'>
+                            <div className='max-w-[1000px] text-white text-4xl md:text-[150px] font-bold leading-none text-left'>
                                 {t("Home.homeVideoTitle")}
                             </div>
                         ) : (
-                            <div className='max-w-[1000px] text-[#ffffff66] text-5xl md:text-[150px] font-bold leading-none text-left'>
+                            <div className='max-w-[1000px] text-white text-5xl md:text-[150px] font-bold leading-none text-left'>
                                 {t("Home.homeVideoTitle")}
+                            </div>
+                        )
+                    }
+
+                    {
+                        i18n.language === 'en' ? (
+                            <div className='flex flex-col gap-[30px] w-[245px] md:w-[545px] items-center'>
+                                <div className='text-primary text-base md:text-4xl font-semibold text-center leading-tight' >
+                                    {t("Home.homeVideoTitle3")}
+                                </div>
+                                <div className='flex items-center justify-center w-40 h-[30px] md:w-[270px] md:h-[50px] border-2 border-primary rounded-[5px] bg-transparent text-white text-sm md:text-2xl font-semibold' >
+                                    Open Account Now
+                                </div>
+                            </div>
+                        ) : (
+                            <div className='flex flex-col gap-[30px] w-[145px] md:w-[325px] items-center'>
+                                <div className='text-primary text-base md:text-4xl font-semibold text-center leading-tight' >
+                                    {t("Home.homeVideoTitle3")}
+                                </div>
+                                <div className='flex items-center justify-center w-28 h-[30px] md:w-[180px] md:h-[50px] border-2 border-primary rounded-[5px] bg-transparent text-white text-sm md:text-2xl font-semibold' >
+                                    {t("Home.openAcc")}
+                                </div>
                             </div>
                         )
                     }
@@ -389,7 +411,7 @@ const Home = () => {
                                         </Link>
                                         {/* <Window/> */}
                                     </div>
-                                    <div className='flex items-center gap-[26px] md:hidden'>
+                                    <div className='flex items-center w-full max-w-[390px] justify-between md:hidden'>
                                         {/* <img src={mobile_IOS_PS} alt="IOS_PS" /> */}
                                         <Link to='https://apps.apple.com/my/app/ctrader/id767428811?platform=iphone'>
                                             <AppleMobileIcon/>
