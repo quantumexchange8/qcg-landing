@@ -30,6 +30,7 @@ const Footer = () => {
                             <div className='flex flex-col text-secondary text-xs md:text-base font-bold text-left'>
                                 <div className='flex flex-col leading-[1.20]'>
                                     <span>NFA ID: 0555532</span>
+                                    <span>SVGFSA: 26397 2021</span>
                                     <span>Copyright © Quantum Capital Group 2021. All rights reserved.</span>
                                 </div>
                                 
