@@ -97,7 +97,7 @@ const Home = () => {
                         i18n.language === 'en' ? (
                             <div className='flex flex-col gap-[30px] w-[245px] md:w-[545px] items-center'>
                                 <div className='text-primary text-base md:text-4xl font-semibold text-center leading-tight' >
-                                    {t("Home.homeVideoTitle3")}
+                                    Open an Unlimited Opportunity Trading Account
                                 </div>
                                 <div className='flex items-center justify-center w-40 h-[30px] md:w-[270px] md:h-[50px] border-2 border-primary rounded-[5px] bg-transparent text-white text-sm md:text-2xl font-semibold' >
                                     Open Account Now
