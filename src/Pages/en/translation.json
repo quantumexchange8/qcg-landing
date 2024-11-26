@@ -1,11 +1,12 @@
 {
   "Topbar":{
-      "homePage":"HOME",
-      "productsPage":"PRODUCTS",
-      "accountPage": "ACCOUNT",
-      "partnerPage": "PARTNER",
-      "register_button": "REGISTER",
-      "login_Button": "LOG IN"
+      "homePage":"Home",
+      "abountPage":"About",
+      "productsPage":"Products",
+      "accountPage": "Account",
+      "partnerPage": "Partner",
+      "register_button": "Register",
+      "login_Button": "Log in"
     },
 
     "mobileTopbar": {

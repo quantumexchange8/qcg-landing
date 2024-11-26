@@ -15,12 +15,12 @@ export default function TabComponent({ selectedButton, onClose }) {
 
   return (
     <div className="w-full max-w-md flex flex-col gap-[30px] md:gap-10">
-      <div className='flex flex-col items-center gap-[10px]'>
-        <div className="text-black text-center text-xl font-bold text-[#1C7800] leading-none">
+      <div className='flex flex-col items-center gap-0 md:gap-[10px]'>
+        <div className="text-black text-center text-xl font-semibold text-[#1C7800] leading-normal">
           {t("Contact.header")}
         </div>
 
-        <div className="text-black text-center text-sm md:text-base font-medium leading-none w-36 md:w-full">
+        <div className="text-black text-center text-sm md:text-base leading-normal w-full">
           {t("Contact.desc")}
         </div>
       </div>

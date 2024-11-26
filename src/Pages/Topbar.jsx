@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { Earphone, Lang, Menus } from '../Components/Outline';
+import { Earphone, Lang, LoginIcon, Menus, RegisterIcon } from '../Components/Outline';
 import logo from '../Assets/Images/logo.svg';
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Transition, Dialog } from '@headlessui/react'
@@ -69,45 +69,53 @@ const Topbar = () => {
 
                 <div className="hidden md:flex justify-center gap-[30px]">
                     <Link
+                        to="/privacy"
+                        className={` text-base ${ 
+                            location.pathname === '/privacy' ? ' border-t border-b border-[#1c7800] text-[#000] ' : ' text-[#888]'
+                        }`}
+                    >   
+                        {t("Topbar.abountPage")}
+                    </Link>
+                    <Link
                         to="/"
-                        className={`text-base font-semibold ${ 
-                            location.pathname === '/' ? 'bg-[#1c78004d] px-[15px] rounded-[35px]' : ''
+                        className={`text-base ${ 
+                            location.pathname === '/' ? 'border-t border-b border-[#1c7800] text-[#000] ' : ' text-[#888]'
                         }`}
                     >   
                         {t("Topbar.homePage")}
                     </Link>
                     <Link
                         to="/products"
-                        className={`text-base font-semibold ${
-                            location.pathname === '/products' ? 'bg-[#1c78004d] px-[15px] rounded-[35px]' : ''
+                        className={`text-base ${
+                            location.pathname === '/products' ? 'border-t border-b border-[#1c7800] text-[#000] ' : ' text-[#888]'
                         }`}
                     >
                         {t("Topbar.productsPage")}
                     </Link>
                     <Link
                         to="/account"
-                        className={`text-base font-semibold ${
-                            location.pathname === '/account' ? 'bg-[#1c78004d] px-[15px] rounded-[35px]' : ''
+                        className={`text-base ${
+                            location.pathname === '/account' ? 'border-t border-b border-[#1c7800] text-[#000] ' : ' text-[#888]'
                         }`}
                     >
                         {t("Topbar.accountPage")}
                     </Link>
                     <Link
                         to="/partner"
-                        className={`text-base font-semibold ${
-                            location.pathname === '/partner' ? 'bg-[#1c78004d] px-[15px] rounded-[35px]' : ''
+                        className={`text-base ${
+                            location.pathname === '/partner' ? 'border-t border-b border-[#1c7800] text-[#000] ' : ' text-[#888]'
                         }`}
                     >
                         {t("Topbar.partnerPage")}
                     </Link>
 
-                    <div className='text-base font-semibold text-[#1C7800]'>
+                    <div className='text-base text-[#1C7800]'>
                         <a href="https://login.qcgbrokertw.com/register">
                             {t("Topbar.register_button")}
                         </a>
                     </div>
 
-                    <div className='text-base font-semibold text-[#1C7800]'>
+                    <div className='text-base text-[#1C7800]'>
                         <a href="https://login.qcgbrokertw.com/login">
                             {t("Topbar.login_Button")}
                         </a>
@@ -134,7 +142,7 @@ const Topbar = () => {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className="absolute mt-5 w-[200px] h-[60px] rounded-[30px] bg-[#AAA] shadow-lg ring-1 ring-black/5 focus:outline-none text-xl font-semibold md:font-medium text-right left-1/2 transform -translate-x-1/2">
+                            <Menu.Items className="absolute mt-5 w-[200px] h-[60px] rounded-[30px] bg-[#dddddde6] shadow-lg  focus:outline-none text-xl font-semibold md:font-medium text-right left-1/2 transform -translate-x-1/2">
                                 <div className="flex flex-row justify-center items-center gap-[30px] py-5 px-9">
                                     <Menu.Item>
                                         {({ active }) => (
@@ -209,10 +217,10 @@ const Topbar = () => {
                                     <Dialog.Panel className="flex flex-col gap-5 w-130px transform overflow-hidden rounded-[5px] bg-white p-6 text-left align-middle shadow-xl transition-all">
                                     
                                         <button onClick={() => toggleLanguage('en')}>
-                                            <span className='text-xl font-semibold'>English</span>
+                                            <span className='text-sm'>English</span>
                                         </button>
                                         <button onClick={() => toggleLanguage('zh')}>
-                                            <span className='text-xl font-semibold'>中文</span>
+                                            <span className='text-sm'>中文</span>
                                         </button>
                                     </Dialog.Panel>
                                 </Transition.Child>
@@ -260,83 +268,122 @@ const Topbar = () => {
                                     leaveFrom="opacity-100 scale-100"
                                     leaveTo="opacity-0 scale-95"
                                 >
-                                    <Dialog.Panel className="flex flex-col gap-5 w-170px transform overflow-hidden rounded-[5px] bg-white px-10 py-8 text-left align-middle shadow-xl transition-all">
+                                    <Dialog.Panel className="flex flex-col gap-5 w-170px transform overflow-hidden rounded-[5px] bg-white/90 px-10 py-8 text-left align-middle shadow-xl transition-all">
                                     
                                         <Link
+                                            to="/privacy"
+                                        >
+                                            <div className='flex justify-center'>
+                                                <button
+                                                    className={`${
+                                                        location.pathname === '/privacy' ? 'text-[#000] text-base leading-normal border-t border-b py-0.5 border-primary text-center ' : ' text-[#888] text-base leading-normal text-center '
+                                                    }`}
+                                                    onClick={closeMenuModal}
+                                                >
+                                                    {t("mobileTopbar.aboutPage")}
+                                                </button> 
+                                            </div>
+                                        </Link>
+
+                                        <Link
                                             to="/"
-                                            className={`${
-                                                location.pathname === '/' ? 'text-primary' : ''
-                                            }`}
                                             
                                         >
-                                            <button
-                                                className='text-black text-xl font-semibold text-center w-full'
-                                                onClick={closeMenuModal}
-                                            >
-                                                {t("mobileTopbar.homePage")}
-                                            </button>
+                                            <div className='flex justify-center'>
+                                                <button
+                                                    className={`${
+                                                        location.pathname === '/' ? 'text-[#000] text-base leading-normal border-t border-b py-0.5 border-primary text-center ' : ' text-[#888] text-base leading-normal text-center '
+                                                    }`}
+                                                    onClick={closeMenuModal}
+                                                >
+                                                    {t("mobileTopbar.homePage")}
+                                                </button> 
+                                            </div>
                                         </Link>
                                         <Link
                                             to="/products"
-                                            className={`${
-                                                location.pathname === '/products' ? 'text-primary' : ''
-                                            }`}
                                         >
-                                            <button
-                                                className='text-black text-xl font-semibold text-center w-full'
-                                                onClick={closeMenuModal}
-                                            >
-                                                {t("mobileTopbar.productsPage")}
-                                            </button>
+                                            <div className='flex justify-center'>
+                                                <button
+                                                    className={`${
+                                                        location.pathname === '/products' ? 'text-[#000] text-base leading-normal border-t border-b py-0.5 border-primary text-center ' : ' text-[#888] text-base leading-normal text-center '
+                                                    }`}
+                                                    onClick={closeMenuModal}
+                                                >
+                                                    {t("mobileTopbar.productsPage")}
+                                                </button> 
+                                            </div>
                                         </Link>
                                         <Link
                                             to="/account"
-                                            className={`${
-                                                location.pathname === '/account' ? 'text-primary' : ''
-                                            }`}
                                         >
-                                            <button
-                                                className='text-black text-xl font-semibold text-center w-full'
-                                                onClick={closeMenuModal}
-                                            >
-                                                {t("mobileTopbar.accountPage")}
-                                            </button>
+                                            <div className='flex justify-center'>
+                                                <button
+                                                    className={`${
+                                                        location.pathname === '/account' ? 'text-[#000] text-base leading-normal border-t border-b py-0.5 border-primary text-center ' : ' text-[#888] text-base leading-normal text-center '
+                                                    }`}
+                                                    onClick={closeMenuModal}
+                                                >
+                                                    {t("mobileTopbar.accountPage")}
+                                                </button> 
+                                            </div>
                                         </Link>
                                         <Link
                                             to="/partner"
-                                            className={`${
-                                                location.pathname === '/partner' ? 'text-primary' : ''
-                                            }`}
                                         >
-                                            <button
-                                                className='text-black text-xl font-semibold text-center w-full'
-                                                onClick={closeMenuModal}
-                                            >
-                                                {t("mobileTopbar.partnerPage")}
-                                            </button>
+                                            <div className='flex justify-center'>
+                                                <button
+                                                    className={`${
+                                                        location.pathname === '/partner' ? 'text-[#000] text-base leading-normal border-t border-b py-0.5 border-primary text-center ' : ' text-[#888] text-base leading-normal text-center '
+                                                    }`}
+                                                    onClick={closeMenuModal}
+                                                >
+                                                    {t("mobileTopbar.partnerPage")}
+                                                </button> 
+                                            </div>
                                         </Link>
                                         <button
-                                            className='text-black text-xl font-semibold text-center w-full'
+                                            className='text-[#888] text-base leading-normal text-center w-full'
                                             onClick={() => handleButtonClick('service')}
                                         >
                                                {t("mobileTopbar.service_Button")}
                                         </button>
-                                        <button
-                                            className='text-black text-xl font-semibold text-primary'
-                                            onClick={closeMenuModal}
-                                        >
-                                                <a href="https://login.qcgbrokertw.com/register">
-                                                {t("mobileTopbar.register_button")}
+                                        <div>
+                                            <a href="https://login.qcgbrokertw.com/register">
+                                                <div className='flex items-center border border-primary rounded-[5px] py-[5px] px-3'>
+                                                    <button
+                                                        className='text-primary text-base'
+                                                        onClick={closeMenuModal}
+                                                    >
+                                                        <div className='flex items-center gap-2.5'>
+                                                            <RegisterIcon />
+                                                            <span>
+                                                                {t("mobileTopbar.register_button")}
+                                                            </span>
+                                                        </div>
+                                                    </button>
+                                                </div>
                                             </a>
-                                        </button>
-                                        <button
-                                            className='text-black text-xl font-semibold text-primary'
-                                            onClick={closeMenuModal}
-                                        >
-                                                <a href="https://login.qcgbrokertw.com">
-                                                {t("mobileTopbar.login_Button")}
+                                        </div>
+                                        <div>
+                                            <a href="https://login.qcgbrokertw.com">
+                                                <div className='flex items-center border border-primary rounded-[5px] py-[5px] px-3'>
+                                                    <button
+                                                        className='text-primary text-base w-full'
+                                                        onClick={closeMenuModal}
+                                                    >
+                                                        <div className='flex items-center gap-2.5'>
+                                                            <div className=''>
+                                                                <LoginIcon />
+                                                            </div>
+                                                            <div className='flex justify-center w-full'>
+                                                                {t("mobileTopbar.login_Button")}
+                                                            </div>
+                                                        </div>
+                                                    </button>
+                                                </div>
                                             </a>
-                                        </button>
+                                        </div>
                                     </Dialog.Panel>
                                 </Transition.Child>
                                 </div>

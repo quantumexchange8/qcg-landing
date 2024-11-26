@@ -1,18 +1,20 @@
 {
   "Topbar":{
       "homePage":"首頁",
+      "abountPage":"關於",
       "productsPage":"交易品種",
       "accountPage": "賬戶類型",
-      "partnerPage": "合作夥伴",
+      "partnerPage": "夥伴",
       "register_button": "註冊帳戶",
       "login_Button": "登入"
     },
 
     "mobileTopbar": {
       "homePage":"首頁",
+      "aboutPage":"關於",
       "productsPage":"交易品種",
       "accountPage": "賬戶類型",
-      "partnerPage": "合作夥伴",
+      "partnerPage": "夥伴",
       "register_button": "註冊帳戶",
       "login_Button": "登入",
       "service_Button": "客服支持"
@@ -31,6 +33,7 @@
       "openAccountTitleMobile":"開設一個投資交易賬戶與量子資本集團, 體驗活躍金融市場中的數字跳動脈搏.",
       "Crypto":{
         "crypto_Title1":"加密貨幣",
+        "crypto_Description1": "量子資本集團對區塊鏈技術一直都深感興趣. 未來在加密貨幣領域的活動應在可靠的, 受監管的框架內進行. 通過我們的加密貨幣交易, 我們為客戶創建了一個高效的交易平台, 確保在加密貨幣交易中的安全, 成本效益和充足的流動性. 目前, 量子資本集團平台上可交易的加密貨幣已超過 100 種, 我們正積極努力的在增加這一數量.",
         "crypto_DescriptionCn":"量子資本集團對區塊鏈技術一直都深感興趣. 未來在加密貨幣領域的活動應在可靠的, 受監管的框架內進行. 通過我們的加密貨幣交易, 我們為客戶創建了一個高效的交易平台, 確保在加密貨幣交易中的安全, 成本效益和充足的流動性. 目前, 量子資本集團平台上可交易的加密貨幣已超過 100 種, 我們正積極努力的在增加這一數量.",
         "crypto_DescriptionMobile":"量子資本集團對區塊鏈技術一直都深感興趣. 未來在加密貨幣領域的活動應在可靠的, 受監管的框架內進行. 通過我們的加密貨幣交易, 我們為客戶創建了一個高效的交易平台, 確保在加密貨幣交易中的安全, 成本效益和充足的流動性. 目前, 量子資本集團平台上可交易的加密貨幣已超過 100 種, 我們正積極努力的在增加這一數量.",
         "cryptoSubtitleCN":"關鍵成功因素不限於金融資產.",
@@ -40,17 +43,19 @@
         "cryptoSubtitle2_Description":"量子資本集團將擴大其在本地市場的強勢地位, 拓展服務範圍, 開發新的客戶群體, 並在歐洲, 亞洲和中東等其他目標市場進行擴展. 這將拓寬集團的收入來源, 有助於降低基於交易的收入比例, 從而減少波動性.",
         "cryptoSubtitle2_Description2":"量子資本集團還將在未來應對困難的市場或經濟情況方面處於有利位置, 並能夠利用為其客戶及外匯交易本身帶來的機會.",
         "cryptoSubtitle3":"量子資本集團: 不僅僅是在線交易.",
-        "cryptoSubtitle3_Description":"量子資本集團的客戶平均比其他在線券商的客戶更富有. 這是因為他們還受益於全面的通用加密貨幣支付服務. 量子資本集團在這一領域的服務正在擴展, 推出了現代化的加密支付通道.",
+        "cryptoSubtitle3_Description":"平均而言, QCG 的客戶比其他線上經紀商的客戶更加富有. 這是因為他們還受益於全面的加密貨幣支付服務. QCG 在這一領域的服務正在擴展, 推出了現代化的加密貨幣支付網關. 與金融領域的民主化和創新相一致, QCG 與技術開發團隊在 2021 年共同推出的 Meta-Financial 超級應用程式正越來越受歡迎.",
         "cryptoSubtitle3_Description2":"順應金融行業的民主化和創新, 量子資本集團與技術開發團隊於2021年聯合推出的 Meta-Financial 超級應用程式正日益受到歡迎.",
-        "cryptoSubtitle3_Description3":"此外, 機構客戶越來越多地受益於量子資本集團獨特商業模式提供的多樣化機會. 我們的團隊正在不斷擴展資產管理平台 “資產大師”, 該平台提供高效且具有成本效益的投資組合管理和交易服務.",
+        "cryptoSubtitle3_Description3":"此外, 機構客戶越來越多地受益於 QCG 獨特商業模式所提供的多種機會. 我們的團隊正在不斷擴展資產管理大師平台 \"Asset Master\", 該平台提供高效, 經濟的投資組合管理和交易服務.",
         "cryptoSubtitle3_Description2_1":"順應金融行業的民主化和創新, 量子資本集團與技術開發團隊於2021年聯合推出的",
         "cryptoSubtitle3_Description2_2":"Meta-Financial 超級應用程式正日益受到歡迎.",
-        "cryptoSubtitle1Mobile":"關鍵成功因素不限於金融資產."
+        "cryptoSubtitle1Mobile":"關鍵成功因素不限於金融資產.",
+        "cryptoSubtitle1":"關鍵成功因素不限於金融資產."
       },
       "COC_Title":"行為準則",
       "COC_Description":"作為在線外匯交易的領導者和金融科技公司, 創新和技術挑戰著傳統的準則. 我們尊重規則, 珍惜重要的企業價值觀. 集團的行為準則指導著其與內部和外部投資者的日常行動.",
       "COC_Description1":"作為在線外匯交易的領導者和金融科技公司, 創新和技術挑戰傳統的規範. 儘管如此, 我們仍尊重規則, 珍視重要的企業價值觀.",
       "COC_Description2":"集團的行為準則指導著我們與內部和外部投資者的日常行動.",
+      "COC_Description3":"作為在線外匯交易的領導者和金融科技公司, 創新和技術挑戰傳統的規範. 儘管如此, 我們仍尊重規則, 珍視重要的企業價值觀. 集團的行為準則指導著我們與內部和外部投資者的日常行動.",
       "openAccountTitle":"開設一個投資交易賬戶與量子資本集團, 體驗活躍金融市場中的數字跳動脈搏.",
       "openAccountTitle2":"體驗數字在活躍的金融市場中的脈搏.",
       "openAccountTitle3":" ",
@@ -84,19 +89,19 @@
       "openAcc":"开设真实账户",
       "homeVideoDescription":"释放您的财务潜力, 借助量子資本的充裕流动性和高水准执行.",
       "QCGadvantage_Title":"量子資本的优势与其他的不同",
-      "QCGadvantage_Title1":"量子資本集團的優勢",
+      "QCGadvantage_Title1":"量子資本集團的優勢與其他公司不同",
       "QCGadvantage_Title2":"與其他公司不同",
-      "QCGadvantage_Description":"在安全且成本效益的環境中, 透過量子資本集團提升您的財務狀況. 我們直觀的平台,",
+      "QCGadvantage_Description":"在安全且成本效益的環境中, 透過量子資本集團提升您的財務狀況. 我們直觀的平台, 豐富的外匯選擇以及專注的客戶服務, 為您提供無盡的機會.",
       "QCGadvantage_Description2":"豐富的外匯選擇以及專注的客戶服務, 為您提供無盡的機會.",
       "QCGadvantage_Description3":"以及貼心的客戶服務團隊將伴隨您一路前行, 為您打開充滿機遇的世界. ",
       "QCGadvantage_Description4":" ",
       "QCGadvantage_DescriptionMobile":"在安全且成本效益的環境中, 透過量子資本集團提升您的財務狀況. 我們直觀的平台, 豐富的外匯選擇以及專注的客戶服務, 為您提供無盡的機會.",
       "QCGadvantage_mobileDescription":"在量子資本集團舒適且安全的環境中提升您的財務狀況, 而無需支付過高的費用. 我們極具直覺的平台, 豐富的外匯資訊, 以及貼心的客戶服務團隊將伴隨您一路前行, 為您打開充滿機遇的世界.",
-      "copyTradingSystemTitle":"內建的跟單",
+      "copyTradingSystemTitle":"內建的跟單交易系統",
       "copyTradingSystemTitle2":"交易系統",
       "copyTradingSystemMobileTitle":"內建的複製跟單 ",
       "copyTradingSystemMobileTitle2":"交易系統",
-      "copyTradingSystemTitleMobile":"內建的跟單",
+      "copyTradingSystemTitleMobile":"內建的跟單交易系統",
       "copyTradingSystemTitleMobile2":"交易系統",
       "appDepositTitle":"應用程式內的存款",
       "appDepositTitle2":"提款和內部轉賬功能",
@@ -104,6 +109,9 @@
       "appDepositMobileTitle2":"提款和內部轉帳的功能",
       "appDepositTitleMobile":"應用程式內的存款",
       "appDepositTitleMobile2":"提款和內部轉賬功能",
+      "copyPammTitle":"PAMM 資產管理大師",
+      "copyPammTitleMobile":"PAMM",
+      "copyPammTitleMobile2":"資產管理大師",
       "Platform":{
         "platformButton":"交易平臺",
         "platformTitle":"您必須擁有最佳的",
@@ -124,7 +132,7 @@
         "pricingDescription":"您是否對其他外匯平台的隱藏費用感到困擾?",
         "pricingDescription2":"隨時參考我們價格的優勢, 它們絕對公平.",
         "explore":"探索量子資本的 [智能結算] 交易帳戶和點差的卓越好處.",
-        "exploreMobile":"探索量子資本的 [智能結算]",
+        "exploreMobile":"探索量子資本的 [智能結算] 交易帳戶和點差的卓越好處.",
         "exploreMobile2":"交易帳戶和點差的卓越好處."
       },
       "Securities":{
@@ -135,7 +143,7 @@
         "securitiesTitleMobile":"最具影響力的",
         "securitiesDescription":"股票, ETF, 基金, 債券, 期權, 期貨和外匯衍生品 - 所有交易所需的",
         "securitiesDescription2":"基本工具都近在您的指尖, 讓您能夠建立一個強大的投資組合.",
-        "securitiesDescriptionCnMobile1":"股票, ETF, 基金, 債券, 期權, 期貨和外匯衍生品",
+        "securitiesDescriptionCnMobile1":"股票, ETF, 基金, 債券, 期權, 期貨和外匯衍生品 - 所有交易所需的基本工具都近在您的指尖, 讓您能夠建立一個強大的投資組合.",
         "securitiesDescriptionCnMobile2":"所有交易所需的基本工具都近在您的指尖,",
         "securitiesDescriptionCnMobile3":"讓您能夠建立一個強大的投資組合.",
         "securitiesDescription3":"具都在您的指尖, 幫助您建立一個財務 ",
@@ -160,7 +168,7 @@
         "securitiesSubtitle_MobileDescription10":" ",
         "offer": "量子資本集團的平台提供對主要歐洲, 美國和日本指數的交易. 差價合約 (CFD)",
         "offer2": "有期貨 (有到期日) 或現貨/合成 (無到期日, 隔夜滾動 / 利息適用) 可供選擇.",
-        "offerMobile": " 量子資本集團的平台提供對主要歐洲,",
+        "offerMobile": " 量子資本集團的平台提供對主要歐洲, 美國和日本指數的交易. 差價合約 (CFD) 有期貨 (有到期日) 或現貨/合成 (無到期日, 隔夜滾動 / 利息適用) 可供選擇.",
         "offerMobile2": "美國和日本指數的交易.",
         "offerMobile3": "差價合約 (CFD) 有期貨 (有到期日) 或現貨/合成",
         "offerMobile4": " (無到期日, 隔夜滾動 / 利息適用) 可供選擇."
@@ -195,14 +203,14 @@
       "c&pMetal_Title":"貨幣和貴金屬",
       "c&pMetal_Description":"量子资本的產品組合包括主要, 次要和新興貨幣對, 以及貴金屬, 讓您可以全天候進行交易,",
       "c&pMetal_Description2":"並利用全球各地的機會. 我們還提供這些資產的獨家研究, 以幫助您優化策略.",
-      "CFDsIndicesTitle":"差價合約 (CFDs) 指數",
+      "CFDsIndicesTitle":"CFDs 指數",
       "CFDsIndicesDescription":"量子資本集團的外汇平台还允许您交易所有主要欧洲, 美国和日本指数的价格波动.",
       "CFDsIndicesDescription1":"这些差价合约(CFDs) 大多数都可以作为远期合约 (有到期日) 或即期 / 合成合约",
       "CFDsIndicesDescription2":"(无到期日, 适用隔夜展期 / 掉期利息) 进行交易.",
-      "stopoutlevel_Title":"強制平倉水平",
+      "stopoutlevel_Title":"強制止損水平",
       "stopoutlevel_Description":"在 [一般條款和條件], [風險披露聲明] 和 [外匯專用特殊條款和條件] 所規定的限制範圍內, QCG的交易平台設計了一個自動觸發開倉位清算的系統, 當保證金水平",
       "stopoutlevel_Description1":"([權益 / 已使用保證金] X 100) 達到止蝕水平時, 即啟動該系統. 止蝕水平因使用的技術不同而有所不同 (即“自動清算系統”).",
-      "stopoutlevel_Description2":"自動清算系統僅為QCG的唯一利益而設立. 儘管自動清算系統旨在避免客戶損失超過外匯保證金, 並且QCG將確保在絕大多數情況下, 一旦達到清算百分比, 自動清算系統就會啟動, 但QCG有權但不負義務這樣做. QCG在這方面不提供任何保證. 客戶仍然可能遭受比外匯保證金更高的損失.",
+      "stopoutlevel_Description2":"自動清算系統僅為QCG的唯一利益而設立. 儘管自動清算系統旨在避免客戶損失超過外匯保證金, 並且QCG將確保在絕大多數情況下, 一旦達到清算百分比, 自動清算系統就會啟動, 但QCG 有權但不負義務這樣做. QCG在這方面不提供任何保證. 客戶仍然可能遭受比外匯保證金更高的損失.",
       "riskWarning_Title":"風險警告",
       "riskWarning_Description":"本指南的內容僅為純粹信息性質, 不構成對特定產品的報價或推薦, 並不應被理解為任何形式的建議, 特別是關於交易, 稅收和法律問題. 本指南中對產品的信息或觀點未考慮到單個投資者的投資目標, 資產, 經驗或知識.",
       "riskWarning_Description2":"QCG及其員工在任何情況下均不對直接或間接基於本指南內容做出的決定所產生的損害或損失負責. 本指南的內容由QCG根據當前日期製作, 可能會在未事先通知的情況下發生變化. 儘管本指南的內容是根據QCG認為可靠的來源獲取和基於的, 但QCG對本指南的內容的質量, 正確性, 及時性或完整性不承擔任何責任.",
@@ -211,9 +219,9 @@
         "disclaimerTitle":"免責聲明 - 外匯交易損失",
         "disclaimerDescription":"此免責聲明旨在澄清以下事項:",
         "disclaimerSubtitle1":"外匯交易風險: ",
-        "disclaimerSubtitle1Description":"外匯交易市場波動性高, 可能導致投資損失. 外匯投資是高風險活動, 可能導致投資本金的損失. ",
+        "disclaimerSubtitle1Description":"外匯交易市場波動性高, 可能導致投資損失. 外匯投資是一項高風險活動, 可能導致投資本金損失. ",
         "disclaimerSubtitle2":"個人差異: ",
-        "disclaimerSubtitle2Description":"每位投資者的風險承受能力和投資目標不同. 由於個人差異, 外匯交易的表現會有所不同. ",
+        "disclaimerSubtitle2Description":"每位投資者的風險承受能力和投資目標各不相同. 由於個人差異, 外匯交易的表現會有所不同. ",
         "disclaimerSubtitle3":"免責聲明: ",
         "disclaimerSubtitle3Description":"本公司不對投資者因外匯交易而造成的損失負責. 外匯交易中的所有風險和損失將由投資者承擔.",
         "disclaimerSubtitle4":"諮詢與教育: ",
@@ -223,10 +231,10 @@
         "disclaimerSubtitle6":"風險管理: ",
         "disclaimerSubtitle6Description":"投資者應採取適當的風險管理措施, 包括設置止損訂單, 以減輕潛在損失. ",
         "disclaimerSubtitle7":"交易結果: ",
-        "disclaimerSubtitle7Description":"由於市場波動, 外匯交易的結果可能會有所不同. 過去的表現不能保證未來的結果. ",
+        "disclaimerSubtitle7Description":"外匯交易的結果可能因市場波動而有所不同. 過去的表現不保證未來的結果. ",
         "disclaimerSubtitle8":"市場操縱: ",
         "disclaimerSubtitle8Description":"投資者不得從事任何市場操縱活動, 包括但不限於操縱價格, 散佈虛假信息或濫用市場規則. ",
-        "disclaimerReminder":"請注意, 本公司不對外匯交易結果的成功或失敗, 或任何特定投資策略的結果提供任何明示或暗示的保證或陳述. 投資者在參與外匯交易之前應仔細閱讀並了解這些風險, 必要時尋求專業建議."
+        "disclaimerReminder":"請注意, 本公司不就外匯交易結果的成功或失敗, 或任何特定投資策略提供任何明示或暗示的保證或陳述. 投資者在參與外匯交易之前應仔細閱讀並了解這些風險, 並在必要時尋求專業建議."
       },
       "table": {
         "aud": "澳元",
@@ -260,7 +268,7 @@
     "Account":{
       "accountVideoTitle":"選擇適合您的帳戶",
       "accountVideoDescription":"帳戶選擇對於",
-      "accountVideoDescription1":"最佳交易體驗至關重要.",
+      "accountVideoDescription1":"最佳交易體驗至關重要",
       "accountTitle":"開設您的免費交易帳戶",
       "accountDescription":"您的投資帳戶是一個功能齊全的QCG智能結算帳戶, 無開立或維護費用. 您只需在線開設帳戶時提供您的身份證明和居住證明 (電話或水電費單), 僅需幾分鐘.",
       "accountDescriptionMobile":"您的投資帳戶是一個功能齊全的QCG智能結算帳戶, 無開立或維護費用. 您只需在線開設帳戶時提供您的身份證明和居住證明 (電話或水電費單), 僅需幾分鐘.",
@@ -277,7 +285,7 @@
         "standardSubtitle4_Description":"不收取任何佣金.",
         "standardSubtitle5":"最大槓桿:",
         "standardSubtitle5_Description":"從 1:30 至 1:500 不等.",
-        "standardSubtitle6":"允允許 AI 算法交易:",
+        "standardSubtitle6":"允許 AI 算法交易:",
         "standardSubtitle6_Description":"日内交易 | 細分交易 | 波段交易 | 自動交易."
       },
       "ECN":{
@@ -293,8 +301,9 @@
         "ECNSubtitle4_Description":"收取佣金.",
         "ECNSubtitle5":"最大槓桿:",
         "ECNSubtitle5_Description":"從 1:30 至 1:500 不等.",
-        "ECNSubtitle6":"允許交易策略",
-        "ECNSubtitle6_Description":"日交易 | 急速交易 | 波段交易 | 自動交易.",
+        "ECNSubtitle6":"允許 AI 算法交易",
+        "ECNSubtitle6_Description":"不允許個人交易和 AI 算法交易.",
+        "ECNSubtitle7_Description":"加入高級資產交易大師 (ATM) 交易. 無需知識, 選擇您喜歡的 ATM 在平台內加入.",
         "ECNSubtitle7":"允許 PAMM 交易大師管理:",
         "ECNSubtitle71_Description":"加入高級資產交易大師 (ATM) 交易. 無需知識, 選擇您喜歡的 ATM 在平台內加入."
       },
@@ -317,9 +326,9 @@
     },
 
     "Partner":{
-      "partnerVideoTitle":"建立高素質的合作夥伴關係",
-      "partnerVideoDescription":"企業顧問 (BA) 的解決方案,",
-      "partnerVideoDescription1":"建立龐大的客戶群並增加您的收入.",
+      "partnerVideoTitle":"高素質的合作夥伴關係",
+      "partnerVideoDescription":"企業顧問 (BA) 的解決方案, ",
+      "partnerVideoDescription1":" 建立龐大的客戶群並增加您的收入.",
       "partnerTitle":"喜歡量子資本集團的優質交易體驗嗎?",
       "partnerTitle2":"現在就邀請您的朋友加入吧!",
       "partnerDescription":"推薦量子資本集團並賺取現金獎金. 只需按照以下簡單步驟:",
@@ -372,7 +381,8 @@
         "rewardReminder":"查看此優惠的完整條款與條件。"
       },
       "Referral":{
-        "referral1": "給您的朋友分享推薦QR碼",
+        "referral1": "給您的朋友",
+        "referral11": "分享推薦QR碼",
         "referral2Cn": "您的朋友已成功註冊",
         "referral2": "Your friend has",
         "referral21": "successfully registered.",
@@ -386,7 +396,7 @@
         "benefit2": "計劃的主要好處",
 
         "rebate": "高達",
-        "rebate2": "的回扣獎勵",
+        "rebate2": "美元的回扣獎勵",
 
         "creditBonus": "免費",
         "creditBonus2": "信用額獎金",
@@ -430,7 +440,7 @@
         "microtitle": "如何成為",
         "microtitle2": "微型標商?",
         "microdesctitle": "不要再猶豫!",
-        "microdesc": "建立您自己的微型標商並不是一個困難的任務, 也許比您想像中更容易.只需要幾個步驟就可以建立您自己的品牌平台.",
+        "microdesc": "建立您自己的微型標商並不是一個困難的任務, 也許比您想像中更容易.只需要幾個步驟就可以建立您自己的品牌平台. 如果您對此感到興趣, 請不要猶豫的留下您的聯繫方式, 我們的服務團隊將會儘快與您聯繫.",
         "microdesc2": "如果您對此感到興趣, 請不要猶豫的留下您的聯繫方式, 我們的服務團隊將會儘快與您聯繫.",
 
         "rapid": "Rapid deployment:",
@@ -462,9 +472,9 @@
     },
 
     "currenciesTable":{
-      "symbolTitle":"產品組合",
+      "symbolTitle":"交易品種",
       "descriptionsTitle":"備註",
-      "minimumspreadTitle":"標準點差",
+      "minimumspreadTitle":"浮動點差",
       "minimumtradesizeTitle":"最低交易量",
       "maximumtradesizeTitle":"最高交易量",
       "minimumspreadMobileTitle":"最低點差",
