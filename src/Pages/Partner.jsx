@@ -18,7 +18,7 @@ import { BonusIcon,
     // FormMobileIcon,
 } from '../Components/Brand';
 import Trade from '../Assets/Videos/trade.mp4';
-import Modal from '../Components/Modal';
+// import Modal from '../Components/Modal';
 // import { AppleMobileIcon, PlayStoreIcon } from '../Components/Brand';
 import google from '../Assets/Images/googleNew.svg';
 import apple from '../Assets/Images/appleNew.svg';
@@ -84,7 +84,7 @@ const Partner = () => {
         };
       }, []);
 
-      const [openButton, setOpenButton] = useState(false);
+    //   const [openButton, setOpenButton] = useState(false);
     //   const [selectedButton, setSelectedButton] = useState(null);
 
     //   const handleButtonClick = (button) => {
