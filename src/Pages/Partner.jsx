@@ -161,15 +161,15 @@ const Partner = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='flex flex-col md:flex-row justify-center items-center gap-5 md:gap-[150px]'>
+                            <div className='flex flex-col md:flex-row justify-center items-center gap-[50px] md:gap-[150px]'>
                                 
-                                <div className='md:max-w-[100px] flex flex-col justify-center items-center gap-5 md:gap-[30px] '>
+                                <div className='md:max-w-[100px] flex flex-col justify-center items-center gap-5 md:gap-[30px] min-w-[170px]'>
                                     <div>
                                         <ShareIcon className='w-[60px] h-[60px] md:w-[100px] md:h-[100px]'/>
                                     </div>
                                     {
                                         i18n.language === 'en' ? (
-                                            <div className='text-sm font-bold text-[#444] leading-normal'>{t("Partner.Referral.referral1")}</div>
+                                            <div className='text-sm font-bold text-[#444] leading-normal md:w-20'>{t("Partner.Referral.referral1")}</div>
                                         ) : (
                                             <>
                                                 <div className='hidden md:flex flex-col text-sm font-bold text-[#444] leading-normal md:max-w-[91px]'><span>{t("Partner.Referral.referral1")}</span><span>{t("Partner.Referral.referral11")}</span> </div>
@@ -180,7 +180,7 @@ const Partner = () => {
                                     
                                     
                                 </div>
-                                <div className='md:max-w-[170px] flex flex-col justify-center items-center gap-5 md:gap-[30px] rounded-[5px]'>
+                                <div className='md:max-w-[170px] flex flex-col justify-center items-center gap-5 md:gap-[30px] rounded-[5px] min-w-[170px]'>
                                     <div>
                                         <RegisterIcon className='w-[60px] h-[60px] md:w-[100px] md:h-[100px]'/>
                                     </div>
@@ -197,13 +197,13 @@ const Partner = () => {
                                         )
                                     }
                                 </div>
-                                <div className='md:max-w-[119px] flex flex-col justify-center items-center gap-5 md:gap-[30px]'>
+                                <div className='md:max-w-[119px] flex flex-col justify-center items-center gap-5 md:gap-[30px] min-w-[170px]'>
                                     <div>
                                         <BonusIcon className='w-[60px] h-[60px] md:w-[100px] md:h-[100px]'/>
                                     </div>
                                     {
                                         i18n.language === 'en' ? (
-                                            <div className='text-sm font-bold text-[#444] leading-normal'>{t("Partner.Referral.referral3")}</div>
+                                            <div className='text-sm font-bold text-[#444] leading-normal md:w-32'>{t("Partner.Referral.referral3")}</div>
                                         ) : (
                                             <div className='md:max-w-[56px] text-sm font-bold text-[#444] leading-normal'>{t("Partner.Referral.referral3")}</div>
                                         )
@@ -255,7 +255,7 @@ const Partner = () => {
                             </div>
                         </div>
 
-                        <div className='flex flex-col gap-[50px] items-center'>
+                        <div className='flex flex-col gap-[50px] md:gap-[150px] items-center'>
                             <div className='flex flex-col text-xl md:text-[40px] font-bold leading-normal'>
                                 <div className=' text-primary'>
                                     {t("Partner.Referral.benefit")}
@@ -264,9 +264,9 @@ const Partner = () => {
                                     {t("Partner.Referral.benefit2")}
                                 </div>
                             </div>
-                            <div className=' hidden md:flex flex-col gap-[100px]'>
-                                <div className='flex items-center justify-between w-[700px]'>
-                                    <div className='flex flex-col gap-[30px] items-center'>
+                            <div className=' hidden md:flex flex-col gap-[100px] w-full'>
+                                <div className='flex items-center justify-center md:gap-[150px] w-[700px] md:w-full'>
+                                    <div className='flex flex-col gap-[30px] md:gap-5 items-center min-w-[160px]'>
                                         <div>
                                             <RebateIcon/>
                                         </div>
@@ -275,7 +275,7 @@ const Partner = () => {
                                             <div>{t("Partner.Referral.rebate2")}</div>
                                         </div>
                                     </div>
-                                    <div className='flex flex-col gap-[30px] items-center'>
+                                    <div className='flex flex-col gap-[30px] md:gap-5 items-center min-w-[160px]'>
                                         <div>
                                             <CreditBonusIcon/>
                                         </div>
@@ -284,7 +284,7 @@ const Partner = () => {
                                             <div className=' text-primary font-bold'>{t("Partner.Referral.creditBonus2")}</div>
                                         </div>
                                     </div>
-                                    <div className='flex flex-col gap-[30px] items-center'>
+                                    <div className='flex flex-col gap-[30px] md:gap-5 items-center min-w-[160px]'>
                                         <div>
                                             <RebateAllocateIcon/>
                                         </div>
@@ -294,8 +294,8 @@ const Partner = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='flex items-center justify-between w-[700px]'>
-                                    <div className='flex flex-col gap-[30px] items-center'>
+                                <div className='flex items-center justify-center md:gap-[150px] w-[700px] md:w-full'>
+                                    <div className='flex flex-col gap-[30px] items-center min-w-[160px]'>
                                         <div>
                                             <DailyRebateIcon/>
                                         </div>
@@ -304,7 +304,7 @@ const Partner = () => {
                                             <div>{t("Partner.Referral.DailyRebate2")}</div>
                                         </div>
                                     </div>
-                                    <div className='flex flex-col gap-[30px] items-center'>
+                                    <div className='flex flex-col gap-[30px] items-center min-w-[160px]'>
                                         <div>
                                             <IntelligentIcon/>
                                         </div>
@@ -313,7 +313,7 @@ const Partner = () => {
                                             <div className=' text-primary font-bold'>{t("Partner.Referral.intelligent2")}</div>
                                         </div>
                                     </div>
-                                    <div className='flex flex-col gap-[30px] items-center'>
+                                    <div className='flex flex-col gap-[30px] items-center min-w-[160px]'>
                                         <div>
                                             <StreamLinedIcon/>
                                         </div>

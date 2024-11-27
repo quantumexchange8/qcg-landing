@@ -125,7 +125,7 @@ const Home = () => {
 
                         <div className='flex flex-col gap-[50px] md:gap-[50px] items-center'>
                             <div className='w-full flex flex-col items-center gap-[10px] md:gap-2.5'>
-                                <div className={`'flex flex-col text-primary text-base md:max-w-none md:text-[40px] font-bold items-center md:gap-1 leading-normal' ${i18n.language === 'en' ? 'max-w-[188px]' : 'max-w-none' } `}>
+                                <div className={`'flex flex-col text-primary text-base md:max-w-none md:text-[40px] font-bold items-center md:gap-1 leading-normal ' ${i18n.language === 'en' ? 'max-w-[188px]' : 'max-w-none' } `}>
                                     <div>{t("Home.QCGadvantage_Title1")}</div>
                                 </div>
                                 {
@@ -146,7 +146,7 @@ const Home = () => {
                             </div>
                             <div className='w-full flex flex-col md:flex-row items-center justify-center gap-[50px] md:gap-[150px] '>
 
-                                <div className='bg-white flex flex-col items-center justify-center gap-5 rounded-[5px]'>
+                                <div className='bg-white flex flex-col items-center justify-center gap-5 rounded-[5px] md:min-w-[120px]'>
                                     <Built className='w-[60px] h-[60px] md:w-[100px] md:h-[100px]' />
                                     <div className={`'flex flex-col text-sm md:text-sm font-bold leading-normal ' ${i18n.language === 'en' ? 'md:max-w-[98px]' : 'md:max-w-[70px]'}`}>
                                         <div className=' hidden md:block'>{t("Home.copyTradingSystemTitle")}</div>
@@ -155,7 +155,7 @@ const Home = () => {
                                     </div>
                                 </div>
 
-                                <div className='bg-white flex flex-col items-center justify-center gap-5 rounded-[5px]'>
+                                <div className='bg-white flex flex-col items-center justify-center gap-5 rounded-[5px] md:min-w-[120px]'>
                                     <Pamm className='w-[60px] h-[60px] md:w-[100px] md:h-[100px]' />
                                     {
                                         i18n.language === 'en' ? (
@@ -174,7 +174,7 @@ const Home = () => {
                                     
                                 </div>
 
-                                <div className='bg-white flex flex-col items-center justify-center gap-5 rounded-[5px]'>
+                                <div className='bg-white flex flex-col items-center justify-center gap-5 rounded-[5px] md:min-w-[120px]'>
                                     <InAppDeposit className='w-[60px] h-[60px] md:w-[100px] md:h-[100px]' />
                                     {
                                         i18n.language === 'en' ? (
