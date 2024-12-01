@@ -110,13 +110,13 @@ const Topbar = () => {
                     </Link>
 
                     <div className='text-base text-[#1C7800]'>
-                        <a href="https://login.qcgbrokertw.com/register">
+                        <a href="https://login.qcgexchange.com/register">
                             {t("Topbar.register_button")}
                         </a>
                     </div>
 
                     <div className='text-base text-[#1C7800]'>
-                        <a href="https://login.qcgbrokertw.com/login">
+                        <a href="https://login.qcgexchange.com/login">
                             {t("Topbar.login_Button")}
                         </a>
                     </div>
@@ -349,7 +349,7 @@ const Topbar = () => {
                                                {t("mobileTopbar.service_Button")}
                                         </button>
                                         <div>
-                                            <a href="https://login.qcgbrokertw.com/register">
+                                            <a href="https://login.qcgexchange.com/register">
                                                 <div className='flex items-center border border-primary rounded-[5px] py-[5px] px-3'>
                                                     <button
                                                         className='text-primary text-base'
@@ -366,7 +366,7 @@ const Topbar = () => {
                                             </a>
                                         </div>
                                         <div>
-                                            <a href="https://login.qcgbrokertw.com">
+                                            <a href="https://login.qcgexchange.com">
                                                 <div className='flex items-center border border-primary rounded-[5px] py-[5px] px-3'>
                                                     <button
                                                         className='text-primary text-base w-full'

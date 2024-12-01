@@ -1050,7 +1050,7 @@ const Products = () => {
                                         <Link to='https://play.google.com/store/apps/details?id=com.spotware.ct&hl=en'>
                                             <PlayStoreIcon/>
                                         </Link>
-                                        <a href="https://login.qcgbrokertw.com/login">
+                                        <a href="https://login.qcgexchange.com/login">
                                             <button className='w-[180px] h-[50px] md:w-[150px] bg-[#1C7800] text-white rounded-[5px] md:rounded-md flex items-center justify-center text-sm md:text-base font-bold'>
                                                 {t("openTradingACC.liveACC_Title")}
                                             </button>
@@ -1059,7 +1059,7 @@ const Products = () => {
                                     </div> */}
                                     
                                     {/* <button className=' w-[180px] md:w-[159px] bg-[#1C7800] text-white rounded-[5px] md:rounded-md items-center justify-center text-sm md:text-base font-bold hidden md:flex'>
-                                        <a href="https://login.qcgbrokertw.com/login">
+                                        <a href="https://login.qcgexchange.com/login">
                                             {t("openTradingACC.liveACC_Title")}
                                         </a>
                                     </button> */}
