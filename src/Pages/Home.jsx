@@ -100,9 +100,13 @@ const Home = () => {
                                 <div className='text-white text-xs md:text-2xl text-center leading-normal' >
                                     Open an Unlimited Opportunity Trading Account
                                 </div>
-                                <div className='flex items-center justify-center w-[170px] h-[40px] md:w-[300px] md:h-[60px] border-2 border-white rounded-[5px] bg-transparent text-white text-sm md:text-2xl font-bold' >
-                                    {/* register link */}
-                                    Open Account Now
+                                <div>
+                                    <a href="https://login.qcgexchange.com/register">
+                                        <div className='flex items-center justify-center w-[170px] h-[40px] md:w-[300px] md:h-[60px] border-2 border-white rounded-[5px] bg-transparent text-white text-sm md:text-2xl font-bold' >
+                                            {/* register link */}
+                                            Open Account Now
+                                        </div>
+                                    </a>    
                                 </div>
                             </div>
                         ) : (
@@ -110,8 +114,12 @@ const Home = () => {
                                 <div className='text-white text-xs md:text-2xl text-center leading-normal' >
                                     {t("Home.homeVideoTitle3")}
                                 </div>
-                                <div className='flex items-center justify-center w-[170px] h-[30px] md:w-[300px] md:h-[50px] border-2 border-white rounded-[5px] bg-transparent text-white text-sm md:text-2xl font-semibold' >
-                                    {t("Home.openAcc")}
+                                <div>
+                                    <a href="https://login.qcgexchange.com/register">
+                                        <div className='flex items-center justify-center w-[170px] h-[30px] md:w-[300px] md:h-[50px] border-2 border-white rounded-[5px] bg-transparent text-white text-sm md:text-2xl font-semibold' >
+                                            {t("Home.openAcc")}
+                                        </div>
+                                    </a>    
                                 </div>
                             </div>
                         )
@@ -431,7 +439,7 @@ const Home = () => {
                                 <div className='flex w-full'>
                                     <div className='flex flex-col md:flex md:flex-row items-center gap-[20px] md:gap-[26px]'>
                                         <div className=' w-full'>
-                                            <Link to='https://play.google.com/store/apps/details?id=com.spotware.ct&hl=en'>
+                                            <Link to='https://login.qcgexchange.com/register'>
                                                 <img src={qcgLive} alt="qcg_live" className='max-w-[200px] max-h-[58px] md:w-full '/>
                                             </Link>
                                         </div>

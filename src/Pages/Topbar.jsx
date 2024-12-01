@@ -60,7 +60,7 @@ const Topbar = () => {
                 
                 <div className='hidden md:flex'>
                     <Link
-                        to="/privacy"
+                        to="/"
                         className='w-10 h-[26px]'
                     >
                         <img src={logo} alt="icon" className='md:w-[30px] md:h-[30px]'/>
@@ -229,7 +229,7 @@ const Topbar = () => {
                             </Dialog>
                         </Transition>
                         
-                        <Link to="/privacy" className='w-[40px] h-[40px]'>
+                        <Link to="/" className='w-[40px] h-[40px]'>
                             <img src={logo} alt="icon" className='h-full'/>
                         </Link>
                         
