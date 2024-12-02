@@ -116,7 +116,7 @@ const Topbar = () => {
                     </div>
 
                     <div className='text-base text-[#1C7800]'>
-                        <a href="https://login.qcgexchange.com/sign_up">
+                        <a href="https://login.qcgexchange.com/login">
                             {t("Topbar.login_Button")}
                         </a>
                     </div>
@@ -366,7 +366,7 @@ const Topbar = () => {
                                             </a>
                                         </div>
                                         <div>
-                                            <a href="https://login.qcgexchange.com">
+                                            <a href="https://login.qcgexchange.com/login">
                                                 <div className='flex items-center border border-primary rounded-[5px] py-[5px] px-3'>
                                                     <button
                                                         className='text-primary text-base w-full'
