@@ -101,7 +101,7 @@ const Home = () => {
                                     Open an Unlimited Opportunity Trading Account
                                 </div>
                                 <div>
-                                    <a href="https://login.qcgexchange.com/register">
+                                    <a href="https://login.qcgexchange.com/sign_up">
                                         <div className='flex items-center justify-center w-[170px] h-[40px] md:w-[300px] md:h-[60px] border-2 border-white rounded-[5px] bg-transparent text-white text-sm md:text-2xl font-bold' >
                                             {/* register link */}
                                             Open Account Now
@@ -115,7 +115,7 @@ const Home = () => {
                                     {t("Home.homeVideoTitle3")}
                                 </div>
                                 <div>
-                                    <a href="https://login.qcgexchange.com/register">
+                                    <a href="https://login.qcgexchange.com/sign_up">
                                         <div className='flex items-center justify-center w-[170px] h-[30px] md:w-[300px] md:h-[50px] border-2 border-white rounded-[5px] bg-transparent text-white text-sm md:text-2xl font-semibold' >
                                             {t("Home.openAcc")}
                                         </div>
@@ -439,7 +439,7 @@ const Home = () => {
                                 <div className='flex w-full'>
                                     <div className='flex flex-col md:flex md:flex-row items-center gap-[20px] md:gap-[26px]'>
                                         <div className=' w-full'>
-                                            <Link to='https://login.qcgexchange.com/register'>
+                                            <Link to='https://login.qcgexchange.com/sign_up'>
                                                 <img src={qcgLive} alt="qcg_live" className='max-w-[200px] max-h-[58px] md:w-full '/>
                                             </Link>
                                         </div>

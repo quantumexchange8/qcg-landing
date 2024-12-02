@@ -110,13 +110,13 @@ const Topbar = () => {
                     </Link>
 
                     <div className='text-base text-[#1C7800]'>
-                        <a href="https://login.qcgexchange.com/register">
+                        <a href="https://login.qcgexchange.com/sign_up">
                             {t("Topbar.register_button")}
                         </a>
                     </div>
 
                     <div className='text-base text-[#1C7800]'>
-                        <a href="https://login.qcgexchange.com/login">
+                        <a href="https://login.qcgexchange.com/sign_up">
                             {t("Topbar.login_Button")}
                         </a>
                     </div>
@@ -349,7 +349,7 @@ const Topbar = () => {
                                                {t("mobileTopbar.service_Button")}
                                         </button>
                                         <div>
-                                            <a href="https://login.qcgexchange.com/register">
+                                            <a href="https://login.qcgexchange.com/sign_up">
                                                 <div className='flex items-center border border-primary rounded-[5px] py-[5px] px-3'>
                                                     <button
                                                         className='text-primary text-base'

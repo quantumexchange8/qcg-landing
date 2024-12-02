@@ -1022,7 +1022,7 @@ const Products = () => {
                                 <div className='flex w-full'>
                                     <div className='flex flex-col md:flex md:flex-row items-center gap-[20px] md:gap-[26px]'>
                                         <div className=' w-full'>
-                                            <Link to='https://login.qcgexchange.com/register'>
+                                            <Link to='https://login.qcgexchange.com/sign_up'>
                                                 <img src={qcgLive} alt="qcg_live" className='max-w-[200px] max-h-[58px] md:w-full '/>
                                             </Link>
                                         </div>
